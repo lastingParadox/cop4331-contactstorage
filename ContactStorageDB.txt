@@ -1,0 +1,35 @@
+# Create USERS table
+CREATE TABLE USERS(
+	id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	username VARCHAR(255) NOT NULL,
+	password VARCHAR(255) NOT NULL,
+	firstName VARCHAR(255) NOT NULL,
+	lastName VARCHAR(255) NOT NULL
+) ENGINE=InnoDB;
+
+# Create CONTACTS table
+CREATE TABLE CONTACTS(
+	id INT NOT NULL AUTO_INCREMENT,
+	userId INT NOT NULL,
+	firstName VARCHAR(255) NOT NULL DEFAULT '',
+	lastName VARCHAR(255) NOT NULL DEFAULT '',
+	phoneNumber VARCHAR(16) NOT NULL DEFAULT '123-456-7890',
+	email VARCHAR(255),
+	occupation VARCHAR(255),
+	address VARCHAR(255),
+	notes TEXT,
+	PRIMARY KEY(id)
+) ENGINE=InnoDB;
+
+# Insert test USERS
+INSERT INTO USERS (username, password, firstName, lastName) VALUES ('zander', 'zanpass', 'Zander', 'Preston');
+INSERT INTO USERS (username, password, firstName, lastName) VALUES ('BigPapi', '1234', 'Zack', 'Yore');
+INSERT INTO USERS (username, password, firstName, lastName) VALUES ('mojojojo', 'powerpuffs', 'Mojo', 'Jojo');
+
+# Insert test CONTACTS
+INSERT INTO CONTACTS (userId, firstName, lastName, phoneNumber, email, occupation, address, notes) VALUES (1, 'Emmett', 'Tawfeek', '3950122851', 'etawfeek@vortox.live', 'Pilot', 'N/A', "Weird guy.");
+INSERT INTO CONTACTS (userId, firstName, lastName, phoneNumber, email, occupation, address, notes) VALUES (2, 'Zack', 'Yore', '7277101870', 'zackyore@gmail.com', 'Student', 'BuckRd', "CEMajor");
+INSERT INTO CONTACTS (userId, firstName, lastName, phoneNumber, email, occupation, address, notes) VALUES (3, 'Buttercup', 'Utonium', '2320652473', 'buttercup@utonium.org', 'Superhero', 'Secret', "Green one.");
+INSERT INTO CONTACTS (userId, firstName, lastName, phoneNumber, email, occupation, address, notes) VALUES (3, 'Blossom', 'Utonium', '2320652473', 'blossom@utonium.org', 'Superhero', 'Secret', "Red one.");
+INSERT INTO CONTACTS (userId, firstName, lastName, phoneNumber, email, occupation, address, notes) VALUES (3, 'Bubbles', 'Utonium', '2320652473', 'bubbles@utonium.org', 'Superhero', 'Secret', "Blue one.");
+
