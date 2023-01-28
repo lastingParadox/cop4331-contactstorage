@@ -8,8 +8,16 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <script type="text/javascript" src="static/js/index.js"></script>
         <link rel="stylesheet" href="static/css/styles.css">
+
+        <script type="text/javascript">
+            document.addEventListener('DOMContentLoaded', function() 
+            {
+                readCookie();
+            }, false);
+        </script>
     </head>
     <body>
+        <div id="welcome"></div>
         <div id="contact_container" style="display:flex;">
             <!-- This is an example contact box to play around with; we'll use a php function to generate all of the contacts eventually. -->
             <div class="contact" style="width:25%;">
@@ -34,5 +42,6 @@
                 <button>Delete</button>
             </div>
         </div>
+        <button onclick="logout();">Logout</button>
     </body>
 </html>
