@@ -1,4 +1,4 @@
-const urlBase = 'https://contactstorage.info/api';
+const urlBase = 'https://contactstorage.info';
 
 function createNewContact() {
 
@@ -14,15 +14,14 @@ function createNewContact() {
 
     // data the user entered
     var contactInformation = {
-        userId    : userId, // id of the sender
-
-        firstName : document.getElementById("firstName").value, // required
-        lastName  : document.getElementById("lastName").value,
-        phone     : document.getElementById("phoneNumber").value,
-        email     : document.getElementById("email").value,
-        job       : document.getElementById("occupation").value,
-        address   : document.getElementById("address").value,
-        notes     : document.getElementById("notes").value,
+        userId:userId, // id of the sender
+        firstName:document.getElementById("firstName").value, // required
+        lastName:document.getElementById("lastName").value,
+        phoneNumber:document.getElementById("phoneNumber").value, 
+        email:document.getElementById("email").value,
+        occupation:document.getElementById("occupation").value,
+        address:document.getElementById("address").value,
+        notes:document.getElementById("notes").value,
     };
 
     try {
@@ -39,6 +38,7 @@ function createNewContact() {
             window.location.href = "dashboard.html";
         }
 
+        console.log("sending " + JSON.stringify(contactInformation));
         request.send(JSON.stringify(contactInformation));
     } catch(err) {
 		document.getElementById("result").innerHTML = err.message;

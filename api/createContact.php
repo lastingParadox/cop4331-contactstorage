@@ -1,17 +1,16 @@
 <?php
-
     $inData = getRequestInfo();
 
     $conn = new mysqli("localhost", "ContactStorage", "contact_storage_pass", "ContactStorageDB");
     if( $conn->connect_error ) {
         returnWithError( $conn->connect_error );
     } else {
+        // userId who is inserting this information
+        $userId = intval($inData["userId"]);
 
-        // Note To Self: insert the below information into the key with userId userId
-        $userId = $inData["userId"];
-
-        $stmt = $conn->prepare("INSERT into CONTACTS (firstName, lastName, phoneNumber, email, occupation, address, notes) VALUES (?,?,?,?,?,?,?,?)");
-        $stmt->bind_param("sssssss", 
+        $stmt = $conn->prepare("INSERT into CONTACTS (userId, firstName, lastName, phoneNumber, email, occupation, address, notes) VALUES (?,?,?,?,?,?,?,?)");
+        $stmt->bind_param("isssssss", 
+            $userId,
             $inData["firstName"], 
             $inData["lastName"], 
             $inData["phoneNumber"], 
@@ -22,10 +21,14 @@
         );
         $stmt->execute();    
 
-        returnWithSuccess("Contact created successfully");
-
         $stmt->close();
         $conn->close();
+
+        returnWithSuccess("Contact created successfully");
+    }
+
+    function getRequestInfo() {
+        return json_decode(file_get_contents('php://input'), true);
     }
 
     function sendResultInfoAsJson( $obj ) {
