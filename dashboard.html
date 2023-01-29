@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <script type="text/javascript" src="static/js/newContact.js"></script>
+        <script type="text/javascript" src="static/js/index.js"></script>
+
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>Contact Storage</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <script type="text/javascript" src="static/js/index.js"></script>
+        
         <link rel="stylesheet" href="static/css/styles.css">
 
         <script type="text/javascript">
@@ -18,6 +21,10 @@
     </head>
     <body>
         <div id="welcome"></div>
+        <div id="ribbon">
+            <a href="createContacts.html">Create New Contact</a>
+            <!-- <button onclick="createNewContact();">Create New Contact</button> -->
+        </div>
         <div id="contact_container" style="display:flex;">
             <!-- This is an example contact box to play around with; we'll use a php function to generate all of the contacts eventually. -->
             <div class="contact" style="width:25%;">

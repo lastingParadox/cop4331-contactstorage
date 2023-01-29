@@ -3,7 +3,7 @@ const completedRequest = 4;
 
 function registerFunc(t) {
 
-    var firstName = document.getElementById("firstName").value
+    var firstName = document.getElementById("firstName").value;
     var lastName  = document.getElementById("lastName").value; // can be ""
     var username  = document.getElementById("loginName").value;
     var password  = document.getElementById("loginPassword").value;
@@ -24,8 +24,6 @@ function registerFunc(t) {
     try {
         request.onload = function () {
             var response = JSON.parse(request.responseText);
-			
-            document.getElementById("registerResult").innerHTML = "duplicate user";
 
             // failed to register user (probably a duplicate username or something)
             if (response.error) {

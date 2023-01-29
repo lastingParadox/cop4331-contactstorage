@@ -6,6 +6,14 @@ let firstName = "";
 let lastName = "";
 let cookieName = "ContactStorageUser";
 
+function saveCookie()
+{
+	let minutes = 20;
+	let date = new Date();
+	date.setTime(date.getTime()+(minutes*60*1000));	
+	document.cookie = cookieName + "=" + "firstName=" + firstName + ",lastName=" + lastName + ",userId=" + userId + ";expires=" + date.toGMTString();
+}
+
 function login()
 {
 	userId = 0;
@@ -51,12 +59,13 @@ function login()
     }
 }
 
-function saveCookie()
+function logout()
 {
-	let minutes = 20;
-	let date = new Date();
-	date.setTime(date.getTime()+(minutes*60*1000));	
-	document.cookie = cookieName + "=" + "firstName=" + firstName + ",lastName=" + lastName + ",userId=" + userId + ";expires=" + date.toGMTString();
+	userId = 0;
+	firstName = "";
+	lastName = "";
+	document.cookie = cookieName + "=" + "firstName= ; expires = Thu, 01 Jan 1970 00:00:00 GMT";
+	window.location.href = "index.html";
 }
 
 function readCookie()
@@ -102,13 +111,6 @@ function readCookie()
 	{
 		document.getElementById("welcome").innerHTML = "Hello, " + firstName + " " + lastName;
 	}
-}
 
-function logout()
-{
-	userId = 0;
-	firstName = "";
-	lastName = "";
-	document.cookie = cookieName + "=" + "firstName= ; expires = Thu, 01 Jan 1970 00:00:00 GMT";
-	window.location.href = "index.html";
+    return {userId:userId, firstName:firstName, lastName:lastName};
 }
