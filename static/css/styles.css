@@ -6,23 +6,30 @@
 
 body {
 	background: url('../images/login-background.jpg') no-repeat;
-	background-size: cover;
+	background-size: revert;
 }
 
 .login-form {
-	width: 350px;
+	width: 400px;
+	height: 300px;
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
 	position: absolute;
-	color: #fff;
+	color: black;
+
+	background: rgba(0, 0, 0, 0.1);
+	border-radius: 50px;
+
+	vertical-align: middle;
+	display: table;
 }
 
 .login-form h1 {
 	font-size: 40px;
 	text-align: center;
 	text-transform: uppercase;
-	margin: 40px 0;
+	margin: 28px 0;
 }
 
 .login-form p {
@@ -31,20 +38,40 @@ body {
 }
 
 .login-form input {
+	box-sizing: border-box;
 	font-size: 16px;
-	width: 100%;
-	padding: 15px 10px;
-	border: 0;
+
+	height: 50px;
+	width: 85%;
+
+	padding: 0px 10px;
+	margin: 10px auto;
+
+	display: block;
 	outline: none;
 	border-radius: 5px;
+	border: 0px;
 }
 
 .login-form button {
+	box-sizing: border-box;
 	font-size: 18px;
 	font-weight: bold;
-	margin: 20px 0;
-	padding: 10px 15px;
-	width: 50%;
+
+	height: 50px;
+	width: 60%;
+
+	margin: 10px auto;
+	padding: 0px 0px;
+
+	display: block;
+	outline: none;
 	border-radius: 5px;
-	border: 0;
+	border: 0px;
+	background:#8AA2A9;
+}
+
+.login-form button:hover {
+	background: #717C89;
+	cursor: pointer;
 }
