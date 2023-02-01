@@ -16,12 +16,14 @@
 	}
 	else
 	{
-		$stmt = $conn->prepare("SELECT id,firstName,lastName FROM USERS WHERE username=? AND password =?");
-		$stmt->bind_param("ss", $inData["login"], $inData["password"]);
+		$stmt = $conn->prepare("SELECT id,firstName,lastName,password FROM USERS WHERE username=?");
+		$stmt->bind_param("s", $inData["login"]);
 		$stmt->execute();
 		$result = $stmt->get_result();
 
-		if( $row = $result->fetch_assoc()  )
+        $row = $result->fetch_assoc();
+    
+		if( $row && password_verify($inData['password'], $row['password']) )
 		{
 			returnWithInfo( $row['firstName'], $row['lastName'], $row['id'] );
 		}
