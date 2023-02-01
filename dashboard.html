@@ -7,33 +7,33 @@
         <title>Contact Storage</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <script type="text/javascript" src="static/js/index.js"></script>
+
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
         <link rel="stylesheet" href="static/css/styles.css">
     </head>
     <body>
-        <div id="contact_container" style="display:flex;">
-            <!-- This is an example contact box to play around with; we'll use a php function to generate all of the contacts eventually. -->
-            <div class="contact" style="width:25%;">
-                <p class="first_name">First Name</p>
-                <p class="last_name">Last Name</p>
-                <p class="phone_number">Phone Number</p>
-                <p class="occupation">Occupation</p>
-                <p class="email">email@email.com</p>
-                <p class="address">Address</p>
-                <button>Edit</button>
-                <button>Delete</button>
-            </div>
-            <!-- An additional one to compare to, or to see side by side -->
-            <div class="contact">
-                <p class="first_name">First Name</p>
-                <p class="last_name">Last Name</p>
-                <p class="phone_number">Phone Number</p>
-                <p class="occupation">Occupation</p>
-                <p class="email">email@email.com</p>
-                <p class="address">Address</p>
-                <button>Edit</button>
-                <button>Delete</button>
-            </div>
+        <div id="main-sidebar" class="sidebar">
+            <span class="material-icons-sharp">menu</span>
+            <aside>
+                <div class="sidebar-items">
+                    <a href="#">
+                        <span class="material-icons-sharp">block</span>
+                        <h3>Contacts</h3>
+                    </a>
+                    <a href="#">
+                        <span class="material-icons-sharp">block</span>
+                        <h3>Account</h3>
+                    </a>
+                    <a href="#">
+                        <span class="material-icons-sharp">block</span>
+                        <h3>Settings</h3>
+                    </a>
+                    <a href="login.html">
+                        <span class="material-icons-sharp">block</span>
+                        <h3>Logout</h3>
+                    </a>
+                </div>
+            </aside>
         </div>
     </body>
 </html>
