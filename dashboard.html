@@ -1,15 +1,57 @@
 <!DOCTYPE html>
+<html lang="en">
 <html>
     <head>
+        <script type="text/javascript" src="static/js/index.js"></script>
+        <script type="text/javascript" src="static/js/newContact.js"></script>
+
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Contact Storage</title>
-        <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <script type="text/javascript" src="static/js/index.js"></script>
+
+        <title>Contact Storage</title>
+
+        <!--Google icons-->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined">
+        
         <link rel="stylesheet" href="static/css/styles.css">
+
+        <script type="text/javascript">
+            document.addEventListener('DOMContentLoaded', function() 
+            {
+                readCookie();
+            }, false);
+        </script>
     </head>
     <body>
+        <div id="main-sidebar" class="sidebar">
+            <span class="material-icons-sharp">menu</span>
+            <aside>
+                <div class="sidebar-items">
+                    <a href="#">
+                        <span class="material-icons-sharp">import_contacts</span>
+                        <h3>Contacts</h3>
+                    </a>
+                    <a href="#">
+                        <span class="material-icons-sharp">account_box</span>
+                        <h3>Account</h3>
+                    </a>
+                    <a href="#">
+                        <span class="material-icons-sharp">settings</span>
+                        <h3>Settings</h3>
+                    </a>
+                    <a href="login.html">
+                        <span class="material-icons-sharp">logout</span>
+                        <h3>Logout</h3>
+                    </a>
+                </div>
+            </aside>
+        <div id="welcome"></div>
+        <div id="ribbon">
+            <a href="createContacts.html">Create New Contact</a>
+            <!-- <button onclick="createNewContact();">Create New Contact</button> -->
+        </div>
         <div id="contact_container" style="display:flex;">
             <!-- This is an example contact box to play around with; we'll use a php function to generate all of the contacts eventually. -->
             <div class="contact" style="width:25%;">
@@ -34,5 +76,6 @@
                 <button>Delete</button>
             </div>
         </div>
+        <button onclick="logout();">Logout</button>
     </body>
 </html>
