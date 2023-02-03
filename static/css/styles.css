@@ -1,0 +1,90 @@
+:root {
+	/* login variables */
+	--color-login-button: #8AA2A9;
+	--color-login-button-hover: #717C89;
+
+	--border-radius-login-card: 50px;
+	--border-radius-login-input: 5px;
+}
+
+* {
+	padding: 0;
+	margin: 0;
+	font-family: sans-serif;
+}
+
+body {
+	background: url('../images/login-background.jpg') no-repeat;
+	background-size: revert;
+}
+
+.login-form {
+	width: 400px;
+	height: 300px;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	position: absolute;
+	color: black;
+
+	background: rgba(0, 0, 0, 0.1);
+	border-radius: var(--border-radius-login-card);
+
+	vertical-align: middle;
+	display: table;
+}
+
+.login-form h1 {
+	font-size: 40px;
+	text-align: center;
+	text-transform: uppercase;
+	margin: 28px 0;
+}
+
+.login-form p {
+	font-size: 20px;
+	margin: 15px 0;
+}
+
+.login-form input {
+	box-sizing: border-box;
+	font-size: 16px;
+
+	height: 50px;
+	width: 85%;
+
+	padding: 0px 10px;
+	margin: 10px auto;
+
+	display: block;
+	outline: none;
+	border-radius: var(--border-radius-login-input);
+	border: 0px;
+}
+
+.login-form button {
+	box-sizing: border-box;
+	font-size: 18px;
+	font-weight: bold;
+
+	height: 50px;
+	width: 60%;
+
+	margin: 10px auto;
+	padding: 0px 0px;
+
+	display: block;
+	outline: none;
+	border-radius: var(--border-radius-login-input);
+	border: 0px;
+	background: var(--color-login-button);
+}
+
+.login-form button:hover {
+	background: var(--color-login-button-hover);
+	cursor: pointer;
+}
+
+.sidebar {
+	
+}
