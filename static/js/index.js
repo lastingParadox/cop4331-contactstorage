@@ -14,51 +14,6 @@ function saveCookie()
 	document.cookie = cookieName + "=" + "firstName=" + firstName + ",lastName=" + lastName + ",userId=" + userId + ";expires=" + date.toGMTString();
 }
 
-function login()
-{
-	userId = 0;
-	firstName = "";
-	lastName = "";
-	
-	let login = document.getElementById("loginName").value;
-	let password = document.getElementById("loginPassword").value;
-
-    let temp = {login: login, password: password};
-    let payload = JSON.stringify(temp);
-
-    let url = urlBase + '/login.' + extension;
-
-    let xhr = new XMLHttpRequest();
-    xhr.open("POST", url, true);
-    xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
-
-    try {
-        xhr.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
-                let jsonObject = JSON.parse(xhr.responseText);
-                console.log(jsonObject);
-                userId = jsonObject.id;
-
-                if (userId < 1) {
-                    document.getElementById("loginResult").innerHTML = "Login information incorrect";
-                    return;
-                }
-
-                firstName = jsonObject.firstName;
-                lastName = jsonObject.lastName;
-
-                saveCookie();
-
-                window.location.href = "dashboard.html";
-            }
-        }
-        xhr.send(payload);
-    }
-    catch(err) {
-        document.getElementById("loginResult").innerHTML = err.message;
-    }
-}
-
 function logout()
 {
 	userId = 0;
