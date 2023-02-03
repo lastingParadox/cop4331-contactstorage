@@ -1,3 +1,12 @@
+:root {
+	/* login variables */
+	--color-login-button: #8AA2A9;
+	--color-login-button-hover: #717C89;
+
+	--border-radius-login-card: 50px;
+	--border-radius-login-input: 5px;
+}
+
 * {
 	padding: 0;
 	margin: 0;
@@ -19,7 +28,7 @@ body {
 	color: black;
 
 	background: rgba(0, 0, 0, 0.1);
-	border-radius: 50px;
+	border-radius: var(--border-radius-login-card);
 
 	vertical-align: middle;
 	display: table;
@@ -49,7 +58,7 @@ body {
 
 	display: block;
 	outline: none;
-	border-radius: 5px;
+	border-radius: var(--border-radius-login-input);
 	border: 0px;
 }
 
@@ -66,13 +75,13 @@ body {
 
 	display: block;
 	outline: none;
-	border-radius: 5px;
+	border-radius: var(--border-radius-login-input);
 	border: 0px;
-	background:#8AA2A9;
+	background: var(--color-login-button);
 }
 
 .login-form button:hover {
-	background: #717C89;
+	background: var(--color-login-button-hover);
 	cursor: pointer;
 }
 
