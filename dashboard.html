@@ -2,6 +2,9 @@
 <html lang="en">
 <html>
     <head>
+        <script type="text/javascript" src="static/js/index.js"></script>
+        <script type="text/javascript" src="static/js/newContact.js"></script>
+
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -11,9 +14,15 @@
         <!--Google icons-->
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp">
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined">
-
-        <!--Local style sheet-->
+        
         <link rel="stylesheet" href="static/css/styles.css">
+
+        <script type="text/javascript">
+            document.addEventListener('DOMContentLoaded', function() 
+            {
+                readCookie();
+            }, false);
+        </script>
     </head>
     <body>
         <div id="main-sidebar" class="sidebar">
@@ -38,6 +47,35 @@
                     </a>
                 </div>
             </aside>
+        <div id="welcome"></div>
+        <div id="ribbon">
+            <a href="createContacts.html">Create New Contact</a>
+            <!-- <button onclick="createNewContact();">Create New Contact</button> -->
         </div>
+        <div id="contact_container" style="display:flex;">
+            <!-- This is an example contact box to play around with; we'll use a php function to generate all of the contacts eventually. -->
+            <div class="contact" style="width:25%;">
+                <p class="first_name">First Name</p>
+                <p class="last_name">Last Name</p>
+                <p class="phone_number">Phone Number</p>
+                <p class="occupation">Occupation</p>
+                <p class="email">email@email.com</p>
+                <p class="address">Address</p>
+                <button>Edit</button>
+                <button>Delete</button>
+            </div>
+            <!-- An additional one to compare to, or to see side by side -->
+            <div class="contact">
+                <p class="first_name">First Name</p>
+                <p class="last_name">Last Name</p>
+                <p class="phone_number">Phone Number</p>
+                <p class="occupation">Occupation</p>
+                <p class="email">email@email.com</p>
+                <p class="address">Address</p>
+                <button>Edit</button>
+                <button>Delete</button>
+            </div>
+        </div>
+        <button onclick="logout();">Logout</button>
     </body>
 </html>

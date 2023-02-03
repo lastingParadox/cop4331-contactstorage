@@ -8,14 +8,21 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <script type="text/javascript" src="static/js/register.js"></script>
         <link rel="stylesheet" href="static/css/styles.css">
+        <script type="text/javascript">
+            document.addEventListener('DOMContentLoaded', function() {
+                // get all of a user's contacts and display them 
+            }, false);
+        </script>
     </head>
     <body>
-        <form action="register();">
-            <input type="text" id="firstName" placeholder="First Name"/><br/>
+        <form name="registerForm" action="index.html" onsubmit="return registerFunc(this);">
+            <input type="text" id="firstName" placeholder="First Name" required/><br/>
 	        <input type="text" id="lastName" placeholder="Last Name"/><br/>
-            <input type="text" id="loginName" placeholder="Username"/><br/>
-	        <input type="password" id="loginPassword" placeholder="Password"/><br/>
-	        <input type="submit" value="Submit"/>
+            <input type="text" id="loginName" placeholder="Username" required/><br/>
+	        <input type="password" id="loginPassword" placeholder="Password" required/><br/>
+	        <input type="button" value="Submit" onclick="registerFunc(this);"/>
+            <!-- <input type="submit" value="Submit"/> -->
+            <span id="registerResult"></span>
         </form>
         <a href="index.html">Login</a>
     </body>
