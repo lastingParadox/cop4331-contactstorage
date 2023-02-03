@@ -9,17 +9,17 @@
         $userId = intval($inData["userId"]);
 
         $stmt = $conn->prepare("INSERT into CONTACTS (userId, firstName, lastName, phoneNumber, email, occupation, address, notes) VALUES (?,?,?,?,?,?,?,?)");
-        $stmt->bind_param("isssssss", 
+        $stmt->bind_param("isssssss",
             $userId,
             $inData["firstName"], 
-            $inData["lastName"], 
-            $inData["phoneNumber"], 
+            $inData["lastName"],
+            $inData["phoneNumber"],
             $inData["email"],
             $inData["occupation"],
             $inData["address"],
             $inData["notes"],
         );
-        $stmt->execute();    
+        $stmt->execute();
 
         $stmt->close();
         $conn->close();
