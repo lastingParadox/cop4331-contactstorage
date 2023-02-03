@@ -8,19 +8,26 @@
     }
     else
     {
-        $stmt = $conn->prepare("SELECT userId,firstName,lastName,phoneNumber,email,occupation,address,notes FROM Contacts WHERE firstName=? AND lastName=?");
-        $stmt->bind_param("ss", $inData["firstName"], $inData["lastName"]);
+        $stmt = $conn->prepare("SELECT * FROM Contacts WHERE userID = ? AND (firstName LIKE %?% OR lastName LIKE %?%)");
+        $stmt->bind_param("ss", $inData["search"], $inData["search"]);
         $stmt->execute();
         $result = $stmt->get_result();
 
-        if( $row = $result->fetch_assoc()  )
+        $array = array();
+
+        if ( $row = $result->fetch_assoc() )
         {
-            returnWithInfo( $row['id'], $row['firstName'], $row['lastName'], $row['phoneNumber'], $row['email'], $row['email'], $row['occupation'], $row['address'], $row['notes'] );
+            while( $row = $result->fetch_assoc() )
+            {
+                $array[] = $row;
+            }
         }
         else
         {
             returnWithError("No Records Found");
         }
+
+        sendResultInfoAsJson( json_encode( $array ) );
 
         $stmt->close();
         $conn->close();
