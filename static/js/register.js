@@ -1,4 +1,3 @@
-const urlBase = 'https://contactstorage.info';
 const completedRequest = 4;
 
 function register(event) {
@@ -13,11 +12,11 @@ function register(event) {
     let username  = document.getElementById("username").value;
     let password  = document.getElementById("password").value;
 
-    let url = urlBase + '/api/register.php';
+    let url = urlBase + '/register.php';
 
     let request = new XMLHttpRequest();
     request.open("POST", url, true);
-	request.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+	  request.setRequestHeader("Content-type", "application/json; charset=UTF-8");
 
     let registerInformation = {
         username: username, 
@@ -32,16 +31,20 @@ function register(event) {
 
             // failed to register user (probably a duplicate username or something)
             if (response.error) {
-                document.getElementById("registerResult").innerHTML = response.error;
+                //document.getElementById("registerResult").innerHTML = response.error; 
+                console.log(response.error);
                 return;
             }
 
             // successfully registered user
+            console.log("successfully registered");
             window.location.href= "index.html";
         }
         request.send(JSON.stringify(registerInformation));
     } catch(err) {
-		document.getElementById("registerResult").innerHTML = err.message;
+		//document.getElementById("registerResult").innerHTML = err.message;
+        console.log(err.message);
 	}
 
+  return false;
 }

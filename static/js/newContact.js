@@ -1,5 +1,3 @@
-const urlBase = 'https://contactstorage.info';
-
 function createNewContact() {
 
     // the user that entered the data
