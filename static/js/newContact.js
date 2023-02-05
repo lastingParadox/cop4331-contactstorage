@@ -1,3 +1,8 @@
+// for testing
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+
 function createNewContact() {
     // the user that entered the data
     var userId = readCookie().userId;
@@ -14,24 +19,17 @@ function createNewContact() {
         notes:document.getElementById("notes").value,
     };
 
-    try {
-        request.onload = function () {
-            var response = JSON.parse(request.responseText);
-			
-            // failed to create a new contact (display the error)
-            if (response.error) {
-                document.getElementById("result").innerHTML = response.error;
-                return;
-            }
+    // To do after the response
+    let callbacks = {}
+    callbacks.error = function(response) {
+        document.getElementById("result").innerHTML = response.error;
+    }
+    callbacks.success = function(response) {
+        window.location.href = "dashboard.html";
+    }
 
-            // successfully created a new contact
-            window.location.href = "dashboard.html";
-        }
-
-        console.log("sending " + JSON.stringify(contactInformation));
-        request.send(JSON.stringify(contactInformation));
-    } catch(err) {
-		document.getElementById("result").innerHTML = err.message;
-	}
-
+    // Send request
+    let url = urlBase + '/createContact.php';
+    sendRequest(inData, url, callbacks);
+    
 }
