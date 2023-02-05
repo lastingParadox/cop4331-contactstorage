@@ -1,49 +1,43 @@
-function login(event)
-{
+function login(event) {
 
     if (document.querySelectorAll('.form-control:invalid').length > 0) {
         event.preventDefault();
         return false;
     }
 
-	userId = 0;
-	firstName = "";
-	lastName = "";
-	
 	let login = document.getElementById("username").value;
 	let password = document.getElementById("password").value;
 
-    let temp = {login: login, password: password};
-    let payload = JSON.stringify(temp);
-    let url = urlBase + '/login.' + extension;
+    let inData = {
+        login: login, 
+        password: password
+    };
 
-    let xhr = new XMLHttpRequest();
-    xhr.open("POST", url, true);
-    xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
-    try {
-        xhr.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
-                let jsonObject = JSON.parse(xhr.responseText);
-                userId = jsonObject.id;
+    // To do after the response
+    let callbacks = {}
+    callbacks.error   = function(response) {
+        document.getElementById("loginResult").innerHTML = "An error occurred: " + response.error;
+    }
+    callbacks.success = function(response) {
+        firstName = response.firstName;
+        lastName  = response.lastName;
+        userId    = response.id;
 
-                if (userId < 1) {
-                    document.getElementById("loginResult").innerHTML = "Login information incorrect";
-                    return;
-                }
+        console.log(response);
+        console.log("Received login data:" + firstName + " " + lastName + " " + userId);
 
-                firstName = jsonObject.firstName;
-                lastName = jsonObject.lastName;
-
-                saveCookie();
-
-                window.location.href = "dashboard.html";
-            }
+        if (userId < 1) {
+            callbacks.error({error : "Login Information invalid"});
+            return;
         }
-        xhr.send(payload);
+
+        saveCookie();
+        window.location.href = "dashboard.html";
     }
-    catch(err) {
-        document.getElementById("loginResult").innerHTML = err.message;
-    }
+
+    // Send request
+    let url = urlBase + '/login.php';
+    sendRequest(inData, url, callbacks);
 
     return false;
 }
