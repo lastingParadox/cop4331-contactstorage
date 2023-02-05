@@ -1,17 +1,9 @@
 function createNewContact() {
-
     // the user that entered the data
-    var splice1 = document.cookie.split(',')[2];
-    var userId  = splice1.charAt(splice1.length - 1);
-
-    var url = urlBase + '/api/createContact.php';
-
-    var request = new XMLHttpRequest();
-    request.open("POST", url, true);
-	request.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+    var userId = readCookie().userId;
 
     // data the user entered
-    var contactInformation = {
+    let inData = {
         userId:userId, // id of the sender
         firstName:document.getElementById("firstName").value, // required
         lastName:document.getElementById("lastName").value,

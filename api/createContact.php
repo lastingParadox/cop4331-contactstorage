@@ -24,7 +24,7 @@
         $stmt->close();
         $conn->close();
 
-        returnWithSuccess("Contact created successfully");
+        returnWithSuccess("Contact created successfully [userId: " . $userId . "]");
     }
 
     function getRequestInfo() {
@@ -42,7 +42,7 @@
     }
 
     function returnWithSuccess( $message ) {
-        $retValue = '{"message":"' . $message . '"}';
+        $retValue = '{"success":"' . $message . '"}';
         sendResultInfoAsJson( $retValue );
     }
 ?>

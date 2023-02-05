@@ -8,7 +8,7 @@ function register(event) {
     }
 
     let firstName = document.getElementById("firstname").value;
-    let lastName  = document.getElementById("lastname").value; // can be ""
+    let lastName  = document.getElementById("lastname").value;
     let username  = document.getElementById("username").value;
     let password  = document.getElementById("password").value;
 

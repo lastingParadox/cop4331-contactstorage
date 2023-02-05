@@ -1,5 +1,4 @@
 const urlBase = 'https://contactstorage.info/api';
-const extension = 'php';
 
 let userId = 0;
 let firstName = "";
@@ -27,13 +26,10 @@ function readCookie()
 {
 	userId = -1;
 	let data = document.cookie;
-    console.log(data);
     let test = data.split("; ");
-    console.log(test);
 
     for (let i = 0; i < test.length; i++) {
         if (test[i].includes(cookieName)) {
-            console.log(test[i])
             data = test[i];
             break;
         }
@@ -42,7 +38,6 @@ function readCookie()
     data = data.replace(`${cookieName}=`, "");
 
 	let splits = data.split(",");
-    console.log(splits);
 	for(var i = 0; i < splits.length; i++) 
 	{
 		let thisOne = splits[i].trim();
@@ -64,8 +59,38 @@ function readCookie()
 	}
 	else
 	{
-		document.getElementById("welcome").innerHTML = "Hello, " + firstName + " " + lastName;
+		//document.getElementById("welcome").innerHTML = "Hello, " + firstName + " " + lastName;
 	}
 
     return {userId:userId, firstName:firstName, lastName:lastName};
+}
+
+function sendRequest(inData, url, callbacks) {
+    let request = new XMLHttpRequest();
+    request.open("POST", url, true);
+	request.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+
+    try {
+        request.onload = function () {
+            console.log("[Received Data (" + (url) + ")]: " + request.responseText);
+            let response = JSON.parse(request.responseText);
+
+            // failed to accomplish the request (call callbacks.error)
+            if (response.error) {
+				console.log("[Request Error (" + (url) + ")]: " + response.error);
+                callbacks.error(response);
+                return;
+            }
+
+            // successful
+			console.log("[Request Success (" + (url) + ")]:  " + response.success);
+            callbacks.success(response);
+        }
+
+        console.log("[Sending Request (" + (url) + ")]: " + JSON.stringify(inData));
+        request.send(JSON.stringify(inData));
+    } catch(err) {
+		console.log("[Request Error (" + (url) + ")]: " + response.error);
+		callbacks.error({error: err.message});
+	}
 }
