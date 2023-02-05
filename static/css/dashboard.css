@@ -29,10 +29,15 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: clip;
+    transition: 0.25s;
 }
 
 .sidebar li.active {
     background: #eee;
+}
+
+.sidebar li:not(.active):hover {
+    background: rgba(238, 238, 238, 0.2);
 }
 
 .sidebar li.active a, sidebar li.active a:hover {
