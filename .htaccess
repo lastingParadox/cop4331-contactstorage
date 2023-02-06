@@ -1,0 +1,3 @@
+RewriteEngine On
+RewriteCond %{HTTP_HOST} www.contactstorage.info
+RewriteRule (.*) https://contactstorage.info/$1 [R=301,L]

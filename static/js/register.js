@@ -1,4 +1,3 @@
-const urlBase = 'https://contactstorage.info';
 const completedRequest = 4;
 
 function register(event) {
@@ -9,39 +8,27 @@ function register(event) {
     }
 
     let firstName = document.getElementById("firstname").value;
-    let lastName  = document.getElementById("lastname").value; // can be ""
+    let lastName  = document.getElementById("lastname").value;
     let username  = document.getElementById("username").value;
     let password  = document.getElementById("password").value;
 
-    let url = urlBase + '/api/register.php';
-
-    let request = new XMLHttpRequest();
-    request.open("POST", url, true);
-	request.setRequestHeader("Content-type", "application/json; charset=UTF-8");
-
-    let registerInformation = {
+    let inData = {
         username: username, 
         password: password,
         firstName: firstName, 
         lastName: lastName
     };
 
-    try {
-        request.onload = function () {
-            let response = JSON.parse(request.responseText);
+    // To do after the response
+    let callbacks = {}
+    callbacks.error   = function(response) {}
+    callbacks.success = function(response) {
+        window.location.href= "index.html";
+    }
 
-            // failed to register user (probably a duplicate username or something)
-            if (response.error) {
-                document.getElementById("registerResult").innerHTML = response.error;
-                return;
-            }
+    // Send request
+    let url = urlBase + '/register.php';
+    sendRequest(inData, url, callbacks);
 
-            // successfully registered user
-            window.location.href= "index.html";
-        }
-        request.send(JSON.stringify(registerInformation));
-    } catch(err) {
-		document.getElementById("registerResult").innerHTML = err.message;
-	}
-
+    return false;
 }
