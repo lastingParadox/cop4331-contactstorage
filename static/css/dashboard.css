@@ -2,7 +2,6 @@
     background-color: #000000;
     min-width: 60px;
     max-width: 60px;
-    transition: all 0.2s;
 }
 
 #side_nav.active {
@@ -30,6 +29,7 @@
     overflow: hidden;
     text-overflow: clip;
     transition: 0.25s;
+    cursor: pointer;
 }
 
 .sidebar li.active {
@@ -40,11 +40,11 @@
     background: rgba(238, 238, 238, 0.2);
 }
 
-.sidebar li.active a, sidebar li.active a:hover {
+.sidebar li.active .list-itembox, sidebar li.active .list-itembox:hover {
     color: #000;
 }
 
-.sidebar li a {
+.sidebar li .list-itembox {
     color: #fff;
 }
 
