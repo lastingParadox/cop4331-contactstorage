@@ -31,7 +31,7 @@ function searchContacts(params) {
             console.log(contact);
 
             container.innerHTML += `
-            <div class="contact" style="width:25%;">
+            <div class="contact" style="width:33%;">
                 <p class="first_name">First Name: ${contact.firstName || "[None Entered]"}</p>
                 <p class="last_name">Last Name: ${contact.lastName || "[None Entered]"}</p>
                 <p class="phone_number">Phone Number: ${contact.phoneNumber || "[None Entered]"}</p>
