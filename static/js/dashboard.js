@@ -1,6 +1,4 @@
-window.onload = function() {
-    searchContacts("");
-}
+document.addEventListener('DOMContentLoaded', () => searchContacts(""), false);
 
 function editContact() {
 

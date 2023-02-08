@@ -3,6 +3,7 @@ const urlBase = 'https://contactstorage.info/api';
 let userId = 0;
 let firstName = "";
 let lastName = "";
+let side_nav = "";
 let cookieName = "ContactStorageUser";
 
 function saveCookie()
@@ -10,7 +11,7 @@ function saveCookie()
 	let minutes = 20;
 	let date = new Date();
 	date.setTime(date.getTime()+(minutes*60*1000));	
-	document.cookie = cookieName + "=" + "firstName=" + firstName + ",lastName=" + lastName + ",userId=" + userId + ";expires=" + date.toGMTString();
+	document.cookie = cookieName + "=" + "firstName=" + firstName + ",lastName=" + lastName + ",userId=" + userId + ",side_nav=active" + ";expires=" + date.toGMTString();
 }
 
 function logout()
@@ -51,6 +52,9 @@ function readCookie()
 		else if( tokens[0] == "userId" ) {
 			userId = parseInt( tokens[1].trim() );
 		}
+        else if (tokens[0] == "side_nav") {
+            side_nav = tokens[1];
+        }
 	}
 	
 	if( userId < 0 )
@@ -62,7 +66,39 @@ function readCookie()
 		//document.getElementById("welcome").innerHTML = "Hello, " + firstName + " " + lastName;
 	}
 
-    return {userId:userId, firstName:firstName, lastName:lastName};
+    return {userId:userId, firstName:firstName, lastName:lastName, userId:userId, side_nav:side_nav};
+}
+
+function setCookie(cName, cValue, expMinutes) {
+    let cookie = readCookie();
+
+    firstName = cookie.firstName;
+    lastName = cookie.lastName;
+    userId = cookie.userId;
+    side_nav = cookie.side_nav;
+
+    let date = new Date();
+    date.setTime(date.getTime() + (expMinutes*60*1000));
+    const expires = "expires=" + date.toGMTString();
+
+    switch(cName) {
+        case "userId":
+            userId = cValue;
+            break;
+        case "firstName":
+            firstName = cValue;
+            break;
+        case "lastName":
+            lastName = cValue;
+            break;
+        case "side_nav":
+            side_nav = cValue;
+            break;
+        default:
+            return;
+    } 
+
+    document.cookie = cookieName + "=" + "firstName=" + firstName + ",lastName=" + lastName + ",userId=" + userId + ",side_nav=" + side_nav + ";expires=" + date.toGMTString();
 }
 
 function sendRequest(inData, url, callbacks) {
