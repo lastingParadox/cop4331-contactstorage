@@ -14,7 +14,7 @@
     width: 100%;
     position: relative;
     display: grid;
-    grid-auto-rows: min-content;
+    grid-auto-rows: min-content min-content minmax(0px, min-content)
 }
 
 .hr-color {
@@ -73,10 +73,14 @@
 
 /* Contacts */
 
-#contact-search {
+#contact-nav {
     grid-row: 1;
     grid-column: 1;
     margin-bottom: 0;
+    margin: 25px;
+    position: sticky;
+    padding: 0;
+    top: 0;
 }
 
 #contact_container {
@@ -96,6 +100,9 @@
     min-width: 424px;
     width: 28%;
     max-width: 30%;
+    min-height: min-content;
+    height: min-content;
+    max-height: min-content;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
 }
 
@@ -149,14 +156,17 @@
     }
 }
 
-@media(max-width: 400px) {
+@media(max-width: 440px) {
+
     .contact-info {
-        font-size: 4vw
+        transition: all 0.2s;
+        font-size: 3.5vw
     }
 
     .contact-interior img {
-        height: 6em;
-        width: 6em;
+        transition: all 0.2s;
+        height: 28vw;
+        width: 28vw;
     }
 }
 

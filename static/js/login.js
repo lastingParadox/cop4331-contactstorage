@@ -1,10 +1,6 @@
 function login(event) {
-
-    if (document.querySelectorAll('.form-control:invalid').length > 0) {
-        event.preventDefault();
-        return false;
-    }
-
+    console.log("here")
+    
 	let login = document.getElementById("username").value;
 	let password = document.getElementById("password").value;
 
@@ -13,6 +9,7 @@ function login(event) {
         password: password
     };
 
+    console.log("here1")
     // To do after the response
     let callbacks = {}
     callbacks.error   = function(response) {
