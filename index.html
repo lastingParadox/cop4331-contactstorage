@@ -1,20 +1,107 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Contact Storage</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <script type="text/javascript" src="static/js/index.js"></script>
-        <link rel="stylesheet" href="static/css/styles.css">
-    </head>
-    <body style="margin: 0 0 0 0">
-        <header class="hero" style="width:100%; height:200px; background-color: teal;">
+<html lang="en">
 
-        </header>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login and Registration Forms</title>
 
-        <a href="register.html">Register</a>
-        <a href="login.html">Login</a>
-    </body>
+    <!-- Bootstrap's CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+
+    <!-- Bootstrap's JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"
+        async></script>
+
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js" async></script>
+
+    <!-- CSS File -->
+    <link rel="stylesheet" href="./static/css/styles.css">
+
+    <!-- JS File -->
+    <script src="./static/js/index.js" async></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row justify-content-center align-items-center inner-row">
+            <div class="col-lg-5 col-md-7">
+                <div class="form-box login-form p-md-5 p-3">
+                    <div class="form-title">
+                        <h2 class="fw-bold mb-3">Login</h2>
+                    </div>
+
+                    <form action="#">
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control form-control-sm" placeholder="Username" id="username"
+                                required>
+                            <label for="username">Username</label>
+                        </div>
+
+                        <div class="form-floating mb-3">
+                            <input type="password" class="form-control form-control-sm" placeholder="Password"
+                                id="password" required>
+                            <label for="password">Password</label>
+                        </div>
+
+                        <div class="mt-3">
+                            <button class="btn btn-primary primaryBg">Login</button>
+                        </div>
+                    </form>
+
+                    <div class="mt-3">
+                        <span>Don't have an account?</span>
+                        <button class="p-0 border-0 bg-transparent primaryColor register-show">Register</button>
+                    </div>
+                </div>
+
+                <div class="form-box registration-form p-md-5 p-3">
+                    <div class="form-title">
+                        <h2 class="fw-bold mb-3">Register</h2>
+                    </div>
+
+                    <form action="#">
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control form-control-sm" placeholder="First Name"
+                                id="firstName" required>
+                            <label for="firstName">First Name</label>
+                        </div>
+
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control form-control-sm" placeholder="Last Name"
+                                id="lastName" required>
+                            <label for="lastName">Last Name</label>
+                        </div>
+
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control form-control-sm" placeholder="Username" id="username"
+                                required>
+                            <label for="username">Username</label>
+                        </div>
+
+                        <div class="form-floating mb-3">
+                            <input type="password" class="form-control form-control-sm" placeholder="Password"
+                                id="password" required>
+                            <label for="password">Password</label>
+                        </div>
+
+                        <div class="mt-3">
+                            <button class="btn btn-primary primaryBg">Register</button>
+                        </div>
+                    </form>
+
+                    <div class="mt-3">
+                        <span>Already have an account?</span>
+                        <button class="p-0 border-0 bg-transparent primaryColor login-show">Login</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
 </html>

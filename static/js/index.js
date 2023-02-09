@@ -130,3 +130,13 @@ function sendRequest(inData, url, callbacks) {
 		callbacks.error({error: err.message});
 	}
 }
+
+$('.register-show').click(function() {
+	$('.registration-form').show();
+	$('.login-form').hide();
+});
+
+$('.login-show').click(function () {
+	$('.login-form').show();
+	$('.registration-form').hide();
+});
