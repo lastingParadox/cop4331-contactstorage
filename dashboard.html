@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-<html>
+
     <head>
         <script type="text/javascript" src="static/js/index.js"></script>
         <script type="text/javascript" src="static/js/sidebar.js"></script>
         <script type="text/javascript" src="static/js/dashboard.js"></script>
-        
+
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -18,16 +18,18 @@
 
         <!-- Bootstrap v5.3.0-alpha1 CDNs -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+            integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
-        crossorigin="anonymous"></script>
+            integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+            crossorigin="anonymous"></script>
 
+        <!-- Local Style Sheets -->
         <link rel="stylesheet" href="static/css/styles.css">
         <link rel="stylesheet" href="static/css/dashboard.css">
 
     </head>
+
     <body>
 
         <div class="main-container d-flex">
@@ -73,10 +75,54 @@
                 </ul>
             </div>
 
-            <div class="content">
-                <p id="welcome"></p>
-                <div id="contact_container" style="display:flex;"></div>
+            <div id="content">
+                <span id="welcome"></span>
+                <div id="contact_container"></div>
+                <div id="contact-nav">
+                    <nav class="navbar navbar-expand-lg navbar-light bg-light rounded">
+                        <div class="container-fluid">
+                            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                                <!--Dropdown menu for search params-->
+                                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                            data-bs-toggle="dropdown" aria-expanded="false">
+                                            Filter By
+                                        </a>
+                                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                            <li><a class="dropdown-item" href="#">First Name</a></li>
+                                            <li><a class="dropdown-item" href="#">Last Name</a></li>
+                                            <li><a class="dropdown-item" href="#">Phone Number</a></li>
+                                            <li><a class="dropdown-item" href="#">Email</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+    
+                                <!--Search input box-->
+                                <form class="d-flex">
+                                    <input id="contact-search" class="form-control mr-2" type="search" placeholder="Search"
+                                        aria-label="Search" onkeyup="searchContacts(this.value)">
+                                    <button class="btn" type="submit">
+                                        <span class="material-icons-sharp d-flex">search</span>
+                                    </button>
+                                </form>
+    
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+            <div id="contextmenu" class="collapse">
+                <div class="contextmenu-item"><span class="material-icons-sharp">edit</span>Edit</div>
+                <div class="contextmenu-item"><span class="material-icons-sharp">delete</span>Delete</div>
+            <div class="content position-relative">
+                <!--Nav bar for search-->
+
+
+                <!-- Dashboard stuff (Contacts added in by dashboard.js) -->
+                <div id="contact_container" class="d-flex" style="flex-wrap: wrap;"></div>
             </div>
         </div>
     </body>
+
 </html>

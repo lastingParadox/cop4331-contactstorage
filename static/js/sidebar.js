@@ -3,9 +3,18 @@ document.addEventListener("DOMContentLoaded", function () {
     let cookie = readCookie();
 
     let sidebar = document.getElementById("side_nav");
+    let hamburger = document.getElementById("hamburger");
 
-    if (cookie.side_nav == "active") sidebar.classList.add("active");
-    else if (cookie.side_nav == "inactive") sidebar.classList.remove("active");
+    if (cookie.side_nav == "active") {
+        sidebar.classList.add("active");
+        hamburger.classList.remove("open-btn");
+        hamburger.classList.add("close-btn");
+    }
+    else if (cookie.side_nav == "inactive") {
+        sidebar.classList.remove("active");
+        hamburger.classList.remove("close-btn");
+        hamburger.classList.add("open-btn");
+    } 
 
     let listItems = document.querySelectorAll('.sidebar > ul > li');
     for (let i = 0; i < listItems.length; i++) {
@@ -15,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     };
 
-    document.getElementById("hamburger").addEventListener('click', function () {
+    hamburger.addEventListener('click', function () {
         let collapsableElements = document.getElementsByClassName('collapsable');
 
         if (this.classList.contains('close-btn')) {
