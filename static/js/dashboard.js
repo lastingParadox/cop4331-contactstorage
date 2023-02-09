@@ -28,6 +28,7 @@ async function searchContacts(params) {
     let callbacks = {}
     callbacks.error = function(response) {};
     callbacks.success = function(response) {
+        container.innerHTML = '';
         response.forEach(contact => {
             // add the innerHTMLs
 

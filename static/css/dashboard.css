@@ -13,6 +13,8 @@
     min-height: 100vh;
     width: 100%;
     position: relative;
+    display: grid;
+    grid-auto-rows: min-content;
 }
 
 .hr-color {
@@ -71,11 +73,19 @@
 
 /* Contacts */
 
+#contact-search {
+    grid-row: 1;
+    grid-column: 1;
+    margin-bottom: 0;
+}
+
 #contact_container {
     display: flex;
     flex-wrap: wrap;
     margin: 25px;
     gap: 20px;
+    grid-row: 3;
+    grid-column: 1;
 }
 
 .contact {
@@ -153,7 +163,7 @@
 #contextmenu {
     position: absolute;
     background-color: white;
-    height: fit-content;
+    height: 88px;
     flex-direction: column;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
 }
