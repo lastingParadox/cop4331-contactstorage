@@ -51,15 +51,6 @@
     color: #fff;
 }
 
-@media(max-width: 767px) {
-    #side_nav {
-        margin-left: -250px;
-        position: fixed;
-        min-height: 100vh;
-        z-index: 1;
-    }
-}
-
 .list-itembox {
     display: flex;
     gap: 10px;
@@ -88,6 +79,7 @@
     flex-wrap: wrap;
     margin: 25px;
     gap: 20px;
+    /* justify-content: space-evenly; */
     grid-row: 3;
     grid-column: 1;
 }
@@ -98,8 +90,6 @@
     border-radius: 8px;
     padding: 15px 5px 15px 15px;
     min-width: 424px;
-    width: 28%;
-    max-width: 30%;
     min-height: min-content;
     height: min-content;
     max-height: min-content;
@@ -148,28 +138,6 @@
     white-space: nowrap;
 }
 
-@media(max-width: 475px) {
-    .contact {
-        width: 100%;
-        min-width: 100%;
-        max-width: 100%;
-    }
-}
-
-@media(max-width: 440px) {
-
-    .contact-info {
-        transition: all 0.2s;
-        font-size: 3.5vw
-    }
-
-    .contact-interior img {
-        transition: all 0.2s;
-        height: 28vw;
-        width: 28vw;
-    }
-}
-
 #contextmenu {
     position: absolute;
     background-color: white;
@@ -182,6 +150,7 @@
     display: flex;
     padding: 10px;
     user-select: none;
+    cursor: pointer;
 }
 
 .contextmenu-item span {
@@ -201,11 +170,11 @@
 }
 
 .page {
-    display: relative;
     width: 50%;
     margin: auto;
-    transform: translateY(25%);
     transition: 0.2s all;
+    position: sticky;
+    top: 10%;
 }
 
 .page-tab {
@@ -233,3 +202,39 @@
     border-radius: 0 0 8px 8px;
 }
 
+/* Media queries */
+
+@media(max-width: 767px) {
+    #side_nav {
+        margin-left: -250px;
+        position: fixed;
+        min-height: 100vh;
+        z-index: 1;
+    }
+
+    .page {
+        width: 95%;
+    }
+}
+
+@media(max-width: 475px) {
+    .contact {
+        width: 100%;
+        min-width: 100%;
+        max-width: 100%;
+    }
+}
+
+@media(max-width: 440px) {
+
+    .contact-info {
+        transition: all 0.2s;
+        font-size: 3.5vw
+    }
+
+    .contact-interior img {
+        transition: all 0.2s;
+        height: 28vw;
+        width: 28vw;
+    }
+}
