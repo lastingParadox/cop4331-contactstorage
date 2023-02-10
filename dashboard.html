@@ -76,6 +76,8 @@
             </div>
 
             <div id="content">
+
+                <!--Contacts-->
                 <div id="contact_container"></div>
 
                 <!--Nav Bar-->
@@ -108,9 +110,8 @@
     
                                 <!--Search input box-->
                                 <form class="d-flex">
-                                    <input id="contact-search" class="form-control mr-2" type="search" placeholder="Search"
-                                        aria-label="Search" onkeyup="searchContacts(this.value)">
-                                    <button class="btn" type="submit">
+                                    <input id="contact-search" class="form-control mr-2" type="search" placeholder="Search" aria-label="Search" onkeyup="searchContacts(this.value);">
+                                    <button class="btn" type="button" onclick="searchContacts(document.getElementById('contact-search').value);">
                                         <span class="material-icons-sharp d-flex">search</span>
                                     </button>
                                 </form>
