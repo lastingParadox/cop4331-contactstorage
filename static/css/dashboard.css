@@ -51,15 +51,6 @@
     color: #fff;
 }
 
-@media(max-width: 767px) {
-    #side_nav {
-        margin-left: -250px;
-        position: fixed;
-        min-height: 100vh;
-        z-index: 1;
-    }
-}
-
 .list-itembox {
     display: flex;
     gap: 10px;
@@ -88,6 +79,7 @@
     flex-wrap: wrap;
     margin: 25px;
     gap: 20px;
+    /* justify-content: space-evenly; */
     grid-row: 3;
     grid-column: 1;
 }
@@ -98,8 +90,6 @@
     border-radius: 8px;
     padding: 15px 5px 15px 15px;
     min-width: 424px;
-    width: 28%;
-    max-width: 30%;
     min-height: min-content;
     height: min-content;
     max-height: min-content;
@@ -148,6 +138,85 @@
     white-space: nowrap;
 }
 
+#contextmenu {
+    position: absolute;
+    background-color: white;
+    height: 88px;
+    flex-direction: column;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
+
+.contextmenu-item {
+    display: flex;
+    padding: 10px;
+    user-select: none;
+    cursor: pointer;
+}
+
+.contextmenu-item span {
+    margin-right: 4px;
+}
+
+.contextmenu-item:hover {
+    background-color: rgb(182, 182, 182);
+}
+
+#page-overlay {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.5);
+    transition: 0.2s all;
+}
+
+.page {
+    width: 50%;
+    margin: auto;
+    transition: 0.2s all;
+    position: sticky;
+    top: 10%;
+}
+
+.page-tab {
+    background-color: rgb(182, 182, 182);
+    height: 50px;
+    border-radius: 8px 8px 0 0;
+}
+
+.page-tab .exit-page {
+    height: inherit;
+    width: inherit;
+    font-size: 50px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.page-tab .exit-page:hover {
+    color: white;
+    transition: all 0.1s;
+}
+
+.page-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 0 0 8px 8px;
+}
+
+/* Media queries */
+
+@media(max-width: 767px) {
+    #side_nav {
+        margin-left: -250px;
+        position: fixed;
+        min-height: 100vh;
+        z-index: 1;
+    }
+
+    .page {
+        width: 95%;
+    }
+}
+
 @media(max-width: 475px) {
     .contact {
         width: 100%;
@@ -168,25 +237,4 @@
         height: 28vw;
         width: 28vw;
     }
-}
-
-#contextmenu {
-    position: absolute;
-    background-color: white;
-    height: 88px;
-    flex-direction: column;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
-}
-
-.contextmenu-item {
-    display: flex;
-    padding: 10px;
-}
-
-.contextmenu-item span {
-    margin-right: 4px;
-}
-
-.contextmenu-item:hover {
-    background-color: rgb(182, 182, 182);
 }
