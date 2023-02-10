@@ -77,7 +77,11 @@
 
             <div id="content">
                 <span id="welcome"></span>
+                <!-- Container for contacts -->
                 <div id="contact_container"></div>
+                <!-- /Container -->
+
+                <!-- Nav bar top -->
                 <div id="contact-nav">
                     <nav class="navbar navbar-expand-lg navbar-light bg-light rounded">
                         <div class="container-fluid">
@@ -111,16 +115,68 @@
                         </div>
                     </nav>
                 </div>
+                <!-- /Nav -->
+                <div id="page-overlay" class="collapse">
+                    <div id="edit-page" class="page collapse">
+                        <div class="page-tab">
+                            <span class="material-icons-sharp exit-page">clear</span>
+                        </div>
+                        <div class="page-content">
+                            <h1>Edit Contact</h1>
+                            <form onsubmit="return editContact();">
+                                <div class="form-floating mb-3">
+                                    <input type="text" class="form-control form-control-sm" placeholder="First Name" id="edit_firstName"
+                                        required>
+                                    <label for="firstName">First Name</label>
+                                </div>
+        
+                                <div class="form-floating mb-3">
+                                    <input type="text" class="form-control form-control-sm" placeholder="Last Name"
+                                        id="edit_lastName" required>
+                                    <label for="lastName">Last Name</label>
+                                </div>
+
+                                <div class="form-floating mb-3">
+                                    <input type="text" class="form-control form-control-sm" placeholder="1234567890"
+                                        id="edit_phoneNumber">
+                                    <label for="phoneNumber">Phone Number</label>
+                                </div>
+
+                                <div class="form-floating mb-3">
+                                    <input type="text" class="form-control form-control-sm" placeholder="contact@contact.com"
+                                        id="edit_email">
+                                    <label for="email">Email</label>
+                                </div>
+
+                                <div class="form-floating mb-3">
+                                    <input type="text" class="form-control form-control-sm" placeholder="123 Contact Road"
+                                        id="edit_address">
+                                    <label for="adress">Address</label>
+                                </div>
+        
+                                <div class="mt-3">
+                                    <input class="btn btn-primary primaryBg" type="submit" value="Update">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div id="delete-page" class="page collapse">
+                        <div class="page-tab">
+                            <span class="material-icons-sharp exit-page">clear</span>
+                        </div>
+                        <div class="page-content">
+                            <h1>Remove Contact</h1>
+                            <p id="delete_statement">Are you sure you want to delete first_name last_name?</p>
+                            <button class="btn btn-danger">Delete</button>
+                            <button class="btn btn-primary">Cancel</button>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div id="contextmenu" class="collapse">
-                <div class="contextmenu-item"><span class="material-icons-sharp">edit</span>Edit</div>
-                <div class="contextmenu-item"><span class="material-icons-sharp">delete</span>Delete</div>
+            <div id="contextmenu">
+                <div id="contextmenu-edit" class="contextmenu-item"><span class="material-icons-sharp">edit</span>Edit</div>
+                <div id="contextmenu-delete" class="contextmenu-item"><span class="material-icons-sharp">delete</span>Delete</div>
             <div class="content position-relative">
-                <!--Nav bar for search-->
-
-
-                <!-- Dashboard stuff (Contacts added in by dashboard.js) -->
-                <div id="contact_container" class="d-flex" style="flex-wrap: wrap;"></div>
             </div>
         </div>
     </body>

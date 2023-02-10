@@ -181,6 +181,7 @@
 .contextmenu-item {
     display: flex;
     padding: 10px;
+    user-select: none;
 }
 
 .contextmenu-item span {
@@ -190,3 +191,45 @@
 .contextmenu-item:hover {
     background-color: rgb(182, 182, 182);
 }
+
+#page-overlay {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.5);
+    transition: 0.2s all;
+}
+
+.page {
+    display: relative;
+    width: 50%;
+    margin: auto;
+    transform: translateY(25%);
+    transition: 0.2s all;
+}
+
+.page-tab {
+    background-color: rgb(182, 182, 182);
+    height: 50px;
+    border-radius: 8px 8px 0 0;
+}
+
+.page-tab .exit-page {
+    height: inherit;
+    width: inherit;
+    font-size: 50px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.page-tab .exit-page:hover {
+    color: white;
+    transition: all 0.1s;
+}
+
+.page-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 0 0 8px 8px;
+}
+

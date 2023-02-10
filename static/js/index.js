@@ -132,15 +132,3 @@ function sendRequest(inData, url, callbacks) {
 		callbacks.error({error: err.message});
 	}
 }
-
-// PAGE FUNCTIONS
-
-$('.register-show').click(function() {
-	$('.registration-form').show();
-	$('.login-form').hide();
-});
-
-$('.login-show').click(function () {
-	$('.login-form').show();
-	$('.registration-form').hide();
-});

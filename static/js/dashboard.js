@@ -1,5 +1,29 @@
+let selected_id = 0;
+let contextmenu_width = 0;
+let contacts;
+
 document.addEventListener('DOMContentLoaded', () => {
+    let context_menu = document.getElementById("contextmenu");
+    contextmenu_width = context_menu.offsetWidth;
+    context_menu.classList.add("collapse");
+
+    document.getElementById('contextmenu-edit').addEventListener('click', () => {
+        context_menu.classList.add("collapse");
+        pageView(true, 'edit');
+    });
+    document.getElementById('contextmenu-delete').addEventListener('click', () => {
+        context_menu.classList.add("collapse");
+        pageView(true, 'delete');
+    });
+
     searchContacts("");
+
+    let exit_buttons = document.querySelectorAll('.exit-page')
+    exit_buttons.forEach((button) => {
+        button.addEventListener('click', () => {
+            pageView(false);
+        })
+    })
 }, false);
 
 function editContact() {
@@ -28,6 +52,8 @@ async function searchContacts(params) {
     let callbacks = {}
     callbacks.error = function(response) {};
     callbacks.success = function(response) {
+        contacts = response;
+        console.log(`%c${JSON.stringify(contacts)}`, "color:yellow;")
         container.innerHTML = '';
         response.forEach(contact => {
             // add the innerHTMLs
@@ -36,7 +62,7 @@ async function searchContacts(params) {
             <div class="contact">
                 <div class="contact-top">
                     <h3 class="name">${contact.firstName || ""} ${contact.lastName || ""}</h3>
-                    <span class="material-icons-sharp context-button">more_vert</span>
+                    <span class="material-icons-sharp context-button" data-id="${contact.id}">more_vert</span>
                 </div>
                 <div class="contact-interior">
                     <img src="static/images/media/anonymous.png" />
@@ -54,12 +80,16 @@ async function searchContacts(params) {
         let context_menu = document.getElementById('contextmenu');
         console.log(context_buttons)
         for (let i = 0; i < context_buttons.length; i++) {
-            context_buttons[i].addEventListener("click", function (event) { 
+            context_buttons[i].addEventListener("click", function (event) {
+                selected_id = parseInt(context_buttons[i].dataset.id);
+                console.log(selected_id);
+                let rect = context_buttons[i].getBoundingClientRect();
+                
+                const xCenter = (rect.left + rect.right) / 2;
                 const x = event.clientX + 5;
-                const y = event.clientY + 5;
 
-                context_menu.style.top = `${y}px`;
-                context_menu.style.left = `${x}px`;
+                context_menu.style.top = `${rect.bottom}px`;
+                context_menu.style.left = `${xCenter - (contextmenu_width / 2)}px`;
 
                 context_menu.classList.remove('collapse');
 
@@ -80,7 +110,6 @@ async function searchContacts(params) {
 
 const documentClickHandler = function(e) {
     let context_menu = document.getElementById('contextmenu');
-    let context_buttons = document.querySelectorAll('.context-button');
     const isClickedOutside = !(context_menu.contains(e.target) || contextButtonClick(e));
     if (isClickedOutside) {
         // Hide the menu
@@ -91,6 +120,7 @@ const documentClickHandler = function(e) {
     }
 };
 
+
 function contextButtonClick(event) {
     let context_buttons = document.querySelectorAll('.context-button');
     for (let i = 0; i < context_buttons.length; i++) {
@@ -99,6 +129,52 @@ function contextButtonClick(event) {
     }
     return false;
 }
+
+
+function pageView(show=true, page="edit") {
+    let overlay = document.getElementById("page-overlay");
+    if (show) {
+        let priority;
+
+        if (page.includes("edit")) {
+            priority = document.getElementById("edit-page");
+            initEditPage();
+        }
+        else if (page.includes("delete")) {
+            priority = document.getElementById("delete-page");
+            initDeletePage();
+        }
+        else return;
+
+        priority.dataset.id = selected_id;
+
+        overlay.classList.remove("collapse");
+        priority.classList.remove("collapse");
+    }
+    else {
+        let pages = document.querySelectorAll('.page')
+        overlay.classList.add("collapse");
+        for (let page of pages) {
+            page.classList.add("collapse");
+        }
+    }
+}
+
+function initEditPage() {
+    const contact = contacts.find(contact => contact.id === selected_id);
+    document.getElementById("edit_firstName").value = contact.firstName;
+    document.getElementById("edit_lastName").value = contact.lastName;
+    document.getElementById("edit_phoneNumber").value = contact.phoneNumber;
+    document.getElementById("edit_email").value = contact.email;
+    document.getElementById("edit_address").value = contact.address;
+}
+
+function initDeletePage() {
+    const contact = contacts.find(contact => contact.id === selected_id);
+    document.getElementById("delete_statement").innerHTML = `Are you sure you want to delete ${contact.firstName} ${contact.lastName}?`;
+}
+
+// NON-EVENT-RELATED
 
 function isInViewport(element) {
     const rect = element.getBoundingClientRect();
