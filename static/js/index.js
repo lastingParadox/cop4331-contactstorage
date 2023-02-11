@@ -132,3 +132,20 @@ function sendRequest(inData, url, callbacks) {
 		callbacks.error({error: err.message});
 	}
 }
+
+// Front-End Functionalities
+
+const loginButton = document.querySelector('.loginButton');
+const registerButton = document.querySelector('.registerButton');
+const formBox = document.querySelector('.formBox');
+const body = document.querySelector('body');
+
+registerButton.onclick = function () {
+    formBox.classList.add('active');
+    body.classList.add('active');
+};
+
+loginButton.onclick = function () {
+    formBox.classList.remove('active');
+    body.classList.remove('active');
+};
