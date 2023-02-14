@@ -133,16 +133,19 @@ function sendRequest(inData, url, callbacks) {
 	}
 }
 
-function switchDiv(name="login") {
-    let login_div = document.getElementById("login_div");
-    let register_div = document.getElementById("register_div");
+// Front-End Functionalities
 
-    if (name === "login") {
-        login_div.classList.remove("collapse");
-        register_div.classList.add("collapse");
-    }
-    else if (name === "register") {
-        register_div.classList.remove("collapse");
-        login_div.classList.add("collapse");
-    }
-}
+const loginButton = document.querySelector('.loginButton');
+const registerButton = document.querySelector('.registerButton');
+const formBox = document.querySelector('.formBox');
+const body = document.querySelector('body');
+
+registerButton.onclick = function () {
+    formBox.classList.add('active');
+    body.classList.add('active');
+};
+
+loginButton.onclick = function () {
+    formBox.classList.remove('active');
+    body.classList.remove('active');
+};
