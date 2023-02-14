@@ -7,10 +7,10 @@ function register(event) {
         return false;
     }
 
-    let firstName = document.getElementById("firstname").value;
-    let lastName  = document.getElementById("lastname").value;
-    let username  = document.getElementById("username").value;
-    let password  = document.getElementById("password").value;
+    let firstName = document.getElementById("register-firstname").value;
+    let lastName  = document.getElementById("register-lastname").value;
+    let username  = document.getElementById("register-username").value;
+    let password  = document.getElementById("register-password").value;
 
     let inData = {
         username: username, 

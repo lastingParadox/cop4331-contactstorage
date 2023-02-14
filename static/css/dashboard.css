@@ -1,3 +1,7 @@
+body {
+    background-color: #3a86ff;
+}
+
 #side_nav {
     background-color: #000000;
     min-width: 60px;
@@ -79,7 +83,6 @@
     flex-wrap: wrap;
     margin: 25px;
     gap: 20px;
-    /* justify-content: space-evenly; */
     grid-row: 3;
     grid-column: 1;
 }

@@ -1,8 +1,8 @@
 function login(event) {
     console.log("here")
     
-	let login = document.getElementById("username").value;
-	let password = document.getElementById("password").value;
+	let login = document.getElementById("login-username").value;
+	let password = document.getElementById("login-password").value;
 
     let inData = {
         login: login, 
