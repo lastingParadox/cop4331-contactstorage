@@ -27,11 +27,46 @@ document.addEventListener('DOMContentLoaded', () => {
 }, false);
 
 function editContact() {
+    let inData = {
+        id:selected_id,
+        firstName:document.getElementById("edit_firstName").value,
+        lastName:document.getElementById("edit_lastName").value,
+        phoneNumber:document.getElementById("edit_phoneNumber").value,
+        email:document.getElementById("edit_email").value,
+        address:document.getElementById("edit_address").value,
+        //occupation:document.getElementById("edit_occupation").value,
+        //notes:document.getElementById("edit_notes").value,
+    }
 
+    // To do after the response
+    let callbacks = {}
+    callbacks.error   = function(response) {};
+    callbacks.success = function(response) {
+        location.reload();
+    };
+
+    // Send request
+    let url = urlBase + '/editContact.php';
+    sendRequest(inData, url, callbacks);
+
+    return false; // disable reload
 }
 
-function deleteContact() {
+async function deleteContact() {
+    let inData = {
+        id:currentContact.id,
+    }
 
+    // To do after the response
+    let callbacks = {}
+    callbacks.error = function(response) {};
+    callbacks.success = function(response) {
+        location.reload();
+    }
+
+    // Send request
+    let url = urlBase + '/deleteContact.php';
+    await sendRequest(inData, url, callbacks);
 }
 
 async function searchContacts(params) {

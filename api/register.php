@@ -54,7 +54,7 @@
 
     function returnWithSuccess( $message )
     {
-        $retValue = '{"message":"' . $message . '"}';
+        $retValue = '{"success":"' . $message . '"}';
         sendResultInfoAsJson( $retValue );
     }
 ?>
