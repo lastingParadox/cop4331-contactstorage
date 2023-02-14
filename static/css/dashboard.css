@@ -79,7 +79,6 @@
     flex-wrap: wrap;
     margin: 25px;
     gap: 20px;
-    /* justify-content: space-evenly; */
     grid-row: 3;
     grid-column: 1;
 }

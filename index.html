@@ -31,7 +31,7 @@
 <body>
     <div class="container">
         <div class="row justify-content-center align-items-center inner-row">
-            <div class="col-lg-5 col-md-7">
+            <div id="login_div" class="col-lg-5 col-md-7">
                 <div class="form-box login-form p-md-5 p-3">
                     <div class="form-title">
                         <h2 class="fw-bold mb-3">Login</h2>
@@ -57,49 +57,48 @@
 
                     <div class="mt-3">
                         <span>Don't have an account?</span>
-                        <button class="p-0 border-0 bg-transparent primaryColor register-show">Register</button>
+                        <button class="p-0 border-0 bg-transparent primaryColor register-show" onclick="switchDiv('register');">Register</button>
                     </div>
                 </div>
+            </div>
+            <div id="register_div" class="form-box p-md-5 p-3 collapse">
+                <div class="form-title">
+                    <h2 class="fw-bold mb-3">Register</h2>
+                </div>
 
-                <div class="form-box registration-form p-md-5 p-3">
-                    <div class="form-title">
-                        <h2 class="fw-bold mb-3">Register</h2>
+                <form action="#">
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control form-control-sm" placeholder="First Name"
+                            id="firstName" required>
+                        <label for="firstName">First Name</label>
                     </div>
 
-                    <form action="#">
-                        <div class="form-floating mb-3">
-                            <input type="text" class="form-control form-control-sm" placeholder="First Name"
-                                id="firstName" required>
-                            <label for="firstName">First Name</label>
-                        </div>
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control form-control-sm" placeholder="Last Name"
+                            id="lastName" required>
+                        <label for="lastName">Last Name</label>
+                    </div>
 
-                        <div class="form-floating mb-3">
-                            <input type="text" class="form-control form-control-sm" placeholder="Last Name"
-                                id="lastName" required>
-                            <label for="lastName">Last Name</label>
-                        </div>
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control form-control-sm" placeholder="Username" id="username"
+                            required>
+                        <label for="username">Username</label>
+                    </div>
 
-                        <div class="form-floating mb-3">
-                            <input type="text" class="form-control form-control-sm" placeholder="Username" id="username"
-                                required>
-                            <label for="username">Username</label>
-                        </div>
-
-                        <div class="form-floating mb-3">
-                            <input type="password" class="form-control form-control-sm" placeholder="Password"
-                                id="password" required>
-                            <label for="password">Password</label>
-                        </div>
-
-                        <div class="mt-3">
-                            <button class="btn btn-primary primaryBg">Register</button>
-                        </div>
-                    </form>
+                    <div class="form-floating mb-3">
+                        <input type="password" class="form-control form-control-sm" placeholder="Password"
+                            id="password" required>
+                        <label for="password">Password</label>
+                    </div>
 
                     <div class="mt-3">
-                        <span>Already have an account?</span>
-                        <button class="p-0 border-0 bg-transparent primaryColor login-show">Login</button>
+                        <button class="btn btn-primary primaryBg">Register</button>
                     </div>
+                </form>
+
+                <div class="mt-3">
+                    <span>Already have an account?</span>
+                    <button class="p-0 border-0 bg-transparent primaryColor login-show" onclick="switchDiv('login');">Login</button>
                 </div>
             </div>
         </div>

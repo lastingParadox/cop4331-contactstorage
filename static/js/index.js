@@ -132,3 +132,17 @@ function sendRequest(inData, url, callbacks) {
 		callbacks.error({error: err.message});
 	}
 }
+
+function switchDiv(name="login") {
+    let login_div = document.getElementById("login_div");
+    let register_div = document.getElementById("register_div");
+
+    if (name === "login") {
+        login_div.classList.remove("collapse");
+        register_div.classList.add("collapse");
+    }
+    else if (name === "register") {
+        register_div.classList.remove("collapse");
+        login_div.classList.add("collapse");
+    }
+}
