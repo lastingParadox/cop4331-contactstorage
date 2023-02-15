@@ -85,6 +85,13 @@
                     <nav class="navbar navbar-expand-lg navbar-light bg-light rounded">
                         <div class="container-fluid">
                             <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+                                <!--Add Contact-->
+                                <button class="d-flex btn" type="submit">
+                                    <span class="material-icons-sharp d-flex">person_add</span>
+                                    <span class="px-2">Add Contact</span>
+                                </button>
+
                                 <!--Dropdown menu for search params-->
                                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                                     <li class="nav-item dropdown">
@@ -103,9 +110,8 @@
     
                                 <!--Search input box-->
                                 <form class="d-flex">
-                                    <input id="contact-search" class="form-control mr-2" type="search" placeholder="Search"
-                                        aria-label="Search" onkeyup="searchContacts(this.value)">
-                                    <button class="btn" type="submit">
+                                    <input id="contact-search" class="form-control mr-2" type="search" placeholder="Search" aria-label="Search" onkeyup="searchContacts(this.value);">
+                                    <button class="btn" type="button" onclick="searchContacts(document.getElementById('contact-search').value);">
                                         <span class="material-icons-sharp d-flex">search</span>
                                     </button>
                                 </form>
@@ -183,6 +189,7 @@
                 <div id="contextmenu-delete" class="contextmenu-item"><span class="material-icons-sharp">delete</span>Delete</div>
             <div class="content position-relative">
             </div>
+
         </div>
     </body>
 
