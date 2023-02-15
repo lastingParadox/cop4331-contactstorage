@@ -1,3 +1,7 @@
+body {
+    background-color: #0077b6;
+}
+
 #side_nav {
     background-color: #000000;
     min-width: 60px;
@@ -14,14 +18,15 @@
     width: 100%;
     position: relative;
     display: grid;
-    grid-auto-rows: min-content min-content minmax(0px, min-content)
+    grid-auto-rows: min-content min-content minmax(0px, min-content);
 }
 
 .hr-color {
     color: #eee;
 }
 
-.close-btn, .open-btn {
+.close-btn,
+.open-btn {
     margin: 10px 20px 10px 16px;
     padding: 0px;
 }
@@ -43,7 +48,8 @@
     background: rgba(238, 238, 238, 0.2);
 }
 
-.sidebar li.active .list-itembox, sidebar li.active .list-itembox:hover {
+.sidebar li.active .list-itembox,
+sidebar li.active .list-itembox:hover {
     color: #000;
 }
 
@@ -79,7 +85,6 @@
     flex-wrap: wrap;
     margin: 25px;
     gap: 20px;
-    /* justify-content: space-evenly; */
     grid-row: 3;
     grid-column: 1;
 }
@@ -93,10 +98,12 @@
     min-height: min-content;
     height: min-content;
     max-height: min-content;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+        rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
 }
 
-.contact-interior, .contact-top {
+.contact-interior,
+.contact-top {
     display: flex;
 }
 
@@ -143,7 +150,8 @@
     background-color: white;
     height: 88px;
     flex-direction: column;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+        rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
 }
 
 .contextmenu-item {
@@ -204,7 +212,7 @@
 
 /* Media queries */
 
-@media(max-width: 767px) {
+@media (max-width: 767px) {
     #side_nav {
         margin-left: -250px;
         position: fixed;
@@ -217,7 +225,7 @@
     }
 }
 
-@media(max-width: 475px) {
+@media (max-width: 475px) {
     .contact {
         width: 100%;
         min-width: 100%;
@@ -225,11 +233,10 @@
     }
 }
 
-@media(max-width: 440px) {
-
+@media (max-width: 440px) {
     .contact-info {
         transition: all 0.2s;
-        font-size: 3.5vw
+        font-size: 3.5vw;
     }
 
     .contact-interior img {
@@ -237,4 +244,27 @@
         height: 28vw;
         width: 28vw;
     }
+}
+
+#contextmenu {
+    position: absolute;
+    background-color: white;
+    height: 88px;
+    flex-direction: column;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+        rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+    cursor: pointer;
+}
+
+.contextmenu-item {
+    display: flex;
+    padding: 10px;
+}
+
+.contextmenu-item span {
+    margin-right: 4px;
+}
+
+.contextmenu-item:hover {
+    background-color: rgb(182, 182, 182);
 }
