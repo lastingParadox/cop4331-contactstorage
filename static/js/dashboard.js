@@ -28,13 +28,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function editContact() {
     let inData = {
-        id:selected_id,
-        firstName:document.getElementById("edit_firstName").value,
-        lastName:document.getElementById("edit_lastName").value,
-        phoneNumber:document.getElementById("edit_phoneNumber").value,
-        email:document.getElementById("edit_email").value,
-        address:document.getElementById("edit_address").value,
-        //occupation:document.getElementById("edit_occupation").value,
+        id: selected_id,
+        firstName: document.getElementById("edit_firstName").value,
+        lastName: document.getElementById("edit_lastName").value,
+        phoneNumber: document.getElementById("edit_phoneNumber").value,
+        email: document.getElementById("edit_email").value,
+        address: document.getElementById("edit_address").value,
+        occupation: document.getElementById("edit_occupation").value,
         //notes:document.getElementById("edit_notes").value,
     }
 
@@ -202,6 +202,7 @@ function initEditPage() {
     document.getElementById("edit_phoneNumber").value = contact.phoneNumber;
     document.getElementById("edit_email").value = contact.email;
     document.getElementById("edit_address").value = contact.address;
+    document.getElementById("edit_occupation").value = contact.occupation;
 }
 
 function initDeletePage() {

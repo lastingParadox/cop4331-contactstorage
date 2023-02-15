@@ -1,5 +1,4 @@
 function login(event) {
-    console.log("here")
     
 	let login = document.getElementById("login-username").value;
 	let password = document.getElementById("login-password").value;
@@ -9,7 +8,6 @@ function login(event) {
         password: password
     };
 
-    console.log("here1")
     // To do after the response
     let callbacks = {}
     callbacks.error   = function(response) {
