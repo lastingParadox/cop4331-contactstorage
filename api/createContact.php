@@ -1,4 +1,8 @@
 <?php
+
+    error_reporting(E_ALL);
+    ini_set('display_errors', 'on');
+
     $inData = getRequestInfo();
 
     $conn = new mysqli("localhost", "ContactStorage", "contact_storage_pass", "ContactStorageDB");
@@ -8,8 +12,8 @@
         // userId who is inserting this information
         $userId = intval($inData["userId"]);
 
-        $stmt = $conn->prepare("INSERT into CONTACTS (userId, firstName, lastName, phoneNumber, email, occupation, address, notes) VALUES (?,?,?,?,?,?,?,?)");
-        $stmt->bind_param("isssssss",
+        $stmt = $conn->prepare("INSERT into CONTACTS (userId, firstName, lastName, phoneNumber, email, occupation, address) VALUES (?,?,?,?,?,?,?)");
+        $stmt->bind_param("issssss",
             $userId,
             $inData["firstName"], 
             $inData["lastName"],
@@ -17,7 +21,6 @@
             $inData["email"],
             $inData["occupation"],
             $inData["address"],
-            $inData["notes"],
         );
         $stmt->execute();
 

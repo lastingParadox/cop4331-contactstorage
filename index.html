@@ -1,57 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Login and Registration Forms</title>
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login and Registration Forms</title>
+        <!-- CSS File -->
+        <link rel="stylesheet" href="./static/css/index.css" />
 
-    <!-- CSS File -->
-    <link rel="stylesheet" href="./static/css/index.css">
+        <!-- JS File -->
+        <script src="./static/js/index.js" async></script>
+        <script src="./static/js/login.js" async></script>
+    </head>
 
-    <!-- JS File -->
-    <script src="./static/js/index.js" async></script>
-    <script src="./static/js/login.js" async></script>
-    <script src="./static/js/register.js" async></script>
-</head>
+    <body>
+        <div class="container">
+            <div class="blueBackground">
+                <div class="box login">
+                    <h2>Already have an Account?</h2>
+                    <button class="loginButton">Login</button>
+                </div>
 
-<body>
-    <div class="container">
-        <div class="blueBackground">
-            <div class="box login">
-                <h2>Already have an Account?</h2>
-                <button class="loginButton">Login</button>
+                <div class="box register">
+                    <h2>Don't have an Account?</h2>
+                    <button class="registerButton">Register</button>
+                </div>
             </div>
 
-            <div class="box register">
-                <h2>Don't have an Account?</h2>
-                <button class="registerButton">Register</button>
+            <div class="formBox">
+                <div class="form loginForm">
+                    <form onsubmit="return login(event);">
+                        <h3>Login</h3>
+                        <input
+                            type="text"
+                            id="login-username"
+                            placeholder="Username"
+                            required
+                        />
+                        <input
+                            type="password"
+                            id="login-password"
+                            placeholder="Password"
+                            required
+                        />
+                        <input type="submit" value="Login" />
+                    </form>
+                </div>
+
+                <div class="form registerForm">
+                    <form onsubmit="return register(event);">
+                        <h3>Register</h3>
+                        <input
+                            id="register-firstname"
+                            type="text"
+                            placeholder="First Name"
+                            required
+                        />
+                        <input
+                            id="register-lastname"
+                            type="text"
+                            placeholder="Last Name"
+                            required
+                        />
+                        <input
+                            id="register-username"
+                            type="text"
+                            placeholder="Username"
+                            required
+                        />
+                        <input
+                            id="register-password"
+                            type="password"
+                            placeholder="Password"
+                            required
+                        />
+                        <input type="submit" value="Register" />
+                    </form>
+                </div>
             </div>
         </div>
-
-        <div class="formBox">
-            <div class="form loginForm">
-                <form onsubmit="return login(event);">
-                    <h3>Login</h3>
-                    <input type="text" id="login-username" placeholder="Username" required>
-                    <input type="password" id="login-password" placeholder="Password" required>
-                    <input type="submit" value="Login">
-                </form>
-            </div>
-
-            <div class="form registerForm">
-                <form onsubmit="return register(event);">
-                    <h3>Register</h3>
-                    <input id="register-firstname" type="text" placeholder="First Name" required>
-                    <input id="register-lastname" type="text" placeholder="Last Name" required>
-                    <input id="register-username" type="text" placeholder="Username" required>
-                    <input id="register-password" type="password" placeholder="Password" required>
-                    <input type="submit" value="Register">
-                </form>
-            </div>
-        </div>
-    </div>
-</body>
-
+    </body>
 </html>

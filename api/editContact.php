@@ -1,4 +1,8 @@
 <?php
+
+    error_reporting(E_ALL);
+    ini_set('display_errors', 'on');
+    
     $inData = getRequestInfo();
 
     $conn = new mysqli("localhost", "ContactStorage", "contact_storage_pass", "ContactStorageDB");
