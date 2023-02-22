@@ -115,7 +115,7 @@
                     >
                         <div class="container-fluid">
                             <div
-                                class="collapse navbar-collapse"
+                                class="navbar-collapse"
                                 id="navbarSupportedContent"
                             >
                                 <!--Add Contact-->
@@ -213,7 +213,7 @@
                         </div>
                         <div class="page-content">
                             <h1>Edit Contact</h1>
-                            <form onsubmit="return editContact();">
+                            <form method="post">
                                 <div class="form-floating mb-3">
                                     <input
                                         type="text"
@@ -222,7 +222,7 @@
                                         id="edit-firstName"
                                         required
                                     />
-                                    <label for="firstName">First Name</label>
+                                    <label for="edit-firstName">First Name</label>
                                 </div>
 
                                 <div class="form-floating mb-3">
@@ -233,7 +233,7 @@
                                         id="edit-lastName"
                                         required
                                     />
-                                    <label for="lastName">Last Name</label>
+                                    <label for="edit-lastName">Last Name</label>
                                 </div>
 
                                 <div class="form-floating mb-3">
@@ -243,7 +243,7 @@
                                         placeholder="1234567890"
                                         id="edit-phoneNumber"
                                     />
-                                    <label for="phoneNumber"
+                                    <label for="edit-phoneNumber"
                                         >Phone Number</label
                                     >
                                 </div>
@@ -255,7 +255,7 @@
                                         placeholder="contact@contact.com"
                                         id="edit-email"
                                     />
-                                    <label for="email">Email</label>
+                                    <label for="edit-email">Email</label>
                                 </div>
 
                                 <div class="form-floating mb-3">
@@ -265,7 +265,7 @@
                                         placeholder="123 Contact Road"
                                         id="edit-address"
                                     />
-                                    <label for="address">Address</label>
+                                    <label for="edit-address">Address</label>
                                 </div>
 
                                 <div class="form-floating mb-3">
@@ -275,16 +275,35 @@
                                         placeholder="Clerk"
                                         id="edit-occupation"
                                     />
-                                    <label for="address">Occupation</label>
+                                    <label for="edit-occupation">Occupation</label>
                                 </div>
 
-                                <div class="mt-3">
+                                <div class="form-floating mb-3">
+                                    <input
+                                        type="file"
+                                        class="form-control form-control-sm"
+                                        id="edit-picture"
+                                        accept="image/png,image/jpeg"
+                                    />
+                                    <label for="edit-picture">Image</label>
+                                </div>
+
+                                <span class="mt-3">
                                     <input
                                         class="btn btn-primary primaryBg"
                                         type="submit"
                                         value="Update"
+                                        onclick="return editContact();"
                                     />
-                                </div>
+                                </span>
+                                <span class="mt-3">
+                                    <input
+                                        class="btn btn-secondary"
+                                        type="submit"
+                                        value="Update and Remove Image"
+                                        onclick="return editContact(true);"
+                                    />
+                                </span>
                             </form>
                         </div>
                     </div>
@@ -331,7 +350,7 @@
                                         id="create-firstName"
                                         required
                                     />
-                                    <label for="firstName">First Name</label>
+                                    <label for="create-firstName">First Name</label>
                                 </div>
 
                                 <div class="form-floating mb-3">
@@ -342,7 +361,7 @@
                                         id="create-lastName"
                                         required
                                     />
-                                    <label for="lastName">Last Name</label>
+                                    <label for="create-lastName">Last Name</label>
                                 </div>
 
                                 <div class="form-floating mb-3">
@@ -352,7 +371,7 @@
                                         placeholder="1234567890"
                                         id="create-phoneNumber"
                                     />
-                                    <label for="phoneNumber"
+                                    <label for="create-phoneNumber"
                                         >Phone Number</label
                                     >
                                 </div>
@@ -364,7 +383,7 @@
                                         placeholder="contact@contact.com"
                                         id="create-email"
                                     />
-                                    <label for="email">Email</label>
+                                    <label for="create-email">Email</label>
                                 </div>
 
                                 <div class="form-floating mb-3">
@@ -374,7 +393,7 @@
                                         placeholder="123 Contact Road"
                                         id="create-address"
                                     />
-                                    <label for="address">Address</label>
+                                    <label for="create-address">Address</label>
                                 </div>
 
                                 <div class="form-floating mb-3">
@@ -384,7 +403,17 @@
                                         placeholder="Clerk"
                                         id="create-occupation"
                                     />
-                                    <label for="address">Occupation</label>
+                                    <label for="create-occupation">Occupation</label>
+                                </div>
+
+                                <div class="form-floating mb-3">
+                                    <input
+                                        type="file"
+                                        class="form-control form-control-sm"
+                                        id="create-picture"
+                                        accept="image/png,image/jpeg"
+                                    />
+                                    <label for="create-picture">Image</label>
                                 </div>
 
                                 <div class="mt-3">

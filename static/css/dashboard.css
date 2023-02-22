@@ -6,11 +6,13 @@ body {
     background-color: #000000;
     min-width: 60px;
     max-width: 60px;
+    height: 100vh;
 }
 
 #side_nav.active {
     min-width: 250px;
     max-width: 250px;
+    height: 100vh;
 }
 
 #content {
@@ -98,8 +100,7 @@ sidebar li.active .list-itembox:hover {
     min-height: min-content;
     height: min-content;
     max-height: min-content;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
-        rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
 }
 
 .contact-interior,
@@ -150,8 +151,7 @@ sidebar li.active .list-itembox:hover {
     background-color: white;
     height: 88px;
     flex-direction: column;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
-        rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
 }
 
 .contextmenu-item {
@@ -216,7 +216,7 @@ sidebar li.active .list-itembox:hover {
     #side_nav {
         margin-left: -250px;
         position: fixed;
-        min-height: 100vh;
+        height: 100vh;
         z-index: 1;
     }
 
@@ -251,8 +251,7 @@ sidebar li.active .list-itembox:hover {
     background-color: white;
     height: 88px;
     flex-direction: column;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
-        rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
     cursor: pointer;
 }
 

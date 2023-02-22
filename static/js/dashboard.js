@@ -38,7 +38,6 @@ function createNewContact() {
     // the user that entered the data
     let userId = readCookie().userId;
 
-    // data the user entered
     let inData = {
         userId: userId, // id of the sender
         firstName: document.getElementById("create-firstName").value, // required
@@ -49,45 +48,85 @@ function createNewContact() {
         email: document.getElementById("create-email").value,
         occupation: document.getElementById("create-occupation").value,
         address: document.getElementById("create-address").value,
+        imageUrl: null,
     };
 
-    // To do after the response
-    let callbacks = {};
-    callbacks.error = function (response) {
-        document.getElementById("result").innerHTML = response.error;
-    };
-    callbacks.success = function (response) {
-        location.reload();
-    };
+    let createCallbacks = {};
+    createCallbacks.error = function(response) {};
+    createCallbacks.success = function(response) { location.reload(); }
 
-    // Send request
-    let url = urlBase + "/createContact.php";
-    sendRequest(inData, url, callbacks);
+    let photo = document.getElementById("create-picture").files[0];
+    if (photo) {
+        let formData = new FormData();
+        let filename = `user_${userId}_contact_${selected_id}.png`
+        formData.append("picture", photo, filename);
 
-    return false;
+        let url = urlBase + "/fileupload.php";
+        
+        let callbacks = {};
+        callbacks.error = function (response) {
+            sendRequest(inData, urlBase + "/createContact.php", createCallbacks);
+        };
+        callbacks.success = function (response) { 
+            inData.imageUrl = filename;
+            console.log(inData.imageUrl);
+            sendRequest(inData, urlBase + "/createContact.php", createCallbacks);
+        };
+
+        sendRequest(formData, url, callbacks);
+    }
+    else sendRequest(inData, urlBase + "/createContact.php", createCallbacks);
+
+    return false; // disable reload
 }
 
-function editContact() {
+function editContact(clearBool=false) {
+
+    let userId = readCookie().userId;
+
     let inData = {
         id: selected_id,
         firstName: document.getElementById("edit-firstName").value,
         lastName: document.getElementById("edit-lastName").value,
-        phoneNumber: document.getElementById("edit-phoneNumber").value,
+        phoneNumber: phoneNumberToDigits(
+            document.getElementById("edit-phoneNumber").value
+        ),
         email: document.getElementById("edit-email").value,
         address: document.getElementById("edit-address").value,
         occupation: document.getElementById("edit-occupation").value,
+        imageUrl: null,
     };
 
-    // To do after the response
-    let callbacks = {};
-    callbacks.error = function (response) {};
-    callbacks.success = function (response) {
-        location.reload();
-    };
+    let editCallbacks = {};
+    editCallbacks.error = function(response) {};
+    editCallbacks.success = function(response) { location.reload(); }
 
-    // Send request
-    let url = urlBase + "/editContact.php";
-    sendRequest(inData, url, callbacks);
+    if (!clearBool) {
+        let photo = document.getElementById("edit-picture").files[0];
+        if (photo) {
+            let formData = new FormData();
+            let filename = `user_${userId}_contact_${selected_id}.png`
+            formData.append("picture", photo, filename);
+
+            let url = urlBase + "/fileupload.php";
+            
+            let callbacks = {};
+            callbacks.error = function (response) {
+                sendRequest(inData, urlBase + "/editContact.php", editCallbacks);
+            };
+            callbacks.success = function (response) { 
+                inData.imageUrl = filename;
+                console.log(inData.imageUrl);
+                sendRequest(inData, urlBase + "/editContact.php", editCallbacks);
+            };
+
+            sendRequest(formData, url, callbacks);
+            return false;
+        }
+    }
+    else inData.imageUrl = "null";
+
+    sendRequest(inData, urlBase + "/editContact.php", editCallbacks);
 
     return false; // disable reload
 }
@@ -130,7 +169,6 @@ async function searchContacts(params) {
     callbacks.error = function (response) {};
     callbacks.success = function (response) {
         contacts = response;
-        console.log(`%c${JSON.stringify(contacts)}`, "color:yellow;");
         container.innerHTML = "";
         response.forEach((contact) => {
             // add the innerHTMLs
@@ -139,14 +177,14 @@ async function searchContacts(params) {
             <div class="contact">
                 <div class="contact-top">
                     <h3 class="name">${contact.firstName || ""} ${
-                contact.lastName || ""
-            }</h3>
+                        contact.lastName || ""
+                    }</h3>
                     <span class="material-icons-sharp context-button" data-id="${
                         contact.id
                     }">more_vert</span>
                 </div>
                 <div class="contact-interior">
-                    <img src="static/images/media/anonymous.png" />
+                    <img src="https://contactstorage.info/static/images/media/${contact.imageUrl || "anonymous.png"}" onerror="this.src='static/images/media/anonymous.png'"/>
                     <div class="contact-info">
                         <div class="info_container"><span class="material-icons-sharp">call</span>${
                             formatPhoneNumber(contact.phoneNumber) || ""
@@ -261,6 +299,7 @@ function initCreatePage() {
     document.getElementById("create-email").value = "";
     document.getElementById("create-occupation").value = "";
     document.getElementById("create-address").value = "";
+    document.getElementById("create-picture").value = "";
 }
 
 function initEditPage() {
@@ -271,6 +310,7 @@ function initEditPage() {
     document.getElementById("edit-email").value = contact.email;
     document.getElementById("edit-address").value = contact.address;
     document.getElementById("edit-occupation").value = contact.occupation;
+    document.getElementById("edit-picture").value = "";
 }
 
 function initDeletePage() {

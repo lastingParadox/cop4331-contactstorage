@@ -38,8 +38,12 @@ function logout() {
 }
 
 function readCookie() {
+
     userId = -1;
     let data = document.cookie;
+
+    if (!data) window.location.href = "index.html";
+
     let test = data.split("; ");
 
     for (let i = 0; i < test.length; i++) {
@@ -128,14 +132,17 @@ function setCookie(cName, cValue, expMinutes) {
 function sendRequest(inData, url, callbacks) {
     let request = new XMLHttpRequest();
     request.open("POST", url, true);
-    request.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+
+    console.log(inData);
 
     try {
         request.onload = function () {
             console.log(
                 "[Received Data (" + url + ")]: " + request.responseText
             );
+            
             let response = JSON.parse(request.responseText);
+            console.log(response);
 
             // failed to accomplish the request (call callbacks.error)
             if (response.error) {
@@ -154,7 +161,9 @@ function sendRequest(inData, url, callbacks) {
         console.log(
             "[Sending Request (" + url + ")]: " + JSON.stringify(inData)
         );
-        request.send(JSON.stringify(inData));
+
+        if (inData instanceof FormData) request.send(inData);
+        else request.send(JSON.stringify(inData));
     } catch (err) {
         console.log("[Request Error (" + url + ")]: " + response.error);
         callbacks.error({ error: err.message });

@@ -12,8 +12,8 @@
         // userId who is inserting this information
         $userId = intval($inData["userId"]);
 
-        $stmt = $conn->prepare("INSERT into CONTACTS (userId, firstName, lastName, phoneNumber, email, occupation, address) VALUES (?,?,?,?,?,?,?)");
-        $stmt->bind_param("issssss",
+        $stmt = $conn->prepare("INSERT into CONTACTS (userId, firstName, lastName, phoneNumber, email, occupation, address, imageUrl) VALUES (?,?,?,?,?,?,?,?)");
+        $stmt->bind_param("isssssss",
             $userId,
             $inData["firstName"], 
             $inData["lastName"],
@@ -21,6 +21,7 @@
             $inData["email"],
             $inData["occupation"],
             $inData["address"],
+            $inData["imageUrl"]
         );
         $stmt->execute();
 
