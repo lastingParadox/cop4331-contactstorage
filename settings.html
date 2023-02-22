@@ -108,8 +108,40 @@
                     </ul>
                 </div>
 
-                <div id="content">
-                    <h1>Settings</h1>
+                <div id="content" class="p-3">
+
+                    <div id="settings-content" class="bg-white p-3 rounded">
+
+                        <!--Color settings-->
+                        <h3 class="mt-2">Color Settings</h3>
+                        <div class="">
+                            <span>Primary Color</span>
+                            <form class="mb-2 d-flex">
+                                <input id="color-picker-primary" type="color" name="" class="form-control-color">
+                                <input class="form-control mx-3 w-25" type="text" placeholder="" value="#000000"/>
+                            </form>
+                            <span>Secondary Color</span>
+                            <form class="mb-2 d-flex">
+                                <input id="color-picker-secondary" type="color" name="" class="form-control-color">
+                                <input class="form-control mx-3 w-25" type="text" placeholder="" value="#000000"/>
+                            </form>
+                        </div>
+
+                        <!--Card View and List View settings-->
+                        <h3 class="mt-5">Contact Settings</h3>
+                        <div id="card-view-setting" class="">
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked onclick="">
+                                <label class="form-check-label" for="flexSwitchCheckChecked">Use Card View</label>
+                            </div>
+                        </div>
+
+                        <!--Apply settings button-->
+                        <button class="d-flex btn btn-success mt-5" onclick="">
+                            <span class="px-2">Apply Settings</span>
+                        </button>
+
+                    </div>
                 </div>
             </div>
         </body>
