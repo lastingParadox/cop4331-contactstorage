@@ -49,6 +49,7 @@ function createNewContact() {
         email: document.getElementById("create-email").value,
         occupation: document.getElementById("create-occupation").value,
         address: document.getElementById("create-address").value,
+        imageUrl: null,
     };
 
     // To do after the response
@@ -68,26 +69,47 @@ function createNewContact() {
 }
 
 function editContact() {
+
+    let userId = readCookie().userId;
+
     let inData = {
         id: selected_id,
         firstName: document.getElementById("edit-firstName").value,
         lastName: document.getElementById("edit-lastName").value,
-        phoneNumber: document.getElementById("edit-phoneNumber").value,
+        phoneNumber: phoneNumberToDigits(
+            document.getElementById("edit-phoneNumber").value
+        ),
         email: document.getElementById("edit-email").value,
         address: document.getElementById("edit-address").value,
         occupation: document.getElementById("edit-occupation").value,
+        imageUrl: "",
     };
 
-    // To do after the response
-    let callbacks = {};
-    callbacks.error = function (response) {};
-    callbacks.success = function (response) {
-        location.reload();
-    };
+    let editCallbacks = {};
+    editCallbacks.error = function(response) {};
+    editCallbacks.success = function(response) { location.reload(); }
 
-    // Send request
-    let url = urlBase + "/editContact.php";
-    sendRequest(inData, url, callbacks);
+    let photo = document.getElementById("edit-picture").files[0];
+    if (photo) {
+        let formData = new FormData();
+        let filename = `user_${userId}_contact_${selected_id}.png`
+        formData.append("picture", photo, filename);
+
+        let url = urlBase + "/fileupload.php";
+        
+        let callbacks = {};
+        callbacks.error = function (response) {
+            sendRequest(inData, urlBase + "/editContact.php", editCallbacks);
+        };
+        callbacks.success = function (response) { 
+            inData.imageUrl = filename;
+            console.log(inData.imageUrl);
+            sendRequest(inData, urlBase + "/editContact.php", editCallbacks);
+        };
+
+        sendRequest(formData, url, callbacks);
+    }
+    else sendRequest(inData, urlBase + "/editContact.php", editCallbacks);
 
     return false; // disable reload
 }
