@@ -80,7 +80,7 @@ function createNewContact() {
     return false; // disable reload
 }
 
-function editContact(clearBool=False) {
+function editContact(clearBool=false) {
 
     let userId = readCookie().userId;
 
@@ -124,7 +124,7 @@ function editContact(clearBool=False) {
             return false;
         }
     }
-    else inData.imageUrl = null;
+    else inData.imageUrl = "null";
 
     sendRequest(inData, urlBase + "/editContact.php", editCallbacks);
 
@@ -184,7 +184,7 @@ async function searchContacts(params) {
                     }">more_vert</span>
                 </div>
                 <div class="contact-interior">
-                    <img src="static/images/media/${contact.imageUrl || "anonymous.png"}" onerror="this.src='static/images/media/anonymous.png'"/>
+                    <img src="https://contactstorage.info/static/images/media/${contact.imageUrl || "anonymous.png"}" onerror="this.src='static/images/media/anonymous.png'"/>
                     <div class="contact-info">
                         <div class="info_container"><span class="material-icons-sharp">call</span>${
                             formatPhoneNumber(contact.phoneNumber) || ""
@@ -299,6 +299,7 @@ function initCreatePage() {
     document.getElementById("create-email").value = "";
     document.getElementById("create-occupation").value = "";
     document.getElementById("create-address").value = "";
+    document.getElementById("create-picture").value = "";
 }
 
 function initEditPage() {
@@ -309,6 +310,7 @@ function initEditPage() {
     document.getElementById("edit-email").value = contact.email;
     document.getElementById("edit-address").value = contact.address;
     document.getElementById("edit-occupation").value = contact.occupation;
+    document.getElementById("edit-picture").value = "";
 }
 
 function initDeletePage() {

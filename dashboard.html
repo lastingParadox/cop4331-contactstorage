@@ -213,7 +213,7 @@
                         </div>
                         <div class="page-content">
                             <h1>Edit Contact</h1>
-                            <form onsubmit="return editContact();">
+                            <form method="post">
                                 <div class="form-floating mb-3">
                                     <input
                                         type="text"
@@ -288,13 +288,22 @@
                                     <label for="edit-picture">Image</label>
                                 </div>
 
-                                <div class="mt-3">
+                                <span class="mt-3">
                                     <input
                                         class="btn btn-primary primaryBg"
                                         type="submit"
                                         value="Update"
+                                        onclick="return editContact();"
                                     />
-                                </div>
+                                </span>
+                                <span class="mt-3">
+                                    <input
+                                        class="btn btn-secondary"
+                                        type="submit"
+                                        value="Update and Remove Image"
+                                        onclick="return editContact(true);"
+                                    />
+                                </span>
                             </form>
                         </div>
                     </div>
