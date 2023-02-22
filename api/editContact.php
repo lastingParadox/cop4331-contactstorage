@@ -12,8 +12,14 @@
     }
     else
     {
-        $stmt = $conn->prepare("UPDATE CONTACTS SET firstName = ?, lastName = ?, phoneNumber = ?, email = ?, occupation = ?, address = ?, imageUrl = ? WHERE id = ?");
-        $stmt->bind_param("sssssssi", $inData["firstName"], $inData["lastName"], $inData["phoneNumber"], $inData["email"], $inData["occupation"], $inData["address"], $inData["imageUrl"], $inData["id"]);
+        if ($inData["imageURL"]) {
+            $stmt = $conn->prepare("UPDATE CONTACTS SET firstName = ?, lastName = ?, phoneNumber = ?, email = ?, occupation = ?, address = ?, imageUrl = ? WHERE id = ?");
+            $stmt->bind_param("sssssssi", $inData["firstName"], $inData["lastName"], $inData["phoneNumber"], $inData["email"], $inData["occupation"], $inData["address"], $inData["imageUrl"], $inData["id"]);
+        }
+        else {
+            $stmt = $conn->prepare("UPDATE CONTACTS SET firstName = ?, lastName = ?, phoneNumber = ?, email = ?, occupation = ?, address = ? WHERE id = ?");
+            $stmt->bind_param("ssssssi", $inData["firstName"], $inData["lastName"], $inData["phoneNumber"], $inData["email"], $inData["occupation"], $inData["address"], $inData["id"]);
+        }
         $stmt->execute();
 
         returnWithSuccess("Contact <".$inData['id']."> edited successfully");
