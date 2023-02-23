@@ -40,6 +40,7 @@
             ></script>
 
             <link rel="stylesheet" href="static/css/dashboard.css" />
+            <link rel="stylesheet" href="static/css/settings.css" />
         </head>
         <body>
             <div class="main-container d-flex">
@@ -108,22 +109,22 @@
                     </ul>
                 </div>
 
-                <div id="content" class="p-3">
+                <div id="content">
 
-                    <div id="settings-content" class="bg-white p-3 rounded">
+                    <div id="settings-content" class="bg-white m-3 p-3 rounded">
 
                         <!--Color settings-->
                         <h3 class="mt-2">Color Settings</h3>
                         <div class="">
                             <span>Primary Color</span>
-                            <form class="mb-2 d-flex">
-                                <input id="color-picker-primary" type="color" name="" class="form-control-color">
-                                <input class="form-control mx-3 w-25" type="text" placeholder="" value="#000000"/>
+                            <form class="mb-2 d-flex color-form" onsubmit="return false;">
+                                <input id="color-button-1" type="color" name="" class="form-control-color">
+                                <input id="color-text-1" class="form-control mx-3" type="text" value="#000000"/>
                             </form>
                             <span>Secondary Color</span>
-                            <form class="mb-2 d-flex">
-                                <input id="color-picker-secondary" type="color" name="" class="form-control-color">
-                                <input class="form-control mx-3 w-25" type="text" placeholder="" value="#000000"/>
+                            <form class="mb-2 d-flex color-form" onsubmit="return false;">
+                                <input id="color-button-2" type="color" name="" class="form-control-color">
+                                <input id="color-text-2" class="form-control mx-3" type="text" value="#000000"/>
                             </form>
                         </div>
 
@@ -142,6 +143,7 @@
                         </button>
 
                     </div>
+
                 </div>
             </div>
         </body>
