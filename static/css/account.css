@@ -1,3 +1,8 @@
+#uploadImageButton {
+    position: relative;
+    left: 3rem;
+}
+
 .img-account-profile {
     height: 10rem;
 }
@@ -7,11 +12,10 @@
 }
 
 .card {
-    position: absolute;
-    top: 50%;
-    left: 50%;
+    position: relative;
+    margin-top: 20px;
+    margin-left: 20px;
     box-shadow: 0 0.15rem 1.75rem 0 rgb(33 40 50 / 15%);
-    transform: translate(-50%, -50%);
 }
 
 .card .card-header {
@@ -46,4 +50,10 @@
     appearance: none;
     border-radius: 0.35rem;
     transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+@media (max-width: 767px) {
+    #deleteAccountButton {
+        margin-top: 1rem;
+    }
 }

@@ -11,7 +11,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Contact Storage</title>
+    <title>Account Page</title>
 
     <!--Google icons-->
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" />
@@ -79,17 +79,34 @@
                 <div class="card-header">Account</div>
 
                 <div class="card-body text-center">
-                    <img class="img-account-profile rounded-circle mb-2" src="./static/images/media/anonymous.png" alt="">
+                    <img class="img-account-profile rounded-circle mb-2" src="./static/images/media/anonymous.png"
+                        alt="">
                     <div class="small font-italic text-muted mb-3">JPG or PNG no larger than 5 MB</div>
-                    <button class="btn btn-primary" type="button">Upload Image</button>
+                    <input id="uploadImageButton" type="file" accept=".jpg, .png">
                 </div>
 
                 <div class="card-body">
                     <form>
+                        <div class="mb-3">
+                            <label class="small mb-1" for="username">Username</label>
+                            <input class="form-control" id="username" type="text" placeholder="Username" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="small mb-1" for="newPassword">New Password</label>
+                            <input class="form-control" id="newPassword" type="password" placeholder="New Password" required>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label class="small mb-1" for="confirmNewPassword">Confirm New Password</label>
+                            <input class="form-control" id="confirmNewPassword" type="password" placeholder="Confirm New Password" required>
+                        </div>
+
                         <div class="row gx-3 mb-3">
                             <div class="col-md-6">
                                 <label class="small mb-1" for="firstName">First Name</label>
-                                <input class="form-control" id="firstName" type="text" placeholder="First Name" required>
+                                <input class="form-control" id="firstName" type="text" placeholder="First Name"
+                                    required>
                             </div>
 
                             <div class="col-md-6">
@@ -104,24 +121,14 @@
                         </div>
 
                         <div class="row gx-3 mb-3">
-                            <div class="col-md-6">
-                                <label class="small mb-1" for="address">Address</label>
-                                <input class="form-control" id="address" type="text" placeholder="Address" required>
+                            <div class="col-md-4">
+                                <input class="btn btn-primary" id="saveChangesButton" type="submit" value="Save Changes">
                             </div>
 
                             <div class="col-md-6">
-                                <label class="small mb-1" for="phoneNumber">Phone Number</label>
-                                <input class="form-control" id="phoneNumber" type="text" placeholder="Phone Number"
-                                    required>
+                                <input class="btn btn-danger" id="deleteAccountButton" type="submit" value="Delete Account">
                             </div>
                         </div>
-
-                        <div class="mb-3">
-                            <label class="small mb-1" for="occupation">Occupation</label>
-                            <input class="form-control" id="occupation" type="text" placeholder="Occupation" required>
-                        </div>
-
-                        <input class="btn btn-primary" type="submit" value="Save Changes"></button>
                     </form>
                 </div>
             </div>
