@@ -1,55 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+            integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        />
 
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
-		integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
-		crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="./static/css/home.css" />
 
-	<link rel="stylesheet" href="./static/css/home.css">
+        <script src="./static/js/home.js" async></script>
 
-	<script src="./static/js/home.js" async></script>
+        <title>Home Page</title>
+    </head>
 
-	<title>Home Page</title>
-</head>
+    <body>
+        <header>
+            <div class="navbar">
+                <div class="logo"><a href="./home.html">Logo</a></div>
 
-<body>
-	<header>
-		<div class="navbar">
-			<div class="logo"><a href="./home.html">Logo</a></div>
+                <ul class="links">
+                    <li><a href="./home.html">Home</a></li>
 
-			<ul class="links">
-				<li><a href="./home.html">Home</a></li>
+                    <li><a href="./credits.html">Credits</a></li>
+                </ul>
 
-				<li><a href="./credits.html">Credits</a></li>
-			</ul>
+                <a href="./index.html" class="action_btn">Get Started</a>
 
-			<a href="./index.html" class="action_btn">Get Started</a>
+                <div class="toggle_btn">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
+            </div>
 
-			<div class="toggle_btn">
-				<i class="fa-solid fa-bars"></i>
-			</div>
-		</div>
+            <div class="dropdown_menu">
+                <li><a href="./home.html">Home</a></li>
 
-		<div class="dropdown_menu">
-			<li><a href="./home.html">Home</a></li>
+                <li><a href="./credits.html">Credits</a></li>
 
-			<li><a href="./credits.html">Credits</a></li>
+                <li>
+                    <a href="./index.html" class="action_btn">Get Started</a>
+                </li>
+            </div>
+        </header>
 
-			<li><a href="./index.html" class="action_btn">Get Started</a></li>
-		</div>
-	</header>
-
-	<main>
-		<section id="hero">
-			<h1>Contact Storage</h1>
-			<p>A convenient way to store your contacts online.</p>
-		</section>
-	</main>
-</body>
-
+        <main>
+            <section id="hero">
+                <h1>Contact Storage</h1>
+                <p>A convenient way to store your contacts online.</p>
+            </section>
+        </main>
+    </body>
 </html>

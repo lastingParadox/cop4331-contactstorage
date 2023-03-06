@@ -67,7 +67,7 @@ header {
     background-color: orange;
     color: white;
     padding: 0.5rem 1rem;
-	max-width: 125px;
+    max-width: 125px;
     border: none;
     outline: none;
     border-radius: 20px;
@@ -119,18 +119,18 @@ header {
 
 section#hero {
     padding: 0 2rem;
-	height: calc(100vh - 60px);
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	text-align: center;
-	color: white;
+    height: calc(100vh - 60px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
 }
 
 #hero h1 {
-	font-size: 3rem;
-	margin-bottom: 1rem;
+    font-size: 3rem;
+    margin-bottom: 1rem;
 }
 
 @media (max-width: 992px) {
@@ -149,8 +149,8 @@ section#hero {
 }
 
 @media (max-width: 576px) {
-	.dropdown_menu {
-		left: 2rem;
-		width: unset;
-	}
+    .dropdown_menu {
+        left: 2rem;
+        width: unset;
+    }
 }

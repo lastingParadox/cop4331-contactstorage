@@ -64,9 +64,6 @@ function transferPage(id) {
         case "nav_account":
             window.location.href = "./account.html";
             break;
-        case "nav_settings":
-            window.location.href = "./settings.html";
-            break;
         default:
             return;
     }

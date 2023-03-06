@@ -51,12 +51,14 @@
                                 id="hamburger"
                                 class="btn open-btn border-0 text-white"
                             >
-                                <span class="material-icons-outlined">menu</span>
+                                <span class="material-icons-outlined"
+                                    >menu</span
+                                >
                             </button>
                             <span class="text-white">Contact Storage</span>
                         </h1>
                     </div>
-    
+
                     <ul class="list-unstyled">
                         <li
                             id="nav_contacts"
@@ -84,7 +86,7 @@
                         </li>
                     </ul>
                     <hr class="hr-color mx-2 border-2" />
-    
+
                     <ul class="list-unstyled">
                         <li
                             id="nav_settings"
@@ -92,7 +94,9 @@
                             onclick="transferPage(this.id);"
                         >
                             <div class="list-itembox">
-                                <span class="material-icons-sharp">settings</span>
+                                <span class="material-icons-sharp"
+                                    >settings</span
+                                >
                                 <span class="ms-3">Settings</span>
                             </div>
                         </li>
@@ -106,44 +110,74 @@
                 </div>
 
                 <div id="content">
-
                     <div id="settings-content" class="bg-white m-3 p-3 rounded">
-
                         <!--Color settings-->
                         <h3 class="mt-2">Color Settings</h3>
                         <div class="">
                             <span>Primary Color</span>
-                            <form class="mb-2 d-flex color-form" onsubmit="return false;">
-                                <input id="color-button-1" type="color" name="" class="form-control-color">
-                                <input id="color-text-1" class="form-control mx-3" type="text" value="#000000"/>
+                            <form
+                                class="mb-2 d-flex color-form"
+                                onsubmit="return false;"
+                            >
+                                <input
+                                    id="color-button-1"
+                                    type="color"
+                                    name=""
+                                    class="form-control-color"
+                                />
+                                <input
+                                    id="color-text-1"
+                                    class="form-control mx-3"
+                                    type="text"
+                                    value="#000000"
+                                />
                             </form>
                             <span>Secondary Color</span>
-                            <form class="mb-2 d-flex color-form" onsubmit="return false;">
-                                <input id="color-button-2" type="color" name="" class="form-control-color">
-                                <input id="color-text-2" class="form-control mx-3" type="text" value="#000000"/>
+                            <form
+                                class="mb-2 d-flex color-form"
+                                onsubmit="return false;"
+                            >
+                                <input
+                                    id="color-button-2"
+                                    type="color"
+                                    name=""
+                                    class="form-control-color"
+                                />
+                                <input
+                                    id="color-text-2"
+                                    class="form-control mx-3"
+                                    type="text"
+                                    value="#000000"
+                                />
                             </form>
                         </div>
 
-                <!--Card View and List View settings-->
-                <h3 class="mt-5">Contact Settings</h3>
-                <div id="card-view-setting" class="">
-                    <div class="form-check form-switch">
-                        <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked onclick="">
-                        <label class="form-check-label" for="flexSwitchCheckChecked">Use Card View</label>
+                        <!--Card View and List View settings-->
+                        <h3 class="mt-5">Contact Settings</h3>
+                        <div id="card-view-setting" class="">
+                            <div class="form-check form-switch">
+                                <input
+                                    class="form-check-input"
+                                    type="checkbox"
+                                    id="flexSwitchCheckChecked"
+                                    checked
+                                    onclick=""
+                                />
+                                <label
+                                    class="form-check-label"
+                                    for="flexSwitchCheckChecked"
+                                    >Use Card View</label
+                                >
+                            </div>
+                        </div>
+
+                        <!--Apply settings button-->
+                        <button class="d-flex btn btn-success mt-5" onclick="">
+                            <span class="px-2">Apply Settings</span>
+                        </button>
                     </div>
-
                 </div>
-
-                <!--Apply settings button-->
-                <button class="d-flex btn btn-success mt-5" onclick="">
-                    <span class="px-2">Apply Settings</span>
-                </button>
-
             </div>
-        </div>
-    </div>
-</body>
-
-</html>
-
+        </body>
+    </html>
 </html>

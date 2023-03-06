@@ -38,7 +38,6 @@ function logout() {
 }
 
 function readCookie() {
-
     userId = -1;
     let data = document.cookie;
 
@@ -140,7 +139,7 @@ function sendRequest(inData, url, callbacks) {
             console.log(
                 "[Received Data (" + url + ")]: " + request.responseText
             );
-            
+
             let response = JSON.parse(request.responseText);
             console.log(response);
 

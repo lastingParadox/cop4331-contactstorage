@@ -52,36 +52,44 @@ function createNewContact() {
     };
 
     let createCallbacks = {};
-    createCallbacks.error = function(response) {};
-    createCallbacks.success = function(response) { location.reload(); }
+    createCallbacks.error = function (response) {};
+    createCallbacks.success = function (response) {
+        location.reload();
+    };
 
     let photo = document.getElementById("create-picture").files[0];
     if (photo) {
         let formData = new FormData();
-        let filename = `user_${userId}_contact_${selected_id}.png`
+        let filename = `user_${userId}_contact_${selected_id}.png`;
         formData.append("picture", photo, filename);
 
         let url = urlBase + "/fileupload.php";
-        
+
         let callbacks = {};
         callbacks.error = function (response) {
-            sendRequest(inData, urlBase + "/createContact.php", createCallbacks);
+            sendRequest(
+                inData,
+                urlBase + "/createContact.php",
+                createCallbacks
+            );
         };
-        callbacks.success = function (response) { 
+        callbacks.success = function (response) {
             inData.imageUrl = filename;
             console.log(inData.imageUrl);
-            sendRequest(inData, urlBase + "/createContact.php", createCallbacks);
+            sendRequest(
+                inData,
+                urlBase + "/createContact.php",
+                createCallbacks
+            );
         };
 
         sendRequest(formData, url, callbacks);
-    }
-    else sendRequest(inData, urlBase + "/createContact.php", createCallbacks);
+    } else sendRequest(inData, urlBase + "/createContact.php", createCallbacks);
 
     return false; // disable reload
 }
 
-function editContact(clearBool=false) {
-
+function editContact(clearBool = false) {
     let userId = readCookie().userId;
 
     let inData = {
@@ -98,33 +106,42 @@ function editContact(clearBool=false) {
     };
 
     let editCallbacks = {};
-    editCallbacks.error = function(response) {};
-    editCallbacks.success = function(response) { location.reload(); }
+    editCallbacks.error = function (response) {};
+    editCallbacks.success = function (response) {
+        location.reload();
+    };
 
     if (!clearBool) {
         let photo = document.getElementById("edit-picture").files[0];
         if (photo) {
             let formData = new FormData();
-            let filename = `user_${userId}_contact_${selected_id}.png`
+            let filename = `user_${userId}_contact_${selected_id}.png`;
             formData.append("picture", photo, filename);
 
             let url = urlBase + "/fileupload.php";
-            
+
             let callbacks = {};
             callbacks.error = function (response) {
-                sendRequest(inData, urlBase + "/editContact.php", editCallbacks);
+                sendRequest(
+                    inData,
+                    urlBase + "/editContact.php",
+                    editCallbacks
+                );
             };
-            callbacks.success = function (response) { 
+            callbacks.success = function (response) {
                 inData.imageUrl = filename;
                 console.log(inData.imageUrl);
-                sendRequest(inData, urlBase + "/editContact.php", editCallbacks);
+                sendRequest(
+                    inData,
+                    urlBase + "/editContact.php",
+                    editCallbacks
+                );
             };
 
             sendRequest(formData, url, callbacks);
             return false;
         }
-    }
-    else inData.imageUrl = "null";
+    } else inData.imageUrl = "null";
 
     sendRequest(inData, urlBase + "/editContact.php", editCallbacks);
 
@@ -177,14 +194,16 @@ async function searchContacts(params) {
             <div class="contact">
                 <div class="contact-top">
                     <h3 class="name">${contact.firstName || ""} ${
-                        contact.lastName || ""
-                    }</h3>
+                contact.lastName || ""
+            }</h3>
                     <span class="material-icons-sharp context-button" data-id="${
                         contact.id
                     }">more_vert</span>
                 </div>
                 <div class="contact-interior">
-                    <img src="https://contactstorage.info/static/images/media/${contact.imageUrl || "anonymous.png"}" onerror="this.src='static/images/media/anonymous.png'"/>
+                    <img src="https://contactstorage.info/static/images/media/${
+                        contact.imageUrl || "anonymous.png"
+                    }" onerror="this.src='static/images/media/anonymous.png'"/>
                     <div class="contact-info">
                         <div class="info_container"><span class="material-icons-sharp">call</span>${
                             formatPhoneNumber(contact.phoneNumber) || ""
@@ -213,7 +232,6 @@ async function searchContacts(params) {
                 let rect = context_buttons[i].getBoundingClientRect();
 
                 const xCenter = (rect.left + rect.right) / 2;
-                const x = event.clientX + 5;
 
                 context_menu.style.top = `${rect.bottom}px`;
                 context_menu.style.left = `${
