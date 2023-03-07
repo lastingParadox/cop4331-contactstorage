@@ -18,7 +18,7 @@
     else
     {
         // Checking if the user exists
-        $stmt = $conn->prepare("SELECT firstName, lastName, email, imageUrl FROM USERS WHERE id=?");
+        $stmt = $conn->prepare("SELECT firstName, lastName, username, email, imageUrl FROM USERS WHERE id=?");
         $stmt->bind_param("i", $inData["userId"]);
         $stmt->execute();
         $result = $stmt->get_result();
@@ -29,6 +29,7 @@
         {
             $outData['firstName'] = $row['firstName'];
             $outData['lastName'] = $row['lastName'];
+            $outData['username'] = $row['username'];
             $outData['email'] = $row['email'];
             $outData['imageUrl'] = $row['imageUrl'];
         }
@@ -52,7 +53,7 @@
             $outData['colorSide'] = $row['colorSide'];
             $outData['colorDash'] = $row['colorDash'];
             $outData['contactView'] = $row['contactView'];
-            returnWithInfo( $outData['firstName'], $outData['lastName'], $outData["email"], $outData['imageUrl'],
+            returnWithInfo( $outData['firstName'], $outData['lastName'], $outData["username"], $outData["email"], $outData['imageUrl'],
                             $outData['colorSide'], $outData['colorDash'], $outData['contactView'] );
         }
         else
@@ -81,9 +82,9 @@
         sendResultInfoAsJson( $retValue );
     }
     
-    function returnWithInfo( $firstName, $lastName, $email, $imageUrl, $colorSide, $colorDash, $contactView )
+    function returnWithInfo( $firstName, $lastName, $username, $email, $imageUrl, $colorSide, $colorDash, $contactView )
     {
-        $retValue = '{"firstName":"' . $firstName . '","lastName":"' . $lastName . '","email":"' . $email . '","imageUrl":"' . $imageUrl . '",
+        $retValue = '{"firstName":"' . $firstName . '","lastName":"' . $lastName . '","username": "' . $username .'","email":"' . $email . '","imageUrl":"' . $imageUrl . '",
             "colorSide":"' . $colorSide .'","colorDash":"' . $colorDash .'","contactView":"' . $contactView .'","error":"","success":"User details retrieved successfully."}';
         sendResultInfoAsJson( $retValue );
     }
