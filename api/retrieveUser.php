@@ -84,7 +84,7 @@
     function returnWithInfo( $firstName, $lastName, $email, $imageUrl, $colorSide, $colorDash, $contactView )
     {
         $retValue = '{"firstName":"' . $firstName . '","lastName":"' . $lastName . '","email":"' . $email . '","imageUrl":"' . $imageUrl . '",
-            "colorSide":"' . $colorSide .',"colorDash":"' . $colorDash .',"contactView":"' . $contactView .',"error":"","success":"User details retrieved successfully."}';
+            "colorSide":"' . $colorSide .'","colorDash":"' . $colorDash .'","contactView":"' . $contactView .'","error":"","success":"User details retrieved successfully."}';
         sendResultInfoAsJson( $retValue );
     }
     
