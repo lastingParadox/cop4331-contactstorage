@@ -9,7 +9,7 @@ let cookieName = "ContactStorageUser";
 // BACKEND FUNCTIONS
 
 function saveCookie() {
-    let minutes = 20;
+    let minutes = 30;
     let date = new Date();
     date.setTime(date.getTime() + minutes * 60 * 1000);
     document.cookie =
@@ -84,7 +84,7 @@ function readCookie() {
     };
 }
 
-function setCookie(cName, cValue, expMinutes) {
+function setCookie(cName, cValue, expMinutes = 30) {
     let cookie = readCookie();
 
     firstName = cookie.firstName;

@@ -108,8 +108,8 @@
                                 src="./static/images/media/anonymous.png"
                                 alt=""
                             />
-                            <h2 id="userFirstLast">First_name Last_name</h2>
-                            <i class="text-secondary">email@example.com</i>
+                            <h2 id="userFirstLast"></h2>
+                            <i id="userEmail" class="text-secondary"></i>
 
                             <div class="mt-4">
                                 <button
@@ -178,25 +178,38 @@
                                             type="text"
                                             class="form-control form-control-sm"
                                             placeholder="Username"
-                                            id="details-phoneNumber"
+                                            id="details-username"
+                                            required
                                         />
                                         <label for="details-username"
                                             >Username</label
                                         >
                                     </div>
 
+                                    <!-- Changing Password is iffy; need to consider validating prior to sending the api call
                                     <div class="form-floating mb-3">
                                         <input
                                             type="password"
                                             class="form-control form-control-sm"
-                                            placeholder="password"
-                                            id="details-password"
+                                            placeholder="old_password"
+                                            id="details-oldpassword"
                                         />
-                                        <label for="details-password"
-                                            >Password</label
+                                        <label for="details-oldpassword"
+                                            >Old Password</label
                                         >
                                     </div>
-
+                                    <div class="form-floating mb-3">
+                                        <input
+                                            type="password"
+                                            class="form-control form-control-sm"
+                                            placeholder="new_password"
+                                            id="details-newpassword"
+                                        />
+                                        <label for="details-newpassword"
+                                            >New Password</label
+                                        >
+                                    </div>
+                                    -->
                                     <div class="form-floating mb-3">
                                         <input
                                             type="text"
@@ -225,7 +238,7 @@
                                             class="btn btn-primary primaryBg"
                                             type="submit"
                                             value="Update"
-                                            onclick="return editAccount();"
+                                            onclick="return editUserDetails();"
                                         />
                                     </span>
                                     <span class="mt-3">
@@ -233,7 +246,7 @@
                                             class="btn btn-secondary"
                                             type="submit"
                                             value="Update and Remove Image"
-                                            onclick="return editAccount(true);"
+                                            onclick="return editUserDetails(true);"
                                         />
                                     </span>
                                 </form>
