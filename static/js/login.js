@@ -66,12 +66,14 @@ function register(event) {
 
     let firstName = document.getElementById("register-firstname").value;
     let lastName = document.getElementById("register-lastname").value;
+    let email = document.getElementById("register-email").value;
     let username = document.getElementById("register-username").value;
     let password = document.getElementById("register-password").value;
 
     let inData = {
         username: username,
         password: password,
+        email: email,
         firstName: firstName,
         lastName: lastName,
     };

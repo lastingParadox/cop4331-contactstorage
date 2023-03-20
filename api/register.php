@@ -24,8 +24,8 @@
         else
         {
             $hash = password_hash($inData["password"], PASSWORD_DEFAULT);
-            $stmt = $conn->prepare("INSERT into USERS (firstName, lastName, username, password) VALUES (?,?,?,?)");
-            $stmt->bind_param("ssss", $inData["firstName"], $inData["lastName"], $inData["username"], $hash);
+            $stmt = $conn->prepare("INSERT into USERS (firstName, lastName, email, username, password) VALUES (?,?,?,?)");
+            $stmt->bind_param("ssss", $inData["firstName"], $inData["lastName"], $inData["email"], $inData["username"], $hash);
             $stmt->execute();
 
             returnWithSuccess("User registered successfully");
