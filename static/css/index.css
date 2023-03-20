@@ -88,7 +88,7 @@ body.active {
 }
 
 .formBox.active {
-    left: 50%;
+    left: 55%;
 }
 
 .formBox .form {
@@ -127,14 +127,14 @@ body.active {
 .formBox .form form h3 {
     font-size: 1.5em;
     color: #333;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     font-weight: 500;
 }
 
 .formBox .form form input {
     width: 100%;
     margin-bottom: 20px;
-    padding: 10px;
+    padding: 5px;
     outline: none;
     font-size: 16px;
     border: 1px solid #333;
@@ -150,6 +150,33 @@ body.active {
 
 .formBox.active .registerForm input[type="submit"] {
     background: var(--secondary-background-color);
+}
+
+.formBox.active .registerForm input[type="submit"]:disabled {
+    cursor: not-allowed;
+}
+
+.formBox .form .register-field {
+    margin-bottom: 0px;
+}
+
+.register-invalid {
+    color: red;
+    margin-bottom: 2px;
+    font-size: 0.75em;
+    visibility: hidden;
+}
+
+#login-error {
+    color: red;
+}
+
+#register-header {
+    margin-top: 20px;
+}
+
+#password-invalid {
+    margin-bottom: 16px;
 }
 
 @media (max-width: 991px) {

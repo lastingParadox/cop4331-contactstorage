@@ -66,7 +66,8 @@ async function retrieveUser() {
         document.getElementById("color-button-2").value = user.colorSide;
         document.getElementById("color-text-2").value = user.colorSide;
 
-        if (user.contactView === "card") document.getElementById("flexSwitchCheckChecked").checked = true;
+        if (user.contactView === "card")
+            document.getElementById("flexSwitchCheckChecked").checked = true;
         else document.getElementById("flexSwitchCheckChecked").checked = true;
     };
 
