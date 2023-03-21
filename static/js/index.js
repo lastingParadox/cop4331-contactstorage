@@ -55,7 +55,7 @@ function readCookie() {
     data = data.replace(`${cookieName}=`, "");
 
     let splits = data.split(",");
-    for (var i = 0; i < splits.length; i++) {
+    for (let i = 0; i < splits.length; i++) {
         let thisOne = splits[i].trim();
         let tokens = thisOne.split("=");
         if (tokens[0] == "firstName") {
@@ -71,8 +71,6 @@ function readCookie() {
 
     if (userId < 0) {
         window.location.href = "index.html";
-    } else {
-        //document.getElementById("welcome").innerHTML = "Hello, " + firstName + " " + lastName;
     }
 
     return {
@@ -94,7 +92,6 @@ function setCookie(cName, cValue, expMinutes = 30) {
 
     let date = new Date();
     date.setTime(date.getTime() + expMinutes * 60 * 1000);
-    const expires = "expires=" + date.toGMTString();
 
     switch (cName) {
         case "userId":

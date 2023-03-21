@@ -119,69 +119,21 @@
                                     <span class="px-2">Add Contact</span>
                                 </button>
 
-                                <!--Dropdown menu for search params-->
-                                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                                    <li class="nav-item dropdown">
-                                        <a
-                                            class="nav-link dropdown-toggle"
-                                            href="#"
-                                            id="navbarDropdown"
-                                            role="button"
-                                            data-bs-toggle="dropdown"
-                                            aria-expanded="false"
-                                        >
-                                            Filter By
-                                        </a>
-                                        <ul
-                                            class="dropdown-menu"
-                                            aria-labelledby="navbarDropdown"
-                                        >
-                                            <li>
-                                                <a
-                                                    class="dropdown-item"
-                                                    href="#"
-                                                    >First Name</a
-                                                >
-                                            </li>
-                                            <li>
-                                                <a
-                                                    class="dropdown-item"
-                                                    href="#"
-                                                    >Last Name</a
-                                                >
-                                            </li>
-                                            <li>
-                                                <a
-                                                    class="dropdown-item"
-                                                    href="#"
-                                                    >Phone Number</a
-                                                >
-                                            </li>
-                                            <li>
-                                                <a
-                                                    class="dropdown-item"
-                                                    href="#"
-                                                    >Email</a
-                                                >
-                                            </li>
-                                        </ul>
-                                    </li>
-                                </ul>
-
                                 <!--Search input box-->
-                                <form class="d-flex">
+                                <form id=search-container class="d-flex">
                                     <input
                                         id="contact-search"
-                                        class="form-control mr-2"
+                                        class="form-control mr-2 d-inline"
                                         type="search"
                                         placeholder="Search"
                                         aria-label="Search"
                                         onkeyup="searchContacts(this.value);"
                                     />
                                     <button
-                                        class="btn"
+                                        class="btn d-inline"
                                         type="button"
                                         onclick="return false;"
+                                        style="pointer-events: none;"
                                     >
                                         <span
                                             class="material-icons-sharp d-flex"

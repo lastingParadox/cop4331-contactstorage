@@ -78,6 +78,14 @@ body {
     text-overflow: clip;
 }
 
+#navbarSupportedContent {
+    justify-content: space-between;
+}
+
+#search-container {
+    width: 25%;
+}
+
 /* Contacts */
 
 #contact-nav {

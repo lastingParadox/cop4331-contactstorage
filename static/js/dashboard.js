@@ -183,14 +183,16 @@ async function searchContacts(params) {
 
     // To do after the response (nothing yet)
     let callbacks = {};
-    callbacks.error = function (response) {};
+    callbacks.error = function (response) {
+        container.innerHTML = "";
+    };
     callbacks.success = function (response) {
         contacts = response;
         container.innerHTML = "";
         response.forEach((contact) => {
             // add the innerHTMLs
 
-            container.innerHTML += `
+            let contactHTML = `
             <div class="contact">
                 <div class="contact-top">
                     <h3 class="name">${contact.firstName || ""} ${
@@ -204,22 +206,30 @@ async function searchContacts(params) {
                     <img src="https://contactstorage.info/static/images/media/${
                         contact.imageUrl || "anonymous.png"
                     }" onerror="this.src='static/images/media/anonymous.png'"/>
-                    <div class="contact-info">
-                        <div class="info_container"><span class="material-icons-sharp">call</span>${
-                            formatPhoneNumber(contact.phoneNumber) || ""
-                        }</div>
-                        <div class="info_container"><span class="material-icons-outlined">work</span>${
-                            contact.occupation || ""
-                        }</div>
-                        <div class="info_container"><span class="material-icons-outlined">email</span>${
-                            contact.email || ""
-                        }</div>
-                        <div class="info_container"><span class="material-icons-sharp">home</span>${
-                            contact.address || ""
-                        }</div>
-                    </div>
+                    <div class="contact-info">`;
+
+            if (contact.phoneNumber)
+                contactHTML += `<div class="info_container"><span class="material-icons-sharp">call</span>${
+                    formatPhoneNumber(contact.phoneNumber) || ""
+                }</div>`;
+            if (contact.occupation)
+                contactHTML += `<div class="info_container"><span class="material-icons-outlined">work</span>${
+                    contact.occupation || ""
+                }</div>`;
+            if (contact.email)
+                contactHTML += `<div class="info_container"><span class="material-icons-outlined">email</span>${
+                    contact.email || ""
+                }</div>`;
+            if (contact.address)
+                contactHTML += `<div class="info_container"><span class="material-icons-sharp">home</span>${
+                    contact.address || ""
+                }</div>`;
+
+            contactHTML += `</div>
                 </div>
             </div>`;
+
+            container.innerHTML += contactHTML;
         });
 
         let context_buttons = document.querySelectorAll(".context-button");
