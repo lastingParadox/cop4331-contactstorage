@@ -1,216 +1,181 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <script type="text/javascript" src="static/js/index.js"></script>
 
-        <meta charset="utf-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+<head>
+    <script type="text/javascript" src="static/js/index.js"></script>
 
-        <title>Contact Storage</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-        <!--Google icons-->
-        <link
-            rel="stylesheet"
-            href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp"
-        />
-        <link
-            rel="stylesheet"
-            href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined"
-        />
+    <title>Contact Storage</title>
 
-        <!--Github icon-->
-        <link
-            rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-        />
+    <!--Google icons-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" />
 
-        <!-- Bootstrap v5.3.0-alpha1 CDNs -->
-        <link
-            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
-            rel="stylesheet"
-            integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
-            crossorigin="anonymous"
-        />
+    <!--Github icon-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 
-        <script
-            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
-            crossorigin="anonymous"
-        ></script>
+    <!-- Bootstrap v5.3.0-alpha1 CDNs -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous" />
 
-        <!-- Local Style Sheets -->
-        <link rel="stylesheet" href="static/css/styles.css" />
-        <link rel="stylesheet" href="static/css/dashboard.css" />
-    </head>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
 
-    <body>
-        <!--Nav Bar-->
-        <nav
-            class="navbar navbar-expand-lg navbar-light bg-light rounded-bottom"
-        >
-            <div class="container-fluid">
-                <div
-                    class="collapse navbar-collapse"
-                    id="navbarSupportedContent"
-                >
-                    <!--Home page-->
-                    <a class="d-flex btn" href="home.html">
-                        <span class="fs-5">Home</span>
-                    </a>
+    <!-- Local Style Sheets -->
+    <link rel="stylesheet" href="static/css/styles.css" />
+    <link rel="stylesheet" href="static/css/dashboard.css" />
+    <link rel="stylesheet" href="static/css/credits.css">
+</head>
 
-                    <!--Github-->
-                    <a
-                        class="d-flex btn ms-auto"
-                        href="https://github.com/lastingParadox/cop4331-contactstorage"
-                    >
-                        <div>
-                            <i class="fa fa-github" style="font-size: 24px"></i>
-                            <span class="flex fs-5">Github</span>
-                        </div>
-                    </a>
-
-                    <!--About page-->
-                    <a class="d-flex btn" href="index.html">
-                        <span class="fs-5">About</span>
-                    </a>
-
-                    <!--Login page-->
-                    <a class="d-flex btn" href="index.html">
-                        <span class="fs-5">Login</span>
-                    </a>
-                </div>
+<body>
+    <!--Nav Bar-->
+    <header class="navbar navbar-expand-lg bg-body-tertiary px-3 py-3">
+        <nav class="container-fluid">
+            <a class="navbar-brand" href="./home.html">Contact Storage</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="./home.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="./credits.html">Credits</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="./index.html">Get Started</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="https://github.com/lastingParadox/cop4331-contactstorage" target="_blank" rel="noopener noreferrer">Github</a>
+                    </li>
+                </ul>
             </div>
         </nav>
+    </header>
 
-        <!--Project Manager Credits-->
-        <h2 class="text-center pt-5 fw-bold">Project Manager</h2>
-        <div class="d-flex justify-content-center text-center">
-            <div class="contact mx-3">
-                <div class="contact-top">
-                    <h4>Zander Preston</h4>
+    <!--Project Manager Credits-->
+    <h2 class="text-center pt-5 fw-bold">Project Manager</h2>
+    <div class="d-flex justify-content-center text-center">
+        <div class="contact mx-3">
+            <div class="contact-top">
+                <h4>Zander Preston</h4>
+            </div>
+            <div class="contact-interior">
+                <div class="contact-info">
+                    <div class="info_container">
+                        <span class="material-icons-outlined">email</span>Email
+                    </div>
+                    <div class="info_container">
+                        <i class="fa fa-github" style="font-size: 24px"></i><a
+                            href="https://github.com/lastingParadox">Github</a>
+                    </div>
                 </div>
-                <div class="contact-interior">
-                    <div class="contact-info">
-                        <div class="info_container">
-                            <span class="material-icons-outlined">email</span
-                            >Email
-                        </div>
-                        <div class="info_container">
-                            <i class="fa fa-github" style="font-size: 24px"></i
-                            ><a href="https://github.com/lastingParadox"
-                                >Github</a
-                            >
-                        </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Back-end Credits-->
+    <h2 class="text-center pt-4 fw-bold">Back-end</h2>
+    <div class="d-flex justify-content-center text-center">
+        <div class="contact mx-3">
+            <div class="contact-top">
+                <h4 class="">Andrew Miller</h4>
+            </div>
+            <div class="contact-interior">
+                <div class="contact-info">
+                    <div class="info_container">
+                        <span class="material-icons-outlined">email</span>Email
+                    </div>
+                    <div class="info_container">
+                        <i class="fa fa-github" style="font-size: 24px"></i><a
+                            href="https://github.com/androoo06">Github</a>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!--Back-end Credits-->
-        <h2 class="text-center pt-4 fw-bold">Back-end</h2>
-        <div class="d-flex justify-content-center text-center">
-            <div class="contact mx-3">
-                <div class="contact-top">
-                    <h4 class="">Andrew Miller</h4>
-                </div>
-                <div class="contact-interior">
-                    <div class="contact-info">
-                        <div class="info_container">
-                            <span class="material-icons-outlined">email</span
-                            >Email
-                        </div>
-                        <div class="info_container">
-                            <i class="fa fa-github" style="font-size: 24px"></i
-                            ><a href="https://github.com/androoo06">Github</a>
-                        </div>
+        <div class="contact mx-3">
+            <div class="contact-top">
+                <h4 class="">Diego Santiago</h4>
+            </div>
+            <div class="contact-interior">
+                <div class="contact-info">
+                    <div class="info_container">
+                        <span class="material-icons-outlined">email</span>Email
+                    </div>
+                    <div class="info_container">
+                        <i class="fa fa-github" style="font-size: 24px"></i><a
+                            href="https://github.com/paradoxAlpha823">Github</a>
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
 
-            <div class="contact mx-3">
-                <div class="contact-top">
-                    <h4 class="">Diego Santiago</h4>
-                </div>
-                <div class="contact-interior">
-                    <div class="contact-info">
-                        <div class="info_container">
-                            <span class="material-icons-outlined">email</span
-                            >Email
-                        </div>
-                        <div class="info_container">
-                            <i class="fa fa-github" style="font-size: 24px"></i
-                            ><a href="https://github.com/paradoxAlpha823"
-                                >Github</a
-                            >
-                        </div>
+    <!--Front-end Credits-->
+    <h2 class="text-center pt-4 fw-bold">Front-end</h2>
+    <div class="d-flex justify-content-center text-center">
+        <div class="contact mx-3">
+            <div class="contact-top">
+                <h4 class="name">Anthony Cobb</h4>
+            </div>
+            <div class="contact-interior">
+                <div class="contact-info">
+                    <div class="info_container">
+                        <span class="material-icons-outlined">email</span>AnthonyCobb@knights.ucf.edu
+                    </div>
+                    <div class="info_container">
+                        <i class="fa fa-github" style="font-size: 24px"></i><a
+                            href="https://github.com/blockdude">Github</a>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!--Front-end Credits-->
-        <h2 class="text-center pt-4 fw-bold">Front-end</h2>
-        <div class="d-flex justify-content-center text-center">
-            <div class="contact mx-3">
-                <div class="contact-top">
-                    <h4 class="name">Anthony Cobb</h4>
-                </div>
-                <div class="contact-interior">
-                    <div class="contact-info">
-                        <div class="info_container">
-                            <span class="material-icons-outlined">email</span
-                            >AnthonyCobb@knights.ucf.edu
-                        </div>
-                        <div class="info_container">
-                            <i class="fa fa-github" style="font-size: 24px"></i
-                            ><a href="https://github.com/blockdude">Github</a>
-                        </div>
-                    </div>
-                </div>
+        <div class="contact mx-3">
+            <div class="contact-top">
+                <h4 class="">Shawnn Kristoffer Ongyiu</h4>
             </div>
-
-            <div class="contact mx-3">
-                <div class="contact-top">
-                    <h4 class="">Shawnn Kristoffer Ongyiu</h4>
-                </div>
-                <div class="contact-interior">
-                    <div class="contact-info">
-                        <div class="info_container">
-                            <span class="material-icons-outlined">email</span
-                            >Email
-                        </div>
-                        <div class="info_container">
-                            <i class="fa fa-github" style="font-size: 24px"></i
-                            ><a href="https://github.com/shawnnongyiu"
-                                >Github</a
-                            >
-                        </div>
+            <div class="contact-interior">
+                <div class="contact-info">
+                    <div class="info_container">
+                        <span class="material-icons-outlined">email</span>Email
+                    </div>
+                    <div class="info_container">
+                        <i class="fa fa-github" style="font-size: 24px"></i><a
+                            href="https://github.com/shawnnongyiu">Github</a>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
 
-        <!--Database Credits-->
-        <h2 class="text-center pt-4 fw-bold">Database</h2>
-        <div class="d-flex justify-content-center text-center pb-5">
-            <div class="contact mx-3">
-                <div class="contact-top">
-                    <h4 class="">Zachary Yore</h4>
-                </div>
-                <div class="contact-interior">
-                    <div class="contact-info">
-                        <div class="info_container">
-                            <span class="material-icons-outlined">email</span
-                            >Email
-                        </div>
-                        <div class="info_container">
-                            <i class="fa fa-github" style="font-size: 24px"></i
-                            >GitHub
-                        </div>
+    <!--Database Credits-->
+    <h2 class="text-center pt-4 fw-bold">Database</h2>
+    <div class="d-flex justify-content-center text-center pb-5">
+        <div class="contact mx-3">
+            <div class="contact-top">
+                <h4 class="">Zachary Yore</h4>
+            </div>
+            <div class="contact-interior">
+                <div class="contact-info">
+                    <div class="info_container">
+                        <span class="material-icons-outlined">email</span>Email
+                    </div>
+                    <div class="info_container">
+                        <i class="fa fa-github" style="font-size: 24px"></i>GitHub
                     </div>
                 </div>
             </div>
         </div>
-    </body>
+    </div>
+</body>
+
 </html>

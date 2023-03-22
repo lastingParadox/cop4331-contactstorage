@@ -16,19 +16,3 @@ body {
     min-height: 100vh;
     background: var(--primary-background-color);
 }
-
-section#hero {
-    padding: 0 2rem;
-    height: calc(100vh - 60px);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    color: white;
-}
-
-#hero h1 {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-}
