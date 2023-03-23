@@ -15,7 +15,7 @@
         // If the clear image button was pressed, remove it
         if (array_key_exists("imageUrl", $inData) && $inData["imageUrl"] == "null") {
             $stmt = $conn->prepare("UPDATE USERS SET firstName = ?, lastName = ?, username = ?, email = ?, imageUrl = NULL WHERE id = ?");
-            $stmt->bind_param("sssssi", $inData["firstName"], $inData["lastName"], $inData["username"], $inData["email"], $inData["imageUrl"], $inData["userId"]);
+            $stmt->bind_param("ssssi", $inData["firstName"], $inData["lastName"], $inData["username"], $inData["email"], $inData["userId"]);
         }
         // If an image was uploaded, change it
         else if (array_key_exists("imageUrl", $inData)) {

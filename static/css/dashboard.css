@@ -3,10 +3,13 @@
 :root {
     --primary-background-color: #0077b6;
     --secondary-background-color: #023e8a;
+    --sidebar-text-color: #ffffff;
+    --sidebar-selected-color: #000000;
 }
 
 body {
     background-color: #0077b6;
+    transition: 0.25s;
 }
 
 #side_nav {
@@ -39,7 +42,7 @@ body {
 }
 
 .hr-color {
-    color: #eee;
+    color: var(--sidebar-text-color);
 }
 
 .close-btn,
@@ -58,7 +61,7 @@ body {
 }
 
 .sidebar li.active {
-    background: #eee;
+    background: var(--sidebar-text-color);
 }
 
 .sidebar li:not(.active):hover {
@@ -67,11 +70,11 @@ body {
 
 .sidebar li.active .list-itembox,
 .sidebar li.active .list-itembox:hover {
-    color: #000;
+    color: var(--sidebar-selected-color);
 }
 
 .sidebar li .list-itembox {
-    color: #fff;
+    color: var(--sidebar-text-color);
 }
 
 .list-itembox {
@@ -85,12 +88,20 @@ body {
     text-overflow: clip;
 }
 
+#sidebar-title {
+    color: var(--sidebar-text-color);
+}
+
 #navbarSupportedContent {
     justify-content: space-between;
 }
 
 #search-container {
     width: 25%;
+}
+
+#hamburger span {
+    color: var(--sidebar-text-color);
 }
 
 /* Contacts */

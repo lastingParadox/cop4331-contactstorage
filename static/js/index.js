@@ -5,6 +5,9 @@ let firstName = "";
 let lastName = "";
 let side_nav = "";
 let cookieName = "ContactStorageUser";
+let colorDash = "";
+let colorSide = "";
+let contactView = "";
 
 // BACKEND FUNCTIONS
 
@@ -21,6 +24,12 @@ function saveCookie() {
         lastName +
         ",userId=" +
         userId +
+        ",colorDash=" +
+        colorDash +
+        ",colorSide=" +
+        colorSide +
+        ",contactView=" +
+        contactView +
         ",side_nav=active" +
         ";expires=" +
         date.toGMTString();
@@ -64,6 +73,12 @@ function readCookie() {
             lastName = tokens[1];
         } else if (tokens[0] == "userId") {
             userId = parseInt(tokens[1].trim());
+        } else if (tokens[0] == "colorDash") {
+            colorDash = tokens[1];
+        } else if (tokens[0] == "colorSide") {
+            colorSide = tokens[1];
+        } else if (tokens[0] == "contactView") {
+            contactView = tokens[1];
         } else if (tokens[0] == "side_nav") {
             side_nav = tokens[1];
         }
@@ -106,6 +121,15 @@ function setCookie(cName, cValue, expMinutes = 30) {
         case "side_nav":
             side_nav = cValue;
             break;
+        case "colorDash":
+            colorDash = cValue;
+            break;
+        case "colorSide":
+            colorSide = cValue;
+            break;
+        case "contactView":
+            contactView = cValue;
+            break;
         default:
             return;
     }
@@ -119,6 +143,12 @@ function setCookie(cName, cValue, expMinutes = 30) {
         lastName +
         ",userId=" +
         userId +
+        ",colorDash=" +
+        colorDash +
+        ",colorSide=" +
+        colorSide +
+        ",contactView=" +
+        contactView +
         ",side_nav=" +
         side_nav +
         ";expires=" +

@@ -1,7 +1,17 @@
 document.addEventListener("DOMContentLoaded", function () {
     let cookie = readCookie();
 
+    document.body.style.backgroundColor = colorDash;
+
+    let root = document.querySelector(":root");
     let sidebar = document.getElementById("side_nav");
+
+    sidebar.style.backgroundColor = colorSide;
+
+    let brightnessArray = getBrightness(hexToRGB(colorSide));
+    root.style.setProperty("--sidebar-text-color", brightnessArray[0]);
+    root.style.setProperty("--sidebar-selected-color", brightnessArray[1]);
+
     let hamburger = document.getElementById("hamburger");
 
     if (cookie.side_nav == "active") {
@@ -67,4 +77,31 @@ function transferPage(id) {
         default:
             return;
     }
+}
+
+function hexToRGB(hexString) {
+    hexString = hexString.split("#")[1];
+    let rgbHex = hexString.match(/.{1,2}/g);
+    let rgb = [
+        parseInt(rgbHex[0], 16),
+        parseInt(rgbHex[1], 16),
+        parseInt(rgbHex[2], 16),
+    ];
+
+    return rgb;
+}
+
+function getBrightness(rgbArray) {
+    const brightness = Math.round(
+        (rgbArray[0] * 299 + rgbArray[1] * 587 + rgbArray[2] * 114) / 1000
+    );
+
+    let brightnessArray = [];
+
+    brightnessArray[0] = brightness > 125 ? "#000000" : "#FFFFFF";
+
+    if (brightnessArray[0] === "#000000") brightnessArray[1] = "#FFFFFF";
+    else brightnessArray[1] = "#000000";
+
+    return brightnessArray;
 }

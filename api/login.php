@@ -16,7 +16,7 @@
     }
     else
     {
-        $stmt = $conn->prepare("SELECT id,firstName,lastName,password FROM USERS WHERE username=?");
+        $stmt = $conn->prepare("SELECT u.id, u.firstName, u.lastName, u.password, s.colorDash, s.colorSide, s.contactView FROM USERS u INNER JOIN SETTINGS s ON u.ID = s.userId WHERE u.username=?;");
         $stmt->bind_param("s", $inData["login"]);
         $stmt->execute();
         $result = $stmt->get_result();
@@ -25,7 +25,7 @@
     
         if( $row && password_verify($inData['password'], $row['password']) )
         {
-            returnWithInfo( $row['firstName'], $row['lastName'], $row['id'] );
+            returnWithInfo( $row['firstName'], $row['lastName'], $row['id'], $row['colorDash'], $row['colorSide'], $row['contactView'] );
         }
         else
         {
@@ -53,9 +53,10 @@
         sendResultInfoAsJson( $retValue );
     }
     
-    function returnWithInfo( $firstName, $lastName, $id )
+    function returnWithInfo( $firstName, $lastName, $id, $colorDash, $colorSide, $contactView )
     {
-        $retValue = '{"id":' . $id . ',"firstName":"' . $firstName . '","lastName":"' . $lastName . '","error":"","success":"Successfully logged in"}';
+        $retValue = '{"id":' . $id . ',"firstName":"' . $firstName . '","lastName":"' . $lastName . '","colorDash":"' . $colorDash . '","colorSide":"' . $colorSide . '",
+            "contactView":"' . $contactView . '","error":"","success":"Successfully logged in"}';
         sendResultInfoAsJson( $retValue );
     }
     
