@@ -50,13 +50,13 @@
                         <h1 class="fs-4 title">
                             <button
                                 id="hamburger"
-                                class="btn open-btn border-0 text-white"
+                                class="btn open-btn border-0"
                             >
                                 <span class="material-icons-outlined"
                                     >menu</span
                                 >
                             </button>
-                            <span class="text-white">Contact Storage</span>
+                            <span id="sidebar-title">Contact Storage</span>
                         </h1>
                     </div>
 
@@ -104,12 +104,13 @@
                         <div class="card-header text-center font">Account</div>
                         <div class="card-body text-center p-5">
                             <img
+                                id="userPhoto"
                                 class="img-account-profile rounded-circle mb-2"
                                 src="./static/images/media/anonymous.png"
                                 alt=""
                             />
-                            <h2 id="userFirstLast"></h2>
-                            <i id="userEmail" class="text-secondary"></i>
+                            <h2 id="userFirstLast">&nbsp;</h2>
+                            <i id="userEmail" class="text-secondary">&nbsp;</i>
 
                             <div class="mt-4">
                                 <button
@@ -254,7 +255,9 @@
                         </div>
                         <div id="settings-page" class="page collapse">
                             <div class="page-tab">
-                                <span class="material-icons-sharp exit-page"
+                                <span
+                                    id="settings-exit"
+                                    class="material-icons-sharp exit-page"
                                     >clear</span
                                 >
                             </div>
@@ -275,6 +278,12 @@
                                             type="text"
                                             value="#000000"
                                         />
+                                        <input
+                                            id="default_dash"
+                                            class="btn btn-secondary primaryBg"
+                                            type="button"
+                                            value="Default"
+                                        />
                                     </div>
 
                                     <span>Secondary Color</span>
@@ -290,6 +299,12 @@
                                             class="form-control d-inline mx-3"
                                             type="text"
                                             value="#000000"
+                                        />
+                                        <input
+                                            id="default_side"
+                                            class="btn btn-secondary primaryBg"
+                                            type="button"
+                                            value="Default"
                                         />
                                     </div>
 
@@ -314,7 +329,7 @@
                                                 class="btn btn-success primaryBg"
                                                 type="submit"
                                                 value="Apply Settings"
-                                                onclick="return editSettings();"
+                                                onclick="return editUserSettings();"
                                             />
                                         </span>
                                     </div>

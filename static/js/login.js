@@ -36,6 +36,9 @@ function login(event) {
         firstName = response.firstName;
         lastName = response.lastName;
         userId = response.id;
+        colorDash = response.colorDash;
+        colorSide = response.colorSide;
+        contactView = response.contactView;
 
         console.log(response);
         console.log(

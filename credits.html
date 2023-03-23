@@ -42,46 +42,68 @@
         <!-- Local Style Sheets -->
         <link rel="stylesheet" href="static/css/styles.css" />
         <link rel="stylesheet" href="static/css/dashboard.css" />
+        <link rel="stylesheet" href="static/css/credits.css" />
     </head>
 
     <body>
         <!--Nav Bar-->
-        <nav
-            class="navbar navbar-expand-lg navbar-light bg-light rounded-bottom"
-        >
-            <div class="container-fluid">
+        <header class="navbar navbar-expand-lg bg-body-tertiary px-3 py-3">
+            <nav class="container-fluid">
+                <a class="navbar-brand" href="./home.html">Contact Storage</a>
+                <button
+                    class="navbar-toggler"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation"
+                >
+                    <span class="navbar-toggler-icon"></span>
+                </button>
                 <div
                     class="collapse navbar-collapse"
                     id="navbarSupportedContent"
                 >
-                    <!--Home page-->
-                    <a class="d-flex btn" href="home.html">
-                        <span class="fs-5">Home</span>
-                    </a>
-
-                    <!--Github-->
-                    <a
-                        class="d-flex btn ms-auto"
-                        href="https://github.com/lastingParadox/cop4331-contactstorage"
-                    >
-                        <div>
-                            <i class="fa fa-github" style="font-size: 24px"></i>
-                            <span class="flex fs-5">Github</span>
-                        </div>
-                    </a>
-
-                    <!--About page-->
-                    <a class="d-flex btn" href="index.html">
-                        <span class="fs-5">About</span>
-                    </a>
-
-                    <!--Login page-->
-                    <a class="d-flex btn" href="index.html">
-                        <span class="fs-5">Login</span>
-                    </a>
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a
+                                class="nav-link"
+                                aria-current="page"
+                                href="./home.html"
+                                >Home</a
+                            >
+                        </li>
+                        <li class="nav-item">
+                            <a
+                                class="nav-link"
+                                aria-current="page"
+                                href="./credits.html"
+                                >Credits</a
+                            >
+                        </li>
+                        <li class="nav-item">
+                            <a
+                                class="nav-link"
+                                aria-current="page"
+                                href="./index.html"
+                                >Get Started</a
+                            >
+                        </li>
+                        <li class="nav-item">
+                            <a
+                                class="nav-link"
+                                aria-current="page"
+                                href="https://github.com/lastingParadox/cop4331-contactstorage"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                >Github</a
+                            >
+                        </li>
+                    </ul>
                 </div>
-            </div>
-        </nav>
+            </nav>
+        </header>
 
         <!--Project Manager Credits-->
         <h2 class="text-center pt-5 fw-bold">Project Manager</h2>

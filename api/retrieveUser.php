@@ -18,7 +18,9 @@
     else
     {
         // Checking if the user exists
-        $stmt = $conn->prepare("SELECT firstName, lastName, username, email, imageUrl FROM USERS WHERE id=?");
+        $stmt = $conn->prepare("SELECT USERS.firstName, USERS.lastName, USERS.username, USERS.email, 
+                                USERS.imageUrl, SETTINGS.colorSide, SETTINGS.colorDash, SETTINGS.contactView
+                                FROM USERS INNER JOIN SETTINGS ON USERS.id=SETTINGS.userId WHERE USERS.id=?;");
         $stmt->bind_param("i", $inData["userId"]);
         $stmt->execute();
         $result = $stmt->get_result();
@@ -32,33 +34,16 @@
             $outData['username'] = $row['username'];
             $outData['email'] = $row['email'];
             $outData['imageUrl'] = $row['imageUrl'];
-        }
-        else
-        {
-            returnWithError("User Not Found");
-        }
-
-        $stmt->close();
-
-        // Another query to grab the associated settings row
-        $stmt = $conn->prepare("SELECT colorSide, colorDash, contactView FROM SETTINGS WHERE userId=?");
-        $stmt->bind_param("i", $inData["userId"]);
-        $stmt->execute();
-        $result = $stmt->get_result();
-
-        $row = $result->fetch_assoc();
-
-        if( $row )
-        {
             $outData['colorSide'] = $row['colorSide'];
             $outData['colorDash'] = $row['colorDash'];
             $outData['contactView'] = $row['contactView'];
+            
             returnWithInfo( $outData['firstName'], $outData['lastName'], $outData["username"], $outData["email"], $outData['imageUrl'],
                             $outData['colorSide'], $outData['colorDash'], $outData['contactView'] );
         }
         else
         {
-            returnWithError("User Settings Not Found");
+            returnWithError("User Not Found");
         }
 
         $stmt->close();

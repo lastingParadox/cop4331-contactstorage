@@ -23,13 +23,10 @@ body.active {
 }
 
 .container {
-    position: absolute;
-    top: 50%;
-    left: 50%;
+    position: relative;
     width: 800px;
     height: 500px;
-    margin: 20px;
-    transform: translate(-50%, -50%);
+    transform: translate(0, 33%);
 }
 
 .blueBackground {
