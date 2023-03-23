@@ -16,3 +16,11 @@ body {
     min-height: 100vh;
     background: var(--primary-background-color);
 }
+
+.credit-section {
+    flex-wrap: wrap;
+}
+
+.name {
+    text-align: left;
+}
