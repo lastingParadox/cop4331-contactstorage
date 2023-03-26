@@ -44,7 +44,7 @@
         </head>
 
         <body>
-            <div class="main-container d-flex">
+            <div id="main-container" class="d-flex">
                 <div class="sidebar" id="side_nav">
                     <div class="header-box pt-3 pb-4 position-relative">
                         <h1 class="fs-4 title">
@@ -365,6 +365,19 @@
                     </div>
                 </div>
             </div>
+            <nav id="mobile-navbar" class="sticky-bottom">
+                <div id="mobile_contacts" class="mobile-item" ontouchstart="transferPage(this.id);">
+                    <span class="material-icons-sharp mobile-item-icon">import_contacts</span>
+                </div>
+                <div class="vr"></div>
+                <div id="mobile_account" class="mobile-item active" ontouchstart="transferPage(this.id);">
+                    <span class="material-icons-sharp mobile-item-icon">account_box</span>
+                </div>
+                <div class="vr"></div>
+                <div id="mobile_logout" class="mobile-item" ontouchstart="logout();">
+                    <span class="material-icons-sharp mobile-item-icon">logout</span>
+                </div>
+            </nav>
         </body>
     </html>
 </html>

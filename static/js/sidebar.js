@@ -68,9 +68,11 @@ function transferPage(id) {
     else setCookie("side_nav", "inactive");
 
     switch (id) {
+        case "mobile_contacts":
         case "nav_contacts":
             window.location.href = "./dashboard.html";
             break;
+        case "mobile_account":
         case "nav_account":
             window.location.href = "./account.html";
             break;

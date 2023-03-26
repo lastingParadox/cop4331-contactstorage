@@ -40,8 +40,8 @@
     </head>
 
     <body>
-        <div class="main-container d-flex">
-            <div class="sidebar active" id="side_nav">
+        <div id="main-container" class="d-flex">
+            <nav class="sidebar active" id="side_nav">
                 <div class="header-box pt-3 pb-4 position-relative">
                     <h1 class="fs-4 title">
                         <button id="hamburger" class="btn open-btn border-0">
@@ -87,9 +87,9 @@
                         </div>
                     </li>
                 </ul>
-            </div>
+            </nav>
 
-            <div id="dashboard_content">
+            <main id="dashboard_content">
                 <span id="welcome"></span>
                 <!-- Container for contacts -->
                 <div id="contact_container"></div>
@@ -102,11 +102,11 @@
                     >
                         <div class="container-fluid">
                             <div
-                                class="navbar-collapse"
                                 id="navbarSupportedContent"
                             >
                                 <!--Add Contact-->
                                 <button
+                                    id="navbar-btn"
                                     class="d-flex btn btn-success"
                                     onclick="pageView(true, 'create');"
                                 >
@@ -120,7 +120,7 @@
                                 <form id="search-container" class="d-flex">
                                     <input
                                         id="contact-search"
-                                        class="form-control mr-2 d-inline"
+                                        class="form-control d-inline"
                                         type="search"
                                         placeholder="Search"
                                         aria-label="Search"
@@ -376,7 +376,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </main>
             <div id="contextmenu">
                 <div id="contextmenu-edit" class="contextmenu-item">
                     <span class="material-icons-sharp">edit</span>Edit
@@ -387,5 +387,19 @@
                 <div class="content position-relative"></div>
             </div>
         </div>
+
+        <nav id="mobile-navbar" class="sticky-bottom">
+            <div id="mobile_contacts" class="mobile-item active" ontouchstart="transferPage(this.id);">
+                <span class="material-icons-sharp mobile-item-icon">import_contacts</span>
+            </div>
+            <div class="vr"></div>
+            <div id="mobile_account" class="mobile-item" ontouchstart="transferPage(this.id);">
+                <span class="material-icons-sharp mobile-item-icon">account_box</span>
+            </div>
+            <div class="vr"></div>
+            <div id="mobile_logout" class="mobile-item" ontouchstart="logout();">
+                <span class="material-icons-sharp mobile-item-icon">logout</span>
+            </div>
+        </nav>
     </body>
 </html>

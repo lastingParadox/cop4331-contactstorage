@@ -5,6 +5,7 @@ let contacts;
 document.addEventListener(
     "DOMContentLoaded",
     () => {
+
         let context_menu = document.getElementById("contextmenu");
         contextmenu_width = context_menu.offsetWidth;
         context_menu.classList.add("collapse");
