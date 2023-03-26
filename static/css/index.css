@@ -176,6 +176,11 @@ body.active {
     margin-bottom: 16px;
 }
 
+#navbar-logo {
+    display: flex;
+    gap: 10px;
+}
+
 @media (max-width: 991px) {
     .container {
         max-width: 400px;
