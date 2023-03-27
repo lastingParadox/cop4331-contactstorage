@@ -130,6 +130,10 @@ body.active {
     font-weight: 500;
 }
 
+.formBox .form form label {
+    font-size: 16px;
+}
+
 .formBox .form form input {
     width: 100%;
     margin-bottom: 20px;
@@ -172,7 +176,11 @@ body.active {
 }
 
 #register-header {
-    margin-top: 20px;
+    margin-top: 30px;
+}
+
+#register-submit {
+    margin-top: -15px;
 }
 
 #password-invalid {
@@ -191,6 +199,7 @@ body.active {
         display: flex;
         justify-content: center;
         align-items: center;
+        transform: translate(0, 9%);
     }
 
     .container .blueBackground {
