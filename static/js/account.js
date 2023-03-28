@@ -115,7 +115,7 @@ async function retrieveUser() {
 
         if (user.contactView === "card")
             document.getElementById("flexSwitchCheckChecked").checked = true;
-        else document.getElementById("flexSwitchCheckChecked").checked = true;
+        else document.getElementById("flexSwitchCheckChecked").checked = false;
     };
 
     // Send request
@@ -207,6 +207,25 @@ function editUserSettings() {
     callbacks.error = function (response) {};
 
     sendRequest(inData, url, callbacks);
+    return false;
+}
+
+function deleteUserAccount() {
+    console.log("Sdfsjhdekflp")
+    let userId = readCookie().userId;
+    console.log("sdfahsjkedf")
+    let inData = {
+        userId: userId,
+    }
+
+    let url = urlBase + "/deleteUser.php";
+    let callbacks = {};
+
+    sendRequest(inData, url, callbacks);
+    callbacks.success = function (response) {
+        window.location.href = "./index.html";
+    }
+
     return false;
 }
 

@@ -2,34 +2,23 @@
 
     error_reporting(E_ALL);
     ini_set('display_errors', 'on');
-    
+
     $inData = getRequestInfo();
 
     $conn = new mysqli("localhost", "ContactStorage", "contact_storage_pass", "ContactStorageDB");
     if( $conn->connect_error )
     {
-        returnWithError( $conn->connect_error );
+        returnWithError( "!" . $conn->connect_error );
     }
     else
     {
-        $stmt = $conn->prepare("SELECT username FROM USERS WHERE username = ?");
-        $stmt->bind_param("s", $inData["username"]);
+        $id = intval($inData["userId"]);
+
+        $stmt = $conn->prepare("DELETE FROM USERS WHERE id = ?");
+        $stmt->bind_param("i", $id);
         $stmt->execute();
-        $result = $stmt->get_result();
 
-        if( $result->num_rows > 0 )
-        {
-            returnWithError("This username is already taken");
-        }
-        else
-        {
-            $hash = password_hash($inData["password"], PASSWORD_DEFAULT);
-            $stmt = $conn->prepare("INSERT into USERS (firstName, lastName, email, username, password) VALUES (?,?,?,?,?)");
-            $stmt->bind_param("sssss", $inData["firstName"], $inData["lastName"], $inData["email"], $inData["username"], $hash);
-            $stmt->execute();
-
-            returnWithSuccess("User registered successfully");
-        }
+        returnWithSuccess("User <" . $id . "> deleted successfully");
 
         $stmt->close();
         $conn->close();

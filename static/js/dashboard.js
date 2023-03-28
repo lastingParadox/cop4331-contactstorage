@@ -6,23 +6,6 @@ document.addEventListener(
     "DOMContentLoaded",
     () => {
 
-        let context_menu = document.getElementById("contextmenu");
-        contextmenu_width = context_menu.offsetWidth;
-        context_menu.classList.add("collapse");
-
-        document
-            .getElementById("contextmenu-edit")
-            .addEventListener("click", () => {
-                context_menu.classList.add("collapse");
-                pageView(true, "edit");
-            });
-        document
-            .getElementById("contextmenu-delete")
-            .addEventListener("click", () => {
-                context_menu.classList.add("collapse");
-                pageView(true, "delete");
-            });
-
         searchContacts("");
 
         let exit_buttons = document.querySelectorAll(".exit-page");
@@ -170,7 +153,9 @@ async function deleteContact() {
 
 async function searchContacts(params) {
     // the user that entered the data
-    let userId = readCookie().userId;
+    let cookieJson = readCookie();
+    let userId = cookieJson.userId;
+    let contactView = cookieJson.contactView;
 
     // Building Parameters
     let searchParams =
@@ -188,80 +173,103 @@ async function searchContacts(params) {
         container.innerHTML = "";
     };
     callbacks.success = function (response) {
-        contacts = response;
+        let tableHTML = "";
         container.innerHTML = "";
+        if (contactView === "list") {
+            tableHTML += 
+            `<div id="table-container">
+                <table id="contacts-table" class="table table-dark table-striped table-hover table-bordered">
+                        <thead>
+                            <tr>
+                                <th scope="col">First Name</th>
+                                <th scope="col">Last Name</th>
+                                <th scope="col">Phone Number</th>
+                                <th scope="col">Occupation</th>
+                                <th scope="col">Email</th>
+                                <th scope="col">Address</th>
+                                <th scope="col"></th>
+                            </tr>
+                        </thead>
+                        <tbody>`
+        }
+        contacts = response;
         response.forEach((contact) => {
             // add the innerHTMLs
+            let contactHTML;
+            if (contactView === "card") {
+                console.log("fdiso")
+                contactHTML = `
+                <div class="contact">
+                    <div class="contact-top">
+                        <h3 class="name">${contact.firstName || ""} ${
+                    contact.lastName || ""
+                }</h3>
+                        <div class="dropdown-center context-button-container">
+                            <button class="context-button dropdown-toggle" type="button" data-bs-toggle="dropdown"></button>
+                            <ul class="dropdown-menu">
+                                <li class="contextmenu-item" onclick="selected_id=${contact.id};pageView(true, 'edit');"><a id="contextmenu-edit" class="dropdown-item"><span class="material-icons-sharp">edit</span>Edit</a></li>
+                                <li class="contextmenu-item" onclick="selected_id=${contact.id};pageView(true, 'delete');"><a id="contextmenu-delete" class="dropdown-item"><span class="material-icons-sharp">delete</span>Delete</a></li>
+                        </div>
 
-            let contactHTML = `
-            <div class="contact">
-                <div class="contact-top">
-                    <h3 class="name">${contact.firstName || ""} ${
-                contact.lastName || ""
-            }</h3>
-                    <span class="material-icons-sharp context-button" data-id="${
-                        contact.id
-                    }">more_vert</span>
-                </div>
-                <div class="contact-interior">
-                    <img src="https://contactstorage.info/static/images/media/${
-                        contact.imageUrl || "anonymous.png"
-                    }" onerror="this.src='static/images/media/anonymous.png'"/>
-                    <div class="contact-info">`;
-
-            if (contact.phoneNumber)
-                contactHTML += `<div class="info_container"><span class="material-icons-sharp">call</span>${
-                    formatPhoneNumber(contact.phoneNumber) || ""
-                }</div>`;
-            if (contact.occupation)
-                contactHTML += `<div class="info_container"><span class="material-icons-outlined">work</span>${
-                    contact.occupation || ""
-                }</div>`;
-            if (contact.email)
-                contactHTML += `<div class="info_container"><span class="material-icons-outlined">email</span>${
-                    contact.email || ""
-                }</div>`;
-            if (contact.address)
-                contactHTML += `<div class="info_container"><span class="material-icons-sharp">home</span>${
-                    contact.address || ""
-                }</div>`;
-
-            contactHTML += `</div>
-                </div>
-            </div>`;
-
-            container.innerHTML += contactHTML;
+                    </div>
+                    <div class="contact-interior">
+                        <img src="https://contactstorage.info/static/images/media/${
+                            contact.imageUrl || "anonymous.png"
+                        }" onerror="this.src='static/images/media/anonymous.png'"/>
+                        <div class="contact-info">`;
+    
+                if (contact.phoneNumber)
+                    contactHTML += `<div class="info_container"><span class="material-icons-sharp">call</span>${
+                        formatPhoneNumber(contact.phoneNumber) || ""
+                    }</div>`;
+                if (contact.occupation)
+                    contactHTML += `<div class="info_container"><span class="material-icons-outlined">work</span>${
+                        contact.occupation || ""
+                    }</div>`;
+                if (contact.email)
+                    contactHTML += `<div class="info_container"><span class="material-icons-outlined">email</span>${
+                        contact.email || ""
+                    }</div>`;
+                if (contact.address)
+                    contactHTML += `<div class="info_container"><span class="material-icons-sharp">home</span>${
+                        contact.address || ""
+                    }</div>`;
+    
+                contactHTML += `</div>
+                    </div>
+                </div>`;
+    
+                container.innerHTML += contactHTML;
+            }
+            else if (contactView === "list") {
+                contactHTML = `
+                <tr>
+                    <td>${contact.firstName || ""}</td>
+                    <td>${contact.lastName || ""}</td>
+                    <td>${formatPhoneNumber(contact.phoneNumber) || ""}</td>
+                    <td>${contact.occupation || ""}</td>
+                    <td>${contact.email || ""}</td>
+                    <td>${contact.address || ""}</td>
+                    <td>
+                        <div>
+                            <button class="btn btn-primary" onclick="selected_id=${contact.id};pageView(true, 'edit');">Edit</button>
+                            <button class="btn btn-danger" onclick="selected_id=${contact.id};pageView(true, 'delete');">Delete</button>
+                        </div>
+                    </td>
+                </tr>`
+            }
+            tableHTML += contactHTML;
         });
 
-        let context_buttons = document.querySelectorAll(".context-button");
-        let context_menu = document.getElementById("contextmenu");
-        console.log(context_buttons);
-        for (let i = 0; i < context_buttons.length; i++) {
-            context_buttons[i].addEventListener("click", function (event) {
-                selected_id = parseInt(context_buttons[i].dataset.id);
-                console.log(selected_id);
-                let rect = context_buttons[i].getBoundingClientRect();
-
-                const xCenter = (rect.left + rect.right) / 2;
-
-                context_menu.style.top = `${rect.bottom}px`;
-                context_menu.style.left = `${
-                    xCenter - contextmenu_width / 2
-                }px`;
-
-                context_menu.classList.remove("collapse");
-
-                // If the menu goes offscreen
-                if (!isInViewport(context_menu)) {
-                    context_menu.style.left = `${
-                        context_menu.offsetLeft - context_menu.offsetWidth
-                    }px`;
-                }
-
-                setTimeout(() => {
-                    document.addEventListener("click", documentClickHandler);
-                }, 0);
-            });
+        if (contactView === "list") {
+            tableHTML += `
+                    </tbody>
+                </table>
+            </div>`
+            container.innerHTML = tableHTML;
+        }
+        else if (contactView === "card") {
+            container.style.paddingBottom = "64px";
         }
     };
 
@@ -269,20 +277,6 @@ async function searchContacts(params) {
     let url = urlBase + "/searchContacts.php";
     await sendRequest(inData, url, callbacks);
 }
-
-const documentClickHandler = function (e) {
-    let context_menu = document.getElementById("contextmenu");
-    const isClickedOutside = !(
-        context_menu.contains(e.target) || contextButtonClick(e)
-    );
-    if (isClickedOutside) {
-        // Hide the menu
-        context_menu.classList.add("collapse");
-
-        // Remove the event handler
-        document.removeEventListener("click", documentClickHandler);
-    }
-};
 
 function contextButtonClick(event) {
     let context_buttons = document.querySelectorAll(".context-button");

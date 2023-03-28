@@ -3,6 +3,8 @@
 :root {
     --primary-background-color: #0077b6;
     --secondary-background-color: #023e8a;
+    --sidebar-text-color: #ffffff;
+    --sidebar-selected-color: #000000;
 }
 
 * {
@@ -143,6 +145,7 @@ body.active {
     color: #fff;
     max-width: 100px;
     cursor: pointer;
+    transition: 0.5s;
 }
 
 .formBox.active .registerForm input[type="submit"] {

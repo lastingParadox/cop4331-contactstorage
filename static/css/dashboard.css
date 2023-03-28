@@ -1,17 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
-:root {
-    --primary-background-color: #0077b6;
-    --secondary-background-color: #023e8a;
-    --sidebar-text-color: #ffffff;
-    --sidebar-selected-color: #000000;
-}
-
 html {
     min-height: 100vh;
 }
 
 body {
+    position: relative;
     min-height: 100vh;
     background-color: #0077b6;
     transition: 0.25s;
@@ -43,6 +37,7 @@ body {
     display: grid;
     width: 100%;
     grid-auto-rows: min-content min-content minmax(0px, min-content);
+    grid-template-columns: 100%;
 }
 
 #content {
@@ -135,13 +130,13 @@ body {
     margin: 25px;
     position: sticky;
     padding: 0;
-    top: 0;
+    top: 25px;
 }
 
 #contact_container {
     display: flex;
     flex-wrap: wrap;
-    margin: 25px;
+    margin: 0px 25px 25px 25px;
     gap: 20px;
     grid-row: 3;
     grid-column: 1;
@@ -165,18 +160,23 @@ body {
     display: flex;
 }
 
-.contact-top .context-button {
-    font-size: 2em;
+.contact-top .context-button-container {
     margin-left: auto;
-    cursor: pointer;
+}
+
+.contact-top .context-button {
+    background-image: url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="%23000000"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/></svg>');
+    background-size: 100% 100%;
+    padding: 0;
+    border: none;
+    background-color: transparent;
     transition: all 0.1s;
-    height: 32px;
-    width: 32px;
-    user-select: none;
+    height: 40px;
+    width: 40px;
 }
 
 .contact-top .context-button:hover {
-    color: white;
+    filter: invert(100%);
 }
 
 .contact-interior {
@@ -194,6 +194,16 @@ body {
     max-width: inherit;
 }
 
+#table-container {
+    overflow-x: auto;
+    flex-grow: 1;
+    height: calc(100% - 4px)
+}
+
+#contacts-table {
+    overflow: scroll;
+}
+
 .info_container {
     display: flex;
     margin-top: 7px;
@@ -203,28 +213,48 @@ body {
     white-space: nowrap;
 }
 
-#contextmenu {
-    position: absolute;
-    background-color: white;
-    height: 88px;
-    flex-direction: column;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
-        rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
-}
-
 .contextmenu-item {
     display: flex;
-    padding: 10px;
     user-select: none;
     cursor: pointer;
 }
 
-.contextmenu-item span {
+.contextmenu-item + .contextmenu-item {
+    margin-top: 2px;
+}
+
+.contextmenu-item a {
+    display: flex;
+    color: #fff;
+}
+
+#contextmenu-edit {
+    background-color: var(--bs-primary);
+    border-radius: 4px 4px 0px 0px;
+}
+
+#contextmenu-edit:hover {
+    background-color: #0b5ed7;
+}
+
+#contextmenu-delete {
+    background-color: var(--bs-danger);
+    border-radius: 0px 0px 4px 4px;
+}
+
+#contextmenu-delete:hover {
+    background-color: #bb2d3b;
+}
+
+.contextmenu-item a span {
     margin-right: 4px;
 }
 
-.contextmenu-item:hover {
+.dropdown-menu {
+    min-width: 6rem;
     background-color: rgb(182, 182, 182);
+    padding: 0;
+    box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.4);
 }
 
 /* Pages */
@@ -323,6 +353,7 @@ body {
     }
 
     .page {
+        top: 5%;
         width: 95%;
     }
 }
@@ -365,28 +396,4 @@ body {
         height: 28vw;
         width: 25vw;
     }
-}
-
-
-#contextmenu {
-    position: absolute;
-    background-color: white;
-    height: 88px;
-    flex-direction: column;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
-        rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
-    cursor: pointer;
-}
-
-.contextmenu-item {
-    display: flex;
-    padding: 10px;
-}
-
-.contextmenu-item span {
-    margin-right: 4px;
-}
-
-.contextmenu-item:hover {
-    background-color: rgb(182, 182, 182);
 }

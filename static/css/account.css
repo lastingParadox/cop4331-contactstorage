@@ -28,9 +28,3 @@
     padding: 1rem 1.35rem;
     font-size: 1.5em;
 }
-
-@media (max-width: 767px) {
-    #deleteAccountButton {
-        margin-top: 1rem;
-    }
-}

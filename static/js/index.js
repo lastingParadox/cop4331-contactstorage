@@ -94,6 +94,9 @@ function readCookie() {
         lastName: lastName,
         userId: userId,
         side_nav: side_nav,
+        colorDash: colorDash,
+        colorSide: colorSide,
+        contactView: contactView,
     };
 }
 
