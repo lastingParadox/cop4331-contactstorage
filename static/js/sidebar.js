@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function () {
     document.body.style.backgroundColor = colorDash;
 
     let root = document.querySelector(":root");
-    let sidebar = document.getElementById("side_nav");
+    let sidebar = document.getElementById("sidebar");
 
     sidebar.style.backgroundColor = colorSide;
 
@@ -12,16 +12,10 @@ document.addEventListener("DOMContentLoaded", function () {
     root.style.setProperty("--sidebar-text-color", brightnessArray[0]);
     root.style.setProperty("--sidebar-selected-color", brightnessArray[1]);
 
-    let hamburger = document.getElementById("hamburger");
-
-    if (cookie.side_nav == "active") {
+    if (cookie.sidebar == "active") {
         sidebar.classList.add("active");
-        hamburger.classList.remove("open-btn");
-        hamburger.classList.add("close-btn");
-    } else if (cookie.side_nav == "inactive") {
+    } else if (cookie.sidebar == "inactive") {
         sidebar.classList.remove("active");
-        hamburger.classList.remove("close-btn");
-        hamburger.classList.add("open-btn");
     }
 
     let listItems = document.querySelectorAll(".sidebar > ul > li");
@@ -34,27 +28,6 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    hamburger.addEventListener("click", function () {
-        let collapsableElements =
-            document.getElementsByClassName("collapsable");
-
-        if (this.classList.contains("close-btn")) {
-            for (let element of collapsableElements) {
-                element.classList.add("collapse");
-            }
-            sidebar.classList.remove("active");
-            this.classList.remove("close-btn");
-            this.classList.add("open-btn");
-        } else if (this.classList.contains("open-btn")) {
-            sidebar.classList.add("active");
-            for (let element of collapsableElements) {
-                element.classList.remove("collapse");
-            }
-            this.classList.remove("open-btn");
-            this.classList.add("close-btn");
-        }
-    });
-
     // Adds the animation after the page loads
     setTimeout(() => {
         sidebar.style.transition = "all 0.2s";
@@ -62,10 +35,10 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 function transferPage(id) {
-    let sidebar = document.getElementById("side_nav");
+    let sidebar = document.getElementById("sidebar");
 
-    if (sidebar.classList.contains("active")) setCookie("side_nav", "active");
-    else setCookie("side_nav", "inactive");
+    if (sidebar.classList.contains("active")) setCookie("sidebar", "active");
+    else setCookie("sidebar", "inactive");
 
     switch (id) {
         case "mobile_contacts":

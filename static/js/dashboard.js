@@ -197,7 +197,6 @@ async function searchContacts(params) {
             // add the innerHTMLs
             let contactHTML;
             if (contactView === "card") {
-                console.log("fdiso")
                 contactHTML = `
                 <div class="contact">
                     <div class="contact-top">

@@ -1,202 +1,161 @@
 <!DOCTYPE html>
 <html lang="en">
-    <html>
-        <head>
-            <script type="text/javascript" src="static/js/index.js"></script>
-            <script type="text/javascript" src="static/js/sidebar.js"></script>
-            <script type="text/javascript" src="static/js/account.js"></script>
+<html>
 
-            <meta charset="utf-8" />
-            <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-            <meta
-                name="viewport"
-                content="width=device-width, initial-scale=1"
-            />
+<head>
+    <script type="text/javascript" src="static/js/index.js"></script>
+    <script type="text/javascript" src="static/js/sidebar.js"></script>
+    <script type="text/javascript" src="static/js/account.js"></script>
 
-            <title>Contact Storage - Account</title>
-            <meta name="title" content="Contact Storage - Account"/>
-            <meta name="description" content="A convenient way to store your contacts online."/>
-            
-            <meta property="og:type" content="website">
-            <meta content="Contact Storage - Account" property="og:title" />
-            <meta content="A convenient way to store your contacts online." property="og:description" />
-            <meta content="https://contactstorage.info" property="og:url" />
-            <meta content="https://contactstorage.info/static/images/home.png" property="og:image" />
-            <meta content="#0077b6" data-react-helmet="true" name="theme-color" />
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-            <!--Google icons-->
-            <link
-                rel="stylesheet"
-                href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp"
-            />
-            <link
-                rel="stylesheet"
-                href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined"
-            />
+    <title>Contact Storage - Account</title>
+    <meta name="title" content="Contact Storage - Account" />
+    <meta name="description" content="A convenient way to store your contacts online." />
 
-            <!-- Bootstrap v5.3.0-alpha1 CDNs -->
-            <link
-                href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
-                rel="stylesheet"
-                integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
-                crossorigin="anonymous"
-            />
+    <meta property="og:type" content="website">
+    <meta content="Contact Storage - Account" property="og:title" />
+    <meta content="A convenient way to store your contacts online." property="og:description" />
+    <meta content="https://contactstorage.info" property="og:url" />
+    <meta content="https://contactstorage.info/static/images/home.png" property="og:image" />
+    <meta content="#0077b6" data-react-helmet="true" name="theme-color" />
 
-            <script
-                src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
-                integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
-                crossorigin="anonymous"
-            ></script>
+    <!--Google icons-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" />
 
-            <link rel="stylesheet" href="static/css/dashboard.css" />
-            <link rel="stylesheet" href="static/css/account.css" />
-        </head>
+    <!-- Bootstrap v5.3.0-alpha1 CDNs -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous" />
 
-        <body>
-            <div id="main-container" class="d-flex">
-                <div class="sidebar" id="side_nav">
-                    <div class="header-box pt-3 pb-4 position-relative">
-                        <h1 class="fs-4 title">
-                            <button
-                                id="hamburger"
-                                class="btn open-btn border-0"
-                            >
-                                <span class="material-icons-outlined"
-                                    >menu</span
-                                >
-                            </button>
-                            <span id="sidebar-title">Contact Storage</span>
-                        </h1>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="static/css/dashboard.css" />
+    <link rel="stylesheet" href="static/css/account.css" />
+</head>
+
+<body>
+    <div id="main-container" class="d-flex">
+
+        <nav id="sidebar" class="sidebar active">
+            <ul class="sidebar-nav">
+                <li class="logo">
+                    <a href="#" class="nav-link">
+                        <span class="link-text logo-text">Contact Storage</span>
+                        <svg aria-hidden="true" focusable="false" data-prefix="fad" data-icon="angle-double-right"
+                            role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"
+                            class="svg-inline--fa fa-angle-double-right fa-w-14 fa-5x">
+                            <g class="fa-group">
+                                <path fill="currentColor"
+                                    d="M224 273L88.37 409a23.78 23.78 0 0 1-33.8 0L32 386.36a23.94 23.94 0 0 1 0-33.89l96.13-96.37L32 159.73a23.94 23.94 0 0 1 0-33.89l22.44-22.79a23.78 23.78 0 0 1 33.8 0L223.88 239a23.94 23.94 0 0 1 .1 34z"
+                                    class="fa-secondary"></path>
+                                <path fill="currentColor"
+                                    d="M415.89 273L280.34 409a23.77 23.77 0 0 1-33.79 0L224 386.26a23.94 23.94 0 0 1 0-33.89L320.11 256l-96-96.47a23.94 23.94 0 0 1 0-33.89l22.52-22.59a23.77 23.77 0 0 1 33.79 0L416 239a24 24 0 0 1-.11 34z"
+                                    class="fa-primary"></path>
+                            </g>
+                        </svg>
+                    </a>
+                </li>
+
+                <li id="nav_contacts" class="nav-item active" onclick="transferPage(this.id);">
+                    <a href="#" class="nav-link">
+                        <svg width="24" height="24" stroke-width="1.5" viewBox="0 0 24 24" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 21V7C12 5.89543 12.8954 5 14 5H21.4C21.7314 5 22 5.26863 22 5.6V18.7143"
+                                stroke="currentColor" stroke-linecap="round" />
+                            <path d="M12 21V7C12 5.89543 11.1046 5 10 5H2.6C2.26863 5 2 5.26863 2 5.6V18.7143"
+                                stroke="currentColor" stroke-linecap="round" />
+                            <path d="M14 19L22 19" stroke="currentColor" stroke-linecap="round" />
+                            <path d="M10 19L2 19" stroke="currentColor" stroke-linecap="round" />
+                            <path d="M12 21C12 19.8954 12.8954 19 14 19" stroke="currentColor" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                            <path d="M12 21C12 19.8954 11.1046 19 10 19" stroke="currentColor" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg>
+                        <span class="link-text">Contacts</span>
+                    </a>
+                </li>
+
+                <li id="nav_account" class="nav-item" onclick="transferPage(this.id);">
+                    <a href="#" class="nav-link">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                            <path fill="#b6b6b6"
+                                d="M6 17c0-2 4-3.1 6-3.1s6 1.1 6 3.1v1H6m9-9a3 3 0 0 1-3 3a3 3 0 0 1-3-3a3 3 0 0 1 3-3a3 3 0 0 1 3 3M3 5v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2Z" />
+                        </svg>
+                        <span class="link-text">Account</span>
+                    </a>
+                </li>
+
+                <li id="nav_logout" class="nav-item" onclick="logout();">
+                    <a href="#" class="nav-link">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="feather feather-log-out">
+                            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                            <polyline points="16 17 21 12 16 7"></polyline>
+                            <line x1="21" y1="12" x2="9" y2="12"></line>
+                        </svg>
+                        <span class="link-text">Logout</span>
+                    </a>
+                </li>
+
+            </ul>
+        </nav>
+
+        <div id="content">
+            <div class="card account-card">
+                <div class="card-header text-center font">Account</div>
+                <div class="card-body text-center p-5">
+                    <img id="userPhoto" class="img-account-profile rounded-circle mb-2"
+                        src="./static/images/media/anonymous.png" alt="" />
+                    <h2 id="userFirstLast">&nbsp;</h2>
+                    <i id="userEmail" class="text-secondary">&nbsp;</i>
+
+                    <div class="mt-4">
+                        <button class="btn btn-primary" id="editDetailsButton" onclick="pageView();">
+                            Edit Details
+                        </button>
+                        <button class="btn btn-primary" id="settingsButton" onclick="pageView(true, 'settings');">
+                            Edit Settings
+                        </button>
+                        <button class="btn btn-danger" id="deleteAccountButton" onclick="pageView(true, 'delete');">
+                            Delete Account
+                        </button>
                     </div>
-
-                    <ul class="list-unstyled">
-                        <li
-                            id="nav_contacts"
-                            class="my-2"
-                            onclick="transferPage(this.id);"
-                        >
-                            <div class="list-itembox">
-                                <span class="material-icons-sharp"
-                                    >import_contacts</span
-                                >
-                                <span class="ms-3">Contacts</span>
-                            </div>
-                        </li>
-                    </ul>
-
-                    <hr class="hr-color mx-2 border-2" />
-
-                    <ul class="list-unstyled">
-                        <li
-                            id="nav_account"
-                            class="my-2 active"
-                            onclick="transferPage(this.id);"
-                        >
-                            <div class="list-itembox">
-                                <span class="material-icons-sharp"
-                                    >account_box</span
-                                >
-                                <span class="ms-3">Account</span>
-                            </div>
-                        </li>
-                        <li id="nav_logout" class="my-2" onclick="logout();">
-                            <div class="list-itembox">
-                                <span class="material-icons-sharp">logout</span>
-                                <span class="ms-3">Logout</span>
-                            </div>
-                        </li>
-                    </ul>
                 </div>
+            </div>
 
-                <div id="content">
-                    <div class="card account-card">
-                        <div class="card-header text-center font">Account</div>
-                        <div class="card-body text-center p-5">
-                            <img
-                                id="userPhoto"
-                                class="img-account-profile rounded-circle mb-2"
-                                src="./static/images/media/anonymous.png"
-                                alt=""
-                            />
-                            <h2 id="userFirstLast">&nbsp;</h2>
-                            <i id="userEmail" class="text-secondary">&nbsp;</i>
-
-                            <div class="mt-4">
-                                <button
-                                    class="btn btn-primary"
-                                    id="editDetailsButton"
-                                    onclick="pageView();"
-                                >
-                                    Edit Details
-                                </button>
-                                <button
-                                    class="btn btn-primary"
-                                    id="settingsButton"
-                                    onclick="pageView(true, 'settings');"
-                                >
-                                    Edit Settings
-                                </button>
-                                <button
-                                    class="btn btn-danger"
-                                    id="deleteAccountButton"
-                                    onclick="pageView(true, 'delete');"
-                                >
-                                    Delete Account
-                                </button>
-                            </div>
-                        </div>
+            <div id="page-overlay" class="collapse">
+                <div id="details-page" class="page collapse">
+                    <div class="page-tab">
+                        <span class="material-icons-sharp exit-page">clear</span>
                     </div>
-
-                    <div id="page-overlay" class="collapse">
-                        <div id="details-page" class="page collapse">
-                            <div class="page-tab">
-                                <span class="material-icons-sharp exit-page"
-                                    >clear</span
-                                >
+                    <div class="page-content">
+                        <h1>Account Details</h1>
+                        <form method="post">
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control form-control-sm" placeholder="First Name"
+                                    id="details-firstName" required />
+                                <label for="details-firstName">First Name</label>
                             </div>
-                            <div class="page-content">
-                                <h1>Account Details</h1>
-                                <form method="post">
-                                    <div class="form-floating mb-3">
-                                        <input
-                                            type="text"
-                                            class="form-control form-control-sm"
-                                            placeholder="First Name"
-                                            id="details-firstName"
-                                            required
-                                        />
-                                        <label for="details-firstName"
-                                            >First Name</label
-                                        >
-                                    </div>
 
-                                    <div class="form-floating mb-3">
-                                        <input
-                                            type="text"
-                                            class="form-control form-control-sm"
-                                            placeholder="Last Name"
-                                            id="details-lastName"
-                                            required
-                                        />
-                                        <label for="details-lastName"
-                                            >Last Name</label
-                                        >
-                                    </div>
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control form-control-sm" placeholder="Last Name"
+                                    id="details-lastName" required />
+                                <label for="details-lastName">Last Name</label>
+                            </div>
 
-                                    <div class="form-floating mb-3">
-                                        <input
-                                            type="text"
-                                            class="form-control form-control-sm"
-                                            placeholder="Username"
-                                            id="details-username"
-                                            required
-                                        />
-                                        <label for="details-username"
-                                            >Username</label
-                                        >
-                                    </div>
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control form-control-sm" placeholder="Username"
+                                    id="details-username" required />
+                                <label for="details-username">Username</label>
+                            </div>
 
-                                    <!-- Changing Password is iffy; need to consider validating prior to sending the api call
+                            <!-- Changing Password is iffy; need to consider validating prior to sending the api call
                                     <div class="form-floating mb-3">
                                         <input
                                             type="password"
@@ -220,174 +179,93 @@
                                         >
                                     </div>
                                     -->
-                                    
-                                    <div class="form-floating mb-3">
-                                        <input
-                                            type="text"
-                                            class="form-control form-control-sm"
-                                            placeholder="email@example.com"
-                                            id="details-email"
-                                        />
-                                        <label for="details-address"
-                                            >Email</label
-                                        >
-                                    </div>
-                                    <div class="form-floating mb-3">
-                                        <input
-                                            type="file"
-                                            class="form-control form-control-sm"
-                                            id="details-picture"
-                                            accept="image/png,image/jpeg"
-                                        />
-                                        <label for="details-picture"
-                                            >Image</label
-                                        >
-                                    </div>
 
-                                    <span class="mt-3">
-                                        <input
-                                            class="btn btn-primary primaryBg"
-                                            type="submit"
-                                            value="Update"
-                                            onclick="return editUserDetails();"
-                                        />
-                                    </span>
-                                    <span class="mt-3">
-                                        <input
-                                            class="btn btn-secondary"
-                                            type="submit"
-                                            value="Update and Remove Image"
-                                            onclick="return editUserDetails(true);"
-                                        />
-                                    </span>
-                                </form>
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control form-control-sm" placeholder="email@example.com"
+                                    id="details-email" />
+                                <label for="details-address">Email</label>
                             </div>
-                        </div>
-                        <div id="settings-page" class="page collapse">
-                            <div class="page-tab">
-                                <span
-                                    id="settings-exit"
-                                    class="material-icons-sharp exit-page"
-                                    >clear</span
-                                >
+                            <div class="form-floating mb-3">
+                                <input type="file" class="form-control form-control-sm" id="details-picture"
+                                    accept="image/png,image/jpeg" />
+                                <label for="details-picture">Image</label>
                             </div>
-                            <div class="page-content">
-                                <h1>Account Settings</h1>
-                                <form method="post">
-                                    <span>Primary Color</span>
-                                    <div class="d-flex mb-3">
-                                        <input
-                                            id="color-button-1"
-                                            type="color"
-                                            name=""
-                                            class="form-control-color d-inline"
-                                        />
-                                        <input
-                                            id="color-text-1"
-                                            class="form-control d-inline mx-3"
-                                            type="text"
-                                            value="#000000"
-                                        />
-                                        <input
-                                            id="default_dash"
-                                            class="btn btn-secondary primaryBg"
-                                            type="button"
-                                            value="Default"
-                                        />
-                                    </div>
 
-                                    <span>Secondary Color</span>
-                                    <div class="d-flex mb-3">
-                                        <input
-                                            id="color-button-2"
-                                            type="color"
-                                            name=""
-                                            class="form-control-color d-inline"
-                                        />
-                                        <input
-                                            id="color-text-2"
-                                            class="form-control d-inline mx-3"
-                                            type="text"
-                                            value="#000000"
-                                        />
-                                        <input
-                                            id="default_side"
-                                            class="btn btn-secondary primaryBg"
-                                            type="button"
-                                            value="Default"
-                                        />
-                                    </div>
+                            <span class="mt-3">
+                                <input class="btn btn-primary primaryBg" type="submit" value="Update"
+                                    onclick="return editUserDetails();" />
+                            </span>
+                            <span class="mt-3">
+                                <input class="btn btn-secondary" type="submit" value="Update and Remove Image"
+                                    onclick="return editUserDetails(true);" />
+                            </span>
+                        </form>
+                    </div>
+                </div>
+                <div id="settings-page" class="page collapse">
+                    <div class="page-tab">
+                        <span id="settings-exit" class="material-icons-sharp exit-page">clear</span>
+                    </div>
+                    <div class="page-content">
+                        <h1>Account Settings</h1>
+                        <form method="post">
+                            <span>Primary Color</span>
+                            <div class="d-flex mb-3">
+                                <input id="color-button-1" type="color" name="" class="form-control-color d-inline" />
+                                <input id="color-text-1" class="form-control d-inline mx-3" type="text"
+                                    value="#000000" />
+                                <input id="default_dash" class="btn btn-secondary primaryBg" type="button"
+                                    value="Default" />
+                            </div>
 
-                                    <div class="form-check form-switch mb-4">
-                                        <input
-                                            class="form-check-input"
-                                            type="checkbox"
-                                            id="flexSwitchCheckChecked"
-                                            checked
-                                            onclick=""
-                                        />
-                                        <label
-                                            class="form-check-label"
-                                            for="flexSwitchCheckChecked"
-                                            >Use Card View</label
-                                        >
-                                    </div>
+                            <span>Secondary Color</span>
+                            <div class="d-flex mb-3">
+                                <input id="color-button-2" type="color" name="" class="form-control-color d-inline" />
+                                <input id="color-text-2" class="form-control d-inline mx-3" type="text"
+                                    value="#000000" />
+                                <input id="default_side" class="btn btn-secondary primaryBg" type="button"
+                                    value="Default" />
+                            </div>
 
-                                    <div>
-                                        <span class="mt-3">
-                                            <input
-                                                class="btn btn-success primaryBg"
-                                                type="submit"
-                                                value="Apply Settings"
-                                                onclick="return editUserSettings();"
-                                            />
-                                        </span>
-                                    </div>
-                                </form>
+                            <div class="form-check form-switch mb-4">
+                                <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked
+                                    onclick="" />
+                                <label class="form-check-label" for="flexSwitchCheckChecked">Use Card View</label>
                             </div>
-                        </div>
-                        <div id="delete-page" class="page collapse">
-                            <div class="page-tab">
-                                <span class="material-icons-sharp exit-page"
-                                    >clear</span
-                                >
+
+                            <div>
+                                <span class="mt-3">
+                                    <input class="btn btn-success primaryBg" type="submit" value="Apply Settings"
+                                        onclick="return editUserSettings();" />
+                                </span>
                             </div>
-                            <div class="page-content">
-                                <h1>Delete Account</h1>
-                                <p id="delete_statement">
-                                    Are you sure you want to delete your
-                                    account?
-                                </p>
-                                <button
-                                    class="btn btn-danger"
-                                    onclick="deleteUserAccount();"
-                                >
-                                    Delete
-                                </button>
-                                <button
-                                    class="btn btn-primary"
-                                    onclick="pageView(false);"
-                                >
-                                    Cancel
-                                </button>
-                            </div>
-                        </div>
+                        </form>
+                    </div>
+                </div>
+                <div id="delete-page" class="page collapse">
+                    <div class="page-tab">
+                        <span class="material-icons-sharp exit-page">clear</span>
+                    </div>
+                    <div class="page-content">
+                        <h1>Delete Account</h1>
+                        <p id="delete_statement">
+                            Are you sure you want to delete your
+                            account?
+                        </p>
+                        <button class="btn btn-danger" onclick="deleteUserAccount();">
+                            Delete
+                        </button>
+                        <button class="btn btn-primary" onclick="pageView(false);">
+                            Cancel
+                        </button>
                     </div>
                 </div>
             </div>
-            <nav id="mobile-navbar" class="sticky-bottom">
-                <div id="mobile_contacts" class="mobile-item" ontouchstart="transferPage(this.id);">
-                    <span class="material-icons-sharp mobile-item-icon">import_contacts</span>
-                </div>
-                <div class="vr"></div>
-                <div id="mobile_account" class="mobile-item active" ontouchstart="transferPage(this.id);">
-                    <span class="material-icons-sharp mobile-item-icon">account_box</span>
-                </div>
-                <div class="vr"></div>
-                <div id="mobile_logout" class="mobile-item" ontouchstart="logout();">
-                    <span class="material-icons-sharp mobile-item-icon">logout</span>
-                </div>
-            </nav>
-        </body>
-    </html>
+        </div>
+    </div>
+
+</body>
+
+</html>
+
 </html>

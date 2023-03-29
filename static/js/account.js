@@ -2,7 +2,7 @@ let user;
 
 document.addEventListener("DOMContentLoaded", () => {
     let root = document.querySelector(":root");
-    let sidebar = document.getElementById("side_nav");
+    let sidebar = document.getElementById("sidebar");
 
     let exit_buttons = document.querySelectorAll(".exit-page");
     exit_buttons.forEach((button) => {

@@ -24,3 +24,56 @@ body {
 .name {
     text-align: left;
 }
+
+/* Contacts */
+
+#contact_container {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0px 25px 25px 25px;
+    gap: 20px;
+    grid-row: 3;
+    grid-column: 1;
+}
+
+.contact {
+    position: relative;
+    background-color: rgb(182, 182, 182);
+    border-radius: 8px;
+    padding: 15px 5px 15px 15px;
+    min-width: 424px;
+    min-height: min-content;
+    height: min-content;
+    max-height: min-content;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
+
+.contact-interior,
+.contact-top {
+    display: flex;
+}
+
+.contact-interior {
+    gap: 12px;
+    overflow: hidden;
+}
+
+.contact-info {
+    flex-grow: 1;
+    max-width: inherit;
+}
+
+#table-container {
+    overflow-x: auto;
+    flex-grow: 1;
+    height: calc(100% - 4px);
+}
+
+.info_container {
+    display: flex;
+    margin-top: 7px;
+    gap: 4px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
