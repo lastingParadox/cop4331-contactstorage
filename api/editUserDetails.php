@@ -24,8 +24,8 @@
         }
         // If no image was uploaded, leave it alone
         else {
-            $stmt = $conn->prepare("UPDATE USERS SET firstName = ?, lastName = ?, username = ?, email = ?, WHERE id = ?");
-            $stmt->bind_param("ssssi", $inData["firstName"], $inData["lastName"], $inData["phoneNumber"], $inData["email"], $inData["userId"]);
+            $stmt = $conn->prepare("UPDATE USERS SET firstName = ?, lastName = ?, username = ?, email = ? WHERE id = ?");
+            $stmt->bind_param("ssssi", $inData["firstName"], $inData["lastName"], $inData["username"], $inData["email"], $inData["userId"]);
         }
         $stmt->execute();
 
