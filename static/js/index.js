@@ -43,14 +43,14 @@ function logout() {
         cookieName +
         "=" +
         "firstName= ; expires = Thu, 01 Jan 1970 00:00:00 GMT";
-    window.location.href = "index.html";
+    window.location.href = "login.html";
 }
 
 function readCookie() {
     userId = -1;
     let data = document.cookie;
 
-    if (!data) window.location.href = "index.html";
+    if (!data) window.location.href = "login.html";
 
     let test = data.split("; ");
 
@@ -85,7 +85,7 @@ function readCookie() {
     }
 
     if (userId < 0) {
-        window.location.href = "index.html";
+        window.location.href = "login.html";
     }
 
     return {

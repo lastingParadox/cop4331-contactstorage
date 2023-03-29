@@ -22,7 +22,7 @@ function register(event) {
     let callbacks = {};
     callbacks.error = function (response) {};
     callbacks.success = function (response) {
-        window.location.href = "index.html";
+        window.location.href = "login.html";
     };
 
     // Send request

@@ -4,7 +4,6 @@
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Login and Registration Page</title>
 
         <!-- Bootstrap v5.3.0-alpha1 CDNs -->
         <link
@@ -20,18 +19,24 @@
             crossorigin="anonymous"
         ></script>
 
-        <!-- CSS File -->
-        <link rel="stylesheet" href="./static/css/index.css" />
+        <link rel="stylesheet" href="./static/css/home.css" />
 
-        <!-- JS File -->
-        <script src="./static/js/index.js" async></script>
-        <script src="./static/js/login.js" async></script>
+        <script src="./static/js/home.js" async></script>
+
+        <title>Home Page</title>
     </head>
 
+<script>
+    document.addEventListener("DOMContentLoaded", function () { 
+        console.log("GAGAG");
+    });
+</script>
+
     <body>
+        <div id="content" class="d-flex flex-column">
         <header class="navbar sticky-top navbar-expand-lg bg-body-tertiary px-3 py-2">
             <nav class="container-fluid">
-                <a class="navbar-brand fw-medium" href="./home.html">
+                <a class="navbar-brand fw-medium" href="./index.html">
                     <svg height="40" xmlns="http://www.w3.org/2000/svg" id="Layer_3" data-name="Layer 3" viewBox="0 0 100 100"><defs><style>.cls-1{fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:3px}</style></defs><circle cx="49.99" cy="24.63" r="9.18" class="cls-1"/><path d="M60.01 35.82c-2.97-.91-6.38-1.43-10.01-1.43-9.33 0-17.23 3.43-19.9 8.16" class="cls-1"/><g id="Layer_2" data-name="Layer 2"><path d="m51 50 38-13.65v43.53L51 93.97 12.7 79.59V55.33l28.17 10.66L51 50z" class="cls-1"/><path d="M51 93.97V50L12.7 36.35 3.3 51.61l9.4 3.72M54.13 16.21l6.6-10.19 36.19 14.19L89 36.35M51 50l10.41-16.39 9.2-3.52" class="cls-1"/><path d="m96.92 20.21-26.31 9.88-11.44-4.94M40.82 25.24 12.7 36.35 3.3 20.21l37.77-13.8 6.13 9.33" class="cls-1"/></g></svg>
                     Contact Storage
                 </a>
@@ -55,7 +60,7 @@
                             <a
                                 class="nav-link"
                                 aria-current="page"
-                                href="./home.html"
+                                href="./index.html"
                                 >Home</a
                             >
                         </li>
@@ -84,7 +89,7 @@
                             <a
                                 class="btn btn-warning px-4"
                                 aria-current="page"
-                                href="./index.html"
+                                href="./login.html"
                                 >Get Started</a
                             >
                         </li>
@@ -93,102 +98,15 @@
             </nav>
         </header>
 
-        <div class="container">
-            <div class="blueBackground">
-                <div class="box login">
-                    <h2>Already have an Account?</h2>
-                    <button class="loginButton">Login</button>
+        <main>
+            <section id="hero">
+                <div id="title">
+                    <h1>Contact Storage</h1>
+                    <h2><em>A convenient way to store your contacts online.</em></h2>
                 </div>
-
-                <div class="box register">
-                    <h2>Don't have an Account?</h2>
-                    <button class="registerButton">Register</button>
-                </div>
-            </div>
-
-            <div class="formBox">
-                <div class="form loginForm">
-                    <form onsubmit="return login(event);">
-                        <h3>Login</h3>
-                        <input
-                            type="text"
-                            id="login-username"
-                            placeholder="Username"
-                            required
-                        />
-                        <input
-                            type="password"
-                            id="login-password"
-                            placeholder="Password"
-                            required
-                        />
-                        <input id="login-submit" type="submit" value="Login" />
-                        <p id="login-error"></p>
-                    </form>
-                </div>
-
-                <div class="form registerForm">
-                    <form onsubmit="return register(event);">
-                        <h3 id="register-header">Register</h3>
-                        <input
-                            id="register-firstname"
-                            type="text"
-                            placeholder="First Name"
-                            class="register-field"
-                            required
-                        />
-                        <p id="firstname-invalid" class="register-invalid">
-                            Error
-                        </p>
-                        <input
-                            id="register-lastname"
-                            type="text"
-                            placeholder="Last Name"
-                            class="register-field"
-                            required
-                        />
-                        <p id="lastname-invalid" class="register-invalid">
-                            Error
-                        </p>
-                        <input
-                            id="register-email"
-                            type="email"
-                            placeholder="Email"
-                            class="register-field"
-                            required
-                        />
-                        <p id="email-invalid" class="register-invalid">Error</p>
-                        <input
-                            id="register-username"
-                            type="text"
-                            placeholder="Username"
-                            oninput="usernameColor(this);"
-                            class="register-field"
-                            required
-                        />
-                        <p id="username-invalid" class="register-invalid">
-                            Error
-                        </p>
-                        <input
-                            id="register-password"
-                            type="password"
-                            placeholder="Password"
-                            class="register-field"
-                            oninput="passwordValidity(this);"
-                            required
-                        />
-                        <p id="password-invalid" class="register-invalid">
-                            Error
-                        </p>
-                        <input
-                            id="register-submit"
-                            type="submit"
-                            value="Register"
-                        />
-                        <p id="register-error"></p>
-                    </form>
-                </div>
-            </div>
-        </div>
+                <svg id="logo" height="20rem"xmlns="http://www.w3.org/2000/svg" id="Layer_3" data-name="Layer 3" viewBox="0 0 100 100"><defs><style>.cls-1{fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:3px}</style></defs><circle cx="49.99" cy="24.63" r="9.18" class="cls-1"/><path d="M60.01 35.82c-2.97-.91-6.38-1.43-10.01-1.43-9.33 0-17.23 3.43-19.9 8.16" class="cls-1"/><g id="Layer_2" data-name="Layer 2"><path d="m51 50 38-13.65v43.53L51 93.97 12.7 79.59V55.33l28.17 10.66L51 50z" class="cls-1"/><path d="M51 93.97V50L12.7 36.35 3.3 51.61l9.4 3.72M54.13 16.21l6.6-10.19 36.19 14.19L89 36.35M51 50l10.41-16.39 9.2-3.52" class="cls-1"/><path d="m96.92 20.21-26.31 9.88-11.44-4.94M40.82 25.24 12.7 36.35 3.3 20.21l37.77-13.8 6.13 9.33" class="cls-1"/></g></svg>
+            </section>
+        </main>
+    </div>
     </body>
 </html>

@@ -92,7 +92,7 @@ function register(event) {
         user_invalid.innerHTML = "Username already exists!";
     };
     callbacks.success = function (response) {
-        window.location.href = "index.html";
+        window.location.href = "login.html";
     };
 
     // Send request

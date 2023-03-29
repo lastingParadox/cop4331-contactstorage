@@ -223,7 +223,7 @@ function deleteUserAccount() {
 
     sendRequest(inData, url, callbacks);
     callbacks.success = function (response) {
-        window.location.href = "./index.html";
+        window.location.href = "./login.html";
     }
 
     return false;
