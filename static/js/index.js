@@ -3,7 +3,7 @@ const urlBase = "https://contactstorage.info/api";
 let userId = 0;
 let firstName = "";
 let lastName = "";
-let side_nav = "";
+let sidebar = "";
 let cookieName = "ContactStorageUser";
 let colorDash = "";
 let colorSide = "";
@@ -30,7 +30,7 @@ function saveCookie() {
         colorSide +
         ",contactView=" +
         contactView +
-        ",side_nav=active" +
+        ",sidebar=active" +
         ";expires=" +
         date.toGMTString();
 }
@@ -79,8 +79,8 @@ function readCookie() {
             colorSide = tokens[1];
         } else if (tokens[0] == "contactView") {
             contactView = tokens[1];
-        } else if (tokens[0] == "side_nav") {
-            side_nav = tokens[1];
+        } else if (tokens[0] == "sidebar") {
+            sidebar = tokens[1];
         }
     }
 
@@ -93,7 +93,7 @@ function readCookie() {
         firstName: firstName,
         lastName: lastName,
         userId: userId,
-        side_nav: side_nav,
+        sidebar: sidebar,
         colorDash: colorDash,
         colorSide: colorSide,
         contactView: contactView,
@@ -106,7 +106,7 @@ function setCookie(cName, cValue, expMinutes = 30) {
     firstName = cookie.firstName;
     lastName = cookie.lastName;
     userId = cookie.userId;
-    side_nav = cookie.side_nav;
+    sidebar = cookie.sidebar;
 
     let date = new Date();
     date.setTime(date.getTime() + expMinutes * 60 * 1000);
@@ -121,8 +121,8 @@ function setCookie(cName, cValue, expMinutes = 30) {
         case "lastName":
             lastName = cValue;
             break;
-        case "side_nav":
-            side_nav = cValue;
+        case "sidebar":
+            sidebar = cValue;
             break;
         case "colorDash":
             colorDash = cValue;
@@ -152,8 +152,8 @@ function setCookie(cName, cValue, expMinutes = 30) {
         colorSide +
         ",contactView=" +
         contactView +
-        ",side_nav=" +
-        side_nav +
+        ",sidebar=" +
+        sidebar +
         ";expires=" +
         date.toGMTString();
 }
