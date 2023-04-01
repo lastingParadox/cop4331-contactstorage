@@ -426,6 +426,12 @@ body {
     }
 }
 
+@media (max-width: 494px) {
+    #add-contact-text {
+        display: none;
+    }
+}
+
 @media (max-width: 475px) {
     .contact {
         width: 100%;
