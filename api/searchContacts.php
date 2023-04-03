@@ -16,7 +16,7 @@
         $searchParam = $inData["search"];
         $userId = intval($inData["userId"]);
 
-        $stmt = $conn->prepare("SELECT * FROM CONTACTS WHERE userId = ? AND (firstName LIKE '%{$searchParam}%' OR lastName LIKE '%{$searchParam}%')");
+        $stmt = $conn->prepare("SELECT * FROM CONTACTS WHERE userId = ? AND CONCAT(firstName, lastName, phoneNumber, email, address, occupation) LIKE '%{$searchParam}%'");
         $stmt->bind_param("i", $userId);
         $stmt->execute();
         $result = $stmt->get_result();

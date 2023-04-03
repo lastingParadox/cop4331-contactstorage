@@ -27,7 +27,14 @@
             $stmt = $conn->prepare("UPDATE USERS SET firstName = ?, lastName = ?, username = ?, email = ? WHERE id = ?");
             $stmt->bind_param("ssssi", $inData["firstName"], $inData["lastName"], $inData["username"], $inData["email"], $inData["userId"]);
         }
-        $stmt->execute();
+
+        try {
+            $stmt->execute();
+        }
+        catch(Exception $e) {
+            return returnWithError("Cannot have duplicate username " . $inData["username"]);
+        }
+        
 
         returnWithSuccess("User <".$inData['userId']."> edited successfully");
 
