@@ -38,39 +38,50 @@ function createNewContact() {
         imageUrl: null,
     };
 
+    let photo = document.getElementById("create-picture").files[0];
+
     let createCallbacks = {};
     createCallbacks.error = function (response) {};
-    createCallbacks.success = function (response) {
-        location.reload();
+    createCallbacks.success = async function (response) {
+        if (photo) {
+            inData.id = response.contactId;
+
+            let formData = new FormData();
+            let filename = `user_${userId}_contact_${inData.id}_1.png`;
+
+            formData.append("picture", photo, filename);
+
+            let url = urlBase + "/fileUpload.php";
+
+            let callbacks = {};
+            callbacks.error = function (response) {
+                location.reload();
+            }
+            callbacks.success = function (response) {
+                let editCallbacks = {};
+                editCallbacks.error = function (response) {
+                    location.reload();
+                };
+                editCallbacks.success =  function (response) {
+                    location.reload();
+                };
+
+                inData.imageUrl = filename;
+                sendRequest(
+                    inData,
+                    urlBase + "/editContact.php",
+                    editCallbacks
+                );
+            }
+
+            sendRequest(formData, url, callbacks);
+        }
+        else {
+            location.reload();
+        }
     };
 
-    let photo = document.getElementById("create-picture").files[0];
-    if (photo) {
-        let formData = new FormData();
-        let filename = `user_${userId}_contact_${selected_id}.png`;
-        formData.append("picture", photo, filename);
-
-        let url = urlBase + "/fileUpload.php";
-
-        let callbacks = {};
-        callbacks.error = function (response) {
-            sendRequest(
-                inData,
-                urlBase + "/createContact.php",
-                createCallbacks
-            );
-        };
-        callbacks.success = function (response) {
-            inData.imageUrl = filename;
-            sendRequest(
-                inData,
-                urlBase + "/createContact.php",
-                createCallbacks
-            );
-        };
-
-        sendRequest(formData, url, callbacks);
-    } else sendRequest(inData, urlBase + "/createContact.php", createCallbacks);
+    sendRequest(inData, urlBase + "/createContact.php", createCallbacks);
 
     return false; // disable reload
 }
@@ -184,7 +195,7 @@ function validateFields(name = "edit") {
         phoneNumber.classList.add(valid);
     }
     
-    let emailRegex = /^\w+@\w+(.[\w.]+)?$/;
+    let emailRegex = /^\w(\w|[._-]\w)*@\w+(.[\w.]+)?$/;
     if (email.value != "" && !email.value.match(emailRegex)) {
         validBool = false;
         email.classList.remove(valid);

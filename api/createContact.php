@@ -26,9 +26,12 @@
         $stmt->execute();
 
         $stmt->close();
+
+        $id = $conn->insert_id;
+
         $conn->close();
 
-        returnWithSuccess("Contact created successfully [userId: " . $userId . "]");
+        returnWithSuccess("Contact created successfully [userId: " . $userId . "]", $id);
     }
 
     function getRequestInfo() {
@@ -45,8 +48,8 @@
         sendResultInfoAsJson( $retValue );
     }
 
-    function returnWithSuccess( $message ) {
-        $retValue = '{"success":"' . $message . '"}';
+    function returnWithSuccess( $message, $id ) {
+        $retValue = '{"success":"' . $message . '","contactId":"' . $id . '"}';
         sendResultInfoAsJson( $retValue );
     }
 ?>

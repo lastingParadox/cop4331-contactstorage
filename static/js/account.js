@@ -247,7 +247,7 @@ function validateFields() {
         username.classList.add(valid);
     }
     
-    let emailRegex = /^\w+@\w+(.[\w.]+)?$/;
+    let emailRegex = /^\w(\w|[._-]\w)*@\w+(.[\w.]+)?$/;
     if (email.value != "" && !email.value.match(emailRegex)) {
         validBool = false;
         email.classList.remove(valid);
