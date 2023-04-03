@@ -125,256 +125,178 @@
                                 <button
                                     class="btn btn-primary"
                                     id="editDetailsButton"
-                                    onclick="pageView();"
+                                    data-bs-toggle="modal"
+                                    data-bs-target="#detailsModal"
                                 >
                                     Edit Details
                                 </button>
                                 <button
                                     class="btn btn-primary"
                                     id="settingsButton"
-                                    onclick="pageView(true, 'settings');"
+                                    data-bs-toggle="modal"
+                                    data-bs-target="#settingsModal"
+                                    onclick="initSettingsPage();"
                                 >
                                     Edit Settings
                                 </button>
                                 <button
                                     class="btn btn-danger"
                                     id="deleteAccountButton"
-                                    onclick="pageView(true, 'delete');"
+                                    data-bs-toggle="modal"
+                                    data-bs-target="#deleteModal"
                                 >
                                     Delete Account
                                 </button>
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
 
-                    <div id="page-overlay" class="collapse">
-                        <div id="details-page" class="page collapse">
-                            <div class="page-tab">
-                                <span class="material-icons-sharp exit-page"
-                                    >clear</span
-                                >
+            <div class="modal fade" id="detailsModal" tabindex="-1" aria-labelledby="detailsPageLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="detailsPageLabel">Account Details</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="mb-2">
+                                <label for="details-firstName" class="form-label">First Name</label>
+                                <input type="text" class="form-control" id="details-firstName" placeholder="First Name">
+                                <div class="invalid-feedback">
+                                    Please input a first name.
+                                </div>
                             </div>
-                            <div class="page-content">
-                                <h1>Account Details</h1>
-                                <form method="post">
-                                    <div class="form-floating mb-3">
-                                        <input
-                                            type="text"
-                                            class="form-control form-control-sm"
-                                            placeholder="First Name"
-                                            id="details-firstName"
-                                            required
-                                        />
-                                        <label for="details-firstName"
-                                            >First Name</label
-                                        >
-                                    </div>
-
-                                    <div class="form-floating mb-3">
-                                        <input
-                                            type="text"
-                                            class="form-control form-control-sm"
-                                            placeholder="Last Name"
-                                            id="details-lastName"
-                                            required
-                                        />
-                                        <label for="details-lastName"
-                                            >Last Name</label
-                                        >
-                                    </div>
-
-                                    <div class="form-floating mb-3">
-                                        <input
-                                            type="text"
-                                            class="form-control form-control-sm"
-                                            placeholder="Username"
-                                            id="details-username"
-                                            required
-                                        />
-                                        <label for="details-username"
-                                            >Username</label
-                                        >
-                                    </div>
-
-                                    <!-- Changing Password is iffy; need to consider validating prior to sending the api call
-                                    <div class="form-floating mb-3">
-                                        <input
-                                            type="password"
-                                            class="form-control form-control-sm"
-                                            placeholder="old_password"
-                                            id="details-oldpassword"
-                                        />
-                                        <label for="details-oldpassword"
-                                            >Old Password</label
-                                        >
-                                    </div>
-                                    <div class="form-floating mb-3">
-                                        <input
-                                            type="password"
-                                            class="form-control form-control-sm"
-                                            placeholder="new_password"
-                                            id="details-newpassword"
-                                        />
-                                        <label for="details-newpassword"
-                                            >New Password</label
-                                        >
-                                    </div>
-                                    -->
-                                    
-                                    <div class="form-floating mb-3">
-                                        <input
-                                            type="text"
-                                            class="form-control form-control-sm"
-                                            placeholder="email@example.com"
-                                            id="details-email"
-                                        />
-                                        <label for="details-address"
-                                            >Email</label
-                                        >
-                                    </div>
-                                    <div class="form-floating mb-3">
-                                        <input
-                                            type="file"
-                                            class="form-control form-control-sm"
-                                            id="details-picture"
-                                            accept="image/png,image/jpeg"
-                                        />
-                                        <label for="details-picture"
-                                            >Image</label
-                                        >
-                                    </div>
-
-                                    <span class="mt-3">
-                                        <input
-                                            class="btn btn-primary primaryBg"
-                                            type="submit"
-                                            value="Update"
-                                            onclick="return editUserDetails();"
-                                        />
-                                    </span>
-                                    <span class="mt-3">
-                                        <input
-                                            class="btn btn-secondary"
-                                            type="submit"
-                                            value="Update and Remove Image"
-                                            onclick="return editUserDetails(true);"
-                                        />
-                                    </span>
-                                </form>
+                            <div class="mb-2">
+                                <label for="details-lastName" class="form-label">Last Name</label>
+                                <input type="text" class="form-control" id="details-lastName" placeholder="Last Name">
+                                <div class="invalid-feedback">
+                                    Please input a last name.
+                                </div>
+                            </div>
+                            <div class="mb-2">
+                                <label for="details-username" class="form-label">Username</label>
+                                <input type="tel" class="form-control" id="details-username" placeholder="Username">
+                                <div id="username-error" class="invalid-feedback">
+                                    Please input a username.
+                                </div>
+                            </div>
+                            <div class="mb-2">
+                                <label for="details-email" class="form-label">Email</label>
+                                <input type="email" class="form-control" id="details-email" placeholder="example@example.com">
+                                <div class="invalid-feedback">
+                                    Please input a valid email.
+                                </div>
+                            </div>
+                            <div class="mb-2">
+                                <label for="details-picture" class="form-label">Image</label>
+                                <input type="file" class="form-control" id="details-picture" accept="image/png,image/jpeg">
                             </div>
                         </div>
-                        <div id="settings-page" class="page collapse">
-                            <div class="page-tab">
-                                <span
-                                    id="settings-exit"
-                                    class="material-icons-sharp exit-page"
-                                    >clear</span
-                                >
-                            </div>
-                            <div class="page-content">
-                                <h1>Account Settings</h1>
-                                <form method="post">
-                                    <span>Primary Color</span>
-                                    <div class="d-flex mb-3">
-                                        <input
-                                            id="color-button-1"
-                                            type="color"
-                                            name=""
-                                            class="form-control-color d-inline"
-                                        />
-                                        <input
-                                            id="color-text-1"
-                                            class="form-control d-inline mx-3"
-                                            type="text"
-                                            value="#000000"
-                                        />
-                                        <input
-                                            id="default_dash"
-                                            class="btn btn-secondary primaryBg"
-                                            type="button"
-                                            value="Default"
-                                        />
-                                    </div>
-
-                                    <span>Secondary Color</span>
-                                    <div class="d-flex mb-3">
-                                        <input
-                                            id="color-button-2"
-                                            type="color"
-                                            name=""
-                                            class="form-control-color d-inline"
-                                        />
-                                        <input
-                                            id="color-text-2"
-                                            class="form-control d-inline mx-3"
-                                            type="text"
-                                            value="#000000"
-                                        />
-                                        <input
-                                            id="default_side"
-                                            class="btn btn-secondary primaryBg"
-                                            type="button"
-                                            value="Default"
-                                        />
-                                    </div>
-
-                                    <div class="form-check form-switch mb-4">
-                                        <input
-                                            class="form-check-input"
-                                            type="checkbox"
-                                            id="flexSwitchCheckChecked"
-                                            checked
-                                            onclick=""
-                                        />
-                                        <label
-                                            class="form-check-label"
-                                            for="flexSwitchCheckChecked"
-                                            >Use Card View</label
-                                        >
-                                    </div>
-
-                                    <div>
-                                        <span class="mt-3">
-                                            <input
-                                                class="btn btn-success primaryBg"
-                                                type="submit"
-                                                value="Apply Settings"
-                                                onclick="return editUserSettings();"
-                                            />
-                                        </span>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                        <div id="delete-page" class="page collapse">
-                            <div class="page-tab">
-                                <span class="material-icons-sharp exit-page"
-                                    >clear</span
-                                >
-                            </div>
-                            <div class="page-content">
-                                <h1>Delete Account</h1>
-                                <p id="delete_statement">
-                                    Are you sure you want to delete your
-                                    account?
-                                </p>
-                                <button
-                                    class="btn btn-danger"
-                                    onclick="deleteUserAccount();"
-                                >
-                                    Delete
-                                </button>
-                                <button
-                                    class="btn btn-primary"
-                                    onclick="pageView(false);"
-                                >
-                                    Cancel
-                                </button>
-                            </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" onclick="return editUserDetails();">Update</button>
+                            <button type="button" class="btn btn-secondary" onclick="return editUserDetails(true);">Update and Remove Image</button>
                         </div>
                     </div>
                 </div>
             </div>
+
+            <div class="modal fade" id="settingsModal" tabindex="-1" aria-labelledby="settingsPageLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="settingsPageLabel">Account Settings</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <span>Dashboard Color</span>
+                            <div class="mb-3 d-flex">
+                                <input
+                                id="color-button-1"
+                                type="color"
+                                name=""
+                                class="form-control-color d-inline"
+                                />
+                                <input
+                                    id="color-text-1"
+                                    class="form-control d-inline mx-3"
+                                    type="text"
+                                    value="#000000"
+                                    readonly
+                                />
+                                <input
+                                    id="default_dash"
+                                    class="btn btn-secondary primaryBg"
+                                    type="button"
+                                    value="Default"
+                                />
+                            </div>
+                            <span>Sidebar Color</span>
+                            <div class="d-flex mb-3">
+                                <input
+                                    id="color-button-2"
+                                    type="color"
+                                    name=""
+                                    class="form-control-color d-inline"
+                                />
+                                <input
+                                    id="color-text-2"
+                                    class="form-control d-inline mx-3"
+                                    type="text"
+                                    value="#000000"
+                                    readonly
+                                />
+                                <input
+                                    id="default_side"
+                                    class="btn btn-secondary primaryBg"
+                                    type="button"
+                                    value="Default"
+                                />
+                            </div>
+                            <div class="form-check form-switch mb-4">
+                                <input
+                                    class="form-check-input"
+                                    type="checkbox"
+                                    id="flexSwitchCheckChecked"
+                                    checked
+                                    onclick=""
+                                />
+                                <label
+                                    class="form-check-label"
+                                    for="flexSwitchCheckChecked"
+                                    >Use Card View</label
+                                >
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-success" onclick="return editUserSettings();">Update</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deletePageLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="deletePageLabel">Delete Contact</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                            <div class="modal-body">
+                                <p id="delete_statement">
+                                    Are you sure you want to delete your
+                                    account?
+                                </p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                                <button type="button" class="btn btn-danger" onclick="return deleteUserAccount();">Delete</button>
+                            </div>
+                    </div>
+                </div>
+            </div>
+
             <nav id="mobile-navbar" class="sticky-bottom">
                 <div id="mobile_contacts" class="mobile-item" ontouchstart="transferPage(this.id);">
                     <span class="material-icons-sharp mobile-item-icon">import_contacts</span>

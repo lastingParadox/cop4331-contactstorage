@@ -4,6 +4,22 @@ document.addEventListener("DOMContentLoaded", () => {
     let root = document.querySelector(":root");
     let sidebar = document.getElementById("side_nav");
 
+    document.getElementById("settingsModal").addEventListener('hidden.bs.modal', function (event) {
+        document.body.style.backgroundColor = colorDash;
+        sidebar.style.backgroundColor = colorSide;
+
+        let brightnessArray = getBrightness(hexToRGB(colorSide));
+        root.style.setProperty(
+            "--sidebar-text-color",
+            brightnessArray[0]
+        );
+        root.style.setProperty(
+            "--sidebar-selected-color",
+            brightnessArray[1]
+        );
+    })
+
+
     let exit_buttons = document.querySelectorAll(".exit-page");
     exit_buttons.forEach((button) => {
         button.addEventListener("click", () => {
@@ -126,6 +142,8 @@ async function retrieveUser() {
 function editUserDetails(clearBool = false) {
     let userId = readCookie().userId;
 
+    if (!validateFields()) return false;
+
     let inData = {
         userId: userId, // id of the sender
         firstName: document.getElementById("details-firstName").value, // required
@@ -133,26 +151,39 @@ function editUserDetails(clearBool = false) {
         username: document.getElementById("details-username").value,
         //password: document.getElementById("details-newpassword").value || null,
         email: document.getElementById("details-email").value,
-        imageUrl: null,
     };
 
     let editCallbacks = {};
-    editCallbacks.error = function (response) {};
+    editCallbacks.error = function (response) {
+        console.log(response)
+        document.getElementById("username-error").innerHTML = "Username already exists.";
+        document.getElementById("details-username").classList.add("is-invalid");
+    };
     editCallbacks.success = function (response) {
         location.reload();
     };
 
     if (!clearBool) {
         let photo = document.getElementById("details-picture").files[0];
+
         if (photo) {
             let formData = new FormData();
-            let filename = `user_${userId}.png`;
+            let filename;
+
+            if (!user.imageUrl) filename = `user_${userId}_1.png`;
+            else {
+                formData.append("delete", user.imageUrl)
+                filename = user.imageUrl.replace(/\.[^\.]+$/, "");
+                filename = filename.slice(0, filename.length - 2) + "_" + (parseInt(filename.slice(-1)) + 1) + ".png";
+            }
+
             formData.append("picture", photo, filename);
 
-            let url = urlBase + "/fileupload.php";
+            let url = urlBase + "/fileUpload.php";
 
             let callbacks = {};
             callbacks.error = function (response) {
+                console.log(response)
                 sendRequest(
                     inData,
                     urlBase + "/editUserDetails.php",
@@ -178,6 +209,57 @@ function editUserDetails(clearBool = false) {
     return false; // disable reload
 }
 
+function validateFields() {
+    const prefix = `details-`;
+    const valid = "is-valid";
+    const invalid = "is-invalid";
+    let validBool = true;
+
+    const firstName = document.getElementById(`${prefix}firstName`);
+    const lastName = document.getElementById(`${prefix}lastName`);
+    const username = document.getElementById(`${prefix}username`);
+    const email = document.getElementById(`${prefix}email`);
+
+    if (firstName.value.length == 0) {
+        validBool = false;
+        firstName.classList.remove(valid);
+        firstName.classList.add(invalid);
+    } else {
+        firstName.classList.remove(invalid);
+        firstName.classList.add(valid);
+    }
+    
+    if (lastName.value.length == 0) {
+        validBool = false;
+        lastName.classList.remove(valid);
+        lastName.classList.add(invalid);
+    } else {
+        lastName.classList.remove(invalid);
+        lastName.classList.add(valid);
+    }
+
+    if (username.value.length == 0) {
+        validBool = false;
+        username.classList.remove(valid);
+        username.classList.add(invalid);
+    } else {
+        username.classList.remove(invalid);
+        username.classList.add(valid);
+    }
+    
+    let emailRegex = /^\w+@\w+(.[\w.]+)?$/;
+    if (email.value != "" && !email.value.match(emailRegex)) {
+        validBool = false;
+        email.classList.remove(valid);
+        email.classList.add(invalid);
+    } else {
+        email.classList.remove(invalid);
+        email.classList.add(valid);
+    }
+
+    return validBool;
+}
+
 function editUserSettings() {
     let userId = readCookie().userId;
 
@@ -198,7 +280,6 @@ function editUserSettings() {
     let callbacks = {};
 
     callbacks.success = function (response) {
-        console.log(`\n${response}\n`);
         setCookie("colorDash", response.colorDash);
         setCookie("colorSide", response.colorSide);
         setCookie("contactView", response.contactView);
@@ -227,6 +308,14 @@ function deleteUserAccount() {
     }
 
     return false;
+}
+
+function initSettingsPage() {
+    document.getElementById("color-button-1").value = colorDash;
+    document.getElementById("color-text-1").value = colorDash;
+
+    document.getElementById("color-button-2").value = colorSide;
+    document.getElementById("color-text-2").value = colorSide;
 }
 
 function pageView(show = true, page = "details") {

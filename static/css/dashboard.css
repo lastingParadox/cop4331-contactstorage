@@ -213,51 +213,51 @@ body {
     white-space: nowrap;
 }
 
-.contextmenu-item {
+.dropdown-menu {
+    padding: 0;
+    width: 0px;
+    min-width: fit-content;
+}
+
+.dropdown-container {
     display: flex;
-    user-select: none;
-    cursor: pointer;
+    flex-direction: column;
+    min-width: 6rem;
+    width: fit-content;
+    gap: 1px;
 }
 
-.contextmenu-item + .contextmenu-item {
-    margin-top: 2px;
-}
-
-.contextmenu-item a {
+.dropdown-button {
+    min-width: 6rem;
+    width: 100%;
     display: flex;
-    color: #fff;
+    align-items: center;
+    font-size: 18px;
+    padding: 2px 12px;
 }
 
-#contextmenu-edit {
-    background-color: var(--bs-primary);
-    border-radius: 4px 4px 0px 0px;
-}
-
-#contextmenu-edit:hover {
-    background-color: #0b5ed7;
-}
-
-#contextmenu-delete {
-    background-color: var(--bs-danger);
-    border-radius: 0px 0px 4px 4px;
-}
-
-#contextmenu-delete:hover {
-    background-color: #bb2d3b;
-}
-
-.contextmenu-item a span {
+.dropdown-button span {
+    font-size: 18px;
     margin-right: 4px;
 }
 
-.dropdown-menu {
-    min-width: 6rem;
-    background-color: rgb(182, 182, 182);
-    padding: 0;
-    box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.4);
+.dropdown-edit {
+    border-radius: 4px 4px 0px 0px;
+}
+
+.dropdown-delete {
+    border-radius: 0px 0px 4px 4px;
 }
 
 /* Pages */
+
+.form-label {
+    margin-bottom: 0;
+}
+
+.modal-footer {
+    padding: 6px 12px;
+}
 
 #page-overlay {
     height: 100%;
