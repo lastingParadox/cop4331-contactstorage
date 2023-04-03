@@ -162,16 +162,10 @@ function sendRequest(inData, url, callbacks) {
     let request = new XMLHttpRequest();
     request.open("POST", url, true);
 
-    console.log(inData);
-
     try {
         request.onload = function () {
-            console.log(
-                "[Received Data (" + url + ")]: " + request.responseText
-            );
 
             let response = JSON.parse(request.responseText);
-            console.log(response);
 
             // failed to accomplish the request (call callbacks.error)
             if (response.error) {
@@ -180,16 +174,8 @@ function sendRequest(inData, url, callbacks) {
                 return;
             }
 
-            // successful
-            console.log(
-                "[Request Success (" + url + ")]:  " + response.success
-            );
             callbacks.success(response);
         };
-
-        console.log(
-            "[Sending Request (" + url + ")]: " + JSON.stringify(inData)
-        );
 
         if (inData instanceof FormData) request.send(inData);
         else request.send(JSON.stringify(inData));
